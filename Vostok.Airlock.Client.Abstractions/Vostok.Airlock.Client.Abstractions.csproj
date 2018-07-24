@@ -33,8 +33,8 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageProjectUrl>https://github.com/vostok/airlock.client</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/vostok/airlock.client/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/vostok/airlock.client.abstractions</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/vostok/airlock.client.abstractions/blob/master/LICENSE</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>vostok vostok.airlock.client.abstractions</PackageTags>
     <RepositoryUrl>https://github.com/vostok/airlock.client.abstractions</RepositoryUrl>
