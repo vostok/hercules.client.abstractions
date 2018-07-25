@@ -1,1 +1,1 @@
-# airlock.client
+# airlock.client.abstractions
