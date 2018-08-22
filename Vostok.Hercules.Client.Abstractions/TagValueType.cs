@@ -1,4 +1,4 @@
-﻿namespace Vostok.Airlock.Client.Abstractions
+﻿namespace Vostok.Hercules.Client.Abstractions
 {
     public enum TagValueType : byte
     {

@@ -19,15 +19,15 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Title>Vostok airlock client abstractions library</Title>
-    <Description>Airlock client abstractions library for microservice toolkit http://vostok.tools/</Description>
+    <Title>Vostok hercules client abstractions library</Title>
+    <Description>Hercules client abstractions library for microservice toolkit http://vostok.tools/</Description>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageProjectUrl>https://github.com/vostok/airlock.client.abstractions</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/vostok/airlock.client.abstractions/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageTags>vostok vostok.airlock.client.abstractions</PackageTags>
-    <RepositoryUrl>https://github.com/vostok/airlock.client.abstractions</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vostok/hercules.client.abstractions</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/vostok/hercules.client.abstractions/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageTags>vostok vostok.hercules.client.abstractions</PackageTags>
+    <RepositoryUrl>https://github.com/vostok/hercules.client.abstractions</RepositoryUrl>
   </PropertyGroup>
 
 </Project>

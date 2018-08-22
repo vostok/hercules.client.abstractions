@@ -286,4 +286,4 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
-Vostok.Airlock.Client.Abstractions/Properties/AssemblyTitle.cs
+AssemblyTitle.cs
