@@ -4,12 +4,12 @@ using System.Linq;
 
 namespace Vostok.Hercules.Client.Abstractions
 {
-    public static class HerculesRecordBuilderExtensions
+    public static class HerculesRecordPayloadBuilderExtensions
     {
-        public static IHerculesRecordBuilder Add(this IHerculesRecordBuilder source, Dictionary<string, TagValue> tags) =>
+        public static IHerculesRecordPayloadBuilder Add(this IHerculesRecordPayloadBuilder source, Dictionary<string, TagValue> tags) =>
             tags.Aggregate(source, (builder, tag) => builder.Add(tag.Key, tag.Value));
 
-        public static IHerculesRecordBuilder Add(this IHerculesRecordBuilder source, string tagKey, TagValue tagValue)
+        public static IHerculesRecordPayloadBuilder Add(this IHerculesRecordPayloadBuilder source, string tagKey, TagValue tagValue)
         {
             switch (tagValue.Type)
             {
