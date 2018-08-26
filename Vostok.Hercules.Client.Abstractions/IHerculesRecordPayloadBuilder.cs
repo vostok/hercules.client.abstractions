@@ -4,7 +4,7 @@ namespace Vostok.Hercules.Client.Abstractions
 {
     public interface IHerculesRecordPayloadBuilder
     {
-        IHerculesRecordPayloadBuilder Add(string key, Func<IHerculesRecordPayloadBuilder, IHerculesRecordPayloadBuilder> buildContainer);
+        IHerculesRecordPayloadBuilder Add(string key, Func<IHerculesRecordPayloadBuilder, IHerculesRecordPayloadBuilder> value);
         IHerculesRecordPayloadBuilder Add(string key, byte value);
         IHerculesRecordPayloadBuilder Add(string key, short value);
         IHerculesRecordPayloadBuilder Add(string key, int value);
@@ -13,6 +13,7 @@ namespace Vostok.Hercules.Client.Abstractions
         IHerculesRecordPayloadBuilder Add(string key, float value);
         IHerculesRecordPayloadBuilder Add(string key, double value);
         IHerculesRecordPayloadBuilder Add(string key, string value);
+        IHerculesRecordPayloadBuilder Add(string key, Func<IHerculesRecordPayloadBuilder, IHerculesRecordPayloadBuilder>[] value);
         IHerculesRecordPayloadBuilder Add(string key, byte[] value);
         IHerculesRecordPayloadBuilder Add(string key, short[] value);
         IHerculesRecordPayloadBuilder Add(string key, int[] value);

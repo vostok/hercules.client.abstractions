@@ -6,47 +6,69 @@ namespace Vostok.Hercules.Client.Abstractions
 {
     public static class HerculesRecordPayloadBuilderExtensions
     {
-        public static IHerculesRecordPayloadBuilder Add(this IHerculesRecordPayloadBuilder source, Dictionary<string, TagValue> tags) =>
-            tags.Aggregate(source, (builder, tag) => builder.Add(tag.Key, tag.Value));
+        public static IHerculesRecordPayloadBuilder Add(this IHerculesRecordPayloadBuilder source, Dictionary<string, ValueHolder> tags) =>
+            source.AddInternal(tags);
 
-        public static IHerculesRecordPayloadBuilder Add(this IHerculesRecordPayloadBuilder source, string tagKey, TagValue tagValue)
+        public static IHerculesRecordPayloadBuilder Add(this IHerculesRecordPayloadBuilder source, string tagKey, ValueHolder tagValueHolder) =>
+            source.AddInternal(tagKey, tagValueHolder);
+
+        private static Func<IHerculesRecordPayloadBuilder, IHerculesRecordPayloadBuilder> AddInternalFunc(Dictionary<string, ValueHolder> dictionary) =>
+            builder => builder.AddInternal(dictionary);
+
+        private static IHerculesRecordPayloadBuilder AddInternal(this IHerculesRecordPayloadBuilder source, Dictionary<string, ValueHolder> dictionary) =>
+            dictionary.Aggregate(source, (builder, pair) => builder.AddInternal(pair.Key, pair.Value));
+
+        private static IHerculesRecordPayloadBuilder AddInternal(this IHerculesRecordPayloadBuilder source, string key, ValueHolder valueHolder) =>
+            source.AddInternal(key, valueHolder.Value);
+
+        private static IHerculesRecordPayloadBuilder AddInternal(this IHerculesRecordPayloadBuilder source, string key, object value)
         {
-            switch (tagValue.Type)
+            if (value is Dictionary<string, ValueHolder>[] dictionaryArray)
             {
-                case TagValueType.Byte:
-                    return source.Add(tagKey, (byte) tagValue);
-                case TagValueType.Short:
-                    return source.Add(tagKey, (short) tagValue);
-                case TagValueType.Int:
-                    return source.Add(tagKey, (int) tagValue);
-                case TagValueType.Long:
-                    return source.Add(tagKey, (long) tagValue);
-                case TagValueType.Bool:
-                    return source.Add(tagKey, (bool) tagValue);
-                case TagValueType.Float:
-                    return source.Add(tagKey, (float) tagValue);
-                case TagValueType.Double:
-                    return source.Add(tagKey, (double) tagValue);
-                case TagValueType.String:
-                    return source.Add(tagKey, (string) tagValue);
-                case TagValueType.ByteArray:
-                    return source.Add(tagKey, (byte[]) tagValue);
-                case TagValueType.ShortArray:
-                    return source.Add(tagKey, (short[]) tagValue);
-                case TagValueType.IntArray:
-                    return source.Add(tagKey, (int[]) tagValue);
-                case TagValueType.LongArray:
-                    return source.Add(tagKey, (long[]) tagValue);
-                case TagValueType.BoolArray:
-                    return source.Add(tagKey, (bool[]) tagValue);
-                case TagValueType.FloatArray:
-                    return source.Add(tagKey, (float[]) tagValue);
-                case TagValueType.DoubleArray:
-                    return source.Add(tagKey, (double[]) tagValue);
-                case TagValueType.StringArray:
-                    return source.Add(tagKey, (string[]) tagValue);
+                return source.Add(key, dictionaryArray.Select(AddInternalFunc).ToArray());
+            }
+
+            if (value is Dictionary<string, ValueHolder> dictionary)
+            {
+                return source.Add(key, AddInternalFunc(dictionary));
+            }
+
+            switch (value)
+            {
+                case byte @byte:
+                    return source.Add(key, @byte);
+                case short @short:
+                    return source.Add(key, @short);
+                case int @int:
+                    return source.Add(key, @int);
+                case long @long:
+                    return source.Add(key, @long);
+                case bool @bool:
+                    return source.Add(key, @bool);
+                case float @float:
+                    return source.Add(key, @float);
+                case double @double:
+                    return source.Add(key, @double);
+                case string @string:
+                    return source.Add(key, @string);
+                case byte[] byteArray:
+                    return source.Add(key, byteArray);
+                case short[] shortArray:
+                    return source.Add(key, shortArray);
+                case int[] intArray:
+                    return source.Add(key, intArray);
+                case long[] longArray:
+                    return source.Add(key, longArray);
+                case bool[] boolArray:
+                    return source.Add(key, boolArray);
+                case float[] floatArray:
+                    return source.Add(key, floatArray);
+                case double[] doubleArray:
+                    return source.Add(key, doubleArray);
+                case string[] stringArray:
+                    return source.Add(key, stringArray);
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(tagValue.Type));
+                    throw new ArgumentOutOfRangeException(nameof(value));
             }
         }
     }
