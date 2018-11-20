@@ -2,7 +2,7 @@
 
 namespace Vostok.Hercules.Client.Abstractions
 {
-    public class ValueHolder
+    internal class ValueHolder
     {
         public ValueHolder(Dictionary<string, ValueHolder> value)
         {

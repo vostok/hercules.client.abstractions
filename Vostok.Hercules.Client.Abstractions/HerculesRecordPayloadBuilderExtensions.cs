@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Vostok.Hercules.Client.Abstractions
 {
-    public static class HerculesRecordPayloadBuilderExtensions
+    internal static class HerculesRecordPayloadBuilderExtensions
     {
         public static IHerculesRecordPayloadBuilder Add(this IHerculesRecordPayloadBuilder source, Dictionary<string, ValueHolder> tags) =>
             source.AddInternal(tags);
