@@ -25,5 +25,9 @@
     <PackageTags>vostok</PackageTags>
     <RepositoryUrl>https://github.com/vostok/hercules.client.abstractions</RepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\vostok.commons.collections\Vostok.Commons.Collections\ImmutableArrayDictionary.cs" Link="Commons\ImmutableArrayDictionary.cs" />
+  </ItemGroup>
   
 </Project>
