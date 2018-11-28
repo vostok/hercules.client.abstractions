@@ -6,20 +6,80 @@ namespace Vostok.Hercules.Client.Abstractions.Events
     [PublicAPI]
     public interface IHerculesTagsBuilder
     {
-        IHerculesTagsBuilder AddContainer([NotNull] string name, Action<IHerculesTagsBuilder> valueBuilder);
+        /// <summary>
+        /// <para>Adds a scalar tag with given <paramref name="key"/> and <paramref name="value"/> to the tags collection.</para>
+        /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
+        /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
+        /// </summary>
+        IHerculesTagsBuilder AddValue([NotNull] string key, byte value);
 
-        IHerculesTagsBuilder AddValue([NotNull] string name, int value);
+        /// <summary><inheritdoc cref="AddValue(string,byte)"/></summary>
+        IHerculesTagsBuilder AddValue([NotNull] string key, short value);
 
-        IHerculesTagsBuilder AddValue([NotNull] string name, long value);
+        /// <summary><inheritdoc cref="AddValue(string,byte)"/></summary>
+        IHerculesTagsBuilder AddValue([NotNull] string key, int value);
 
-        // ...
+        /// <summary><inheritdoc cref="AddValue(string,byte)"/></summary>
+        IHerculesTagsBuilder AddValue([NotNull] string key, long value);
 
-        IHerculesTagsBuilder AddArray([NotNull] string name, int[] values);
+        /// <summary><inheritdoc cref="AddValue(string,byte)"/></summary>
+        IHerculesTagsBuilder AddValue([NotNull] string key, bool value);
 
-        IHerculesTagsBuilder AddArray([NotNull] string name, long[] values);
+        /// <summary><inheritdoc cref="AddValue(string,byte)"/></summary>
+        IHerculesTagsBuilder AddValue([NotNull] string key, float value);
 
-        // ...
+        /// <summary><inheritdoc cref="AddValue(string,byte)"/></summary>
+        IHerculesTagsBuilder AddValue([NotNull] string key, double value);
 
-        IHerculesTagsBuilder AddArrayOfContainers([NotNull] string name, Action<IHerculesTagsBuilder>[] valueBuilders);
+        /// <summary><inheritdoc cref="AddValue(string,byte)"/></summary>
+        IHerculesTagsBuilder AddValue([NotNull] string key, Guid value);
+
+        /// <summary><inheritdoc cref="AddValue(string,byte)"/></summary>
+        IHerculesTagsBuilder AddValue([NotNull] string key, string value);
+
+        /// <summary>
+        /// <para>Adds a primitive array tag with given <paramref name="key"/> and <paramref name="values"/> to the tags collection.</para>
+        /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
+        /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
+        /// </summary>
+        IHerculesTagsBuilder AddArray([NotNull] string key, byte[] values);
+
+        /// <summary><inheritdoc cref="AddArray(string,byte[])"/></summary>
+        IHerculesTagsBuilder AddArray([NotNull] string key, short[] values);
+
+        /// <summary><inheritdoc cref="AddArray(string,byte[])"/></summary>
+        IHerculesTagsBuilder AddArray([NotNull] string key, int[] values);
+
+        /// <summary><inheritdoc cref="AddArray(string,byte[])"/></summary>
+        IHerculesTagsBuilder AddArray([NotNull] string key, long[] values);
+
+        /// <summary><inheritdoc cref="AddArray(string,byte[])"/></summary>
+        IHerculesTagsBuilder AddArray([NotNull] string key, bool[] values);
+
+        /// <summary><inheritdoc cref="AddArray(string,byte[])"/></summary>
+        IHerculesTagsBuilder AddArray([NotNull] string key, float[] values);
+
+        /// <summary><inheritdoc cref="AddArray(string,byte[])"/></summary>
+        IHerculesTagsBuilder AddArray([NotNull] string key, double[] values);
+
+        /// <summary><inheritdoc cref="AddArray(string,byte[])"/></summary>
+        IHerculesTagsBuilder AddArray([NotNull] string key, Guid[] values);
+
+        /// <summary><inheritdoc cref="AddArray(string,byte[])"/></summary>
+        IHerculesTagsBuilder AddArray([NotNull] string key, string[] values);
+
+        /// <summary>
+        /// <para>Adds a container tag with given <paramref name="key"/> and contents built using given <paramref name="valueBuilder"/> delegate.</para>
+        /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
+        /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
+        /// </summary>
+        IHerculesTagsBuilder AddContainer([NotNull] string key, Action<IHerculesTagsBuilder> valueBuilder);
+
+        /// <summary>
+        /// <para>Adds a tag that represents an array of containers with given <paramref name="key"/> and container values built with given <paramref name="valueBuilders"/> delegates.</para>
+        /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
+        /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
+        /// </summary>
+        IHerculesTagsBuilder AddArrayOfContainers([NotNull] string key, Action<IHerculesTagsBuilder>[] valueBuilders);
     }
 }
