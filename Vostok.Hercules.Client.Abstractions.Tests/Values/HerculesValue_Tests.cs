@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 using FluentAssertions;
 using NUnit.Framework;
 using Vostok.Hercules.Client.Abstractions.Values;
@@ -12,11 +13,54 @@ namespace Vostok.Hercules.Client.Abstractions.Tests.Values
         [Test]
         public void There_should_be_an_implementation_for_each_of_value_types()
         {
-            var allValueTypes = Enum.GetValues(typeof(HerculesValueType)).Cast<HerculesValueType>().ToArray();
+            var allValueTypes = GetAllValueTypes();
 
             var allImplementedTypes = GetAllImplementations().Select(v => v.Type);
 
             allImplementedTypes.Should().BeEquivalentTo(allValueTypes);
+        }
+
+        [Test]
+        public void There_should_be_a_check_property_for_each_of_value_types()
+        {
+            var allValueTypes = GetAllValueTypes();
+
+            var allImplementations = GetAllImplementations();
+
+            foreach (var valueType in allValueTypes)
+            {
+                var checkProperty = typeof(HerculesValue).GetProperty($"Is{valueType}", BindingFlags.Public | BindingFlags.Instance);
+
+                checkProperty.Should().NotBeNull();
+
+                var implementation = allImplementations.Single(impl => impl.Type == valueType);
+
+                checkProperty.GetMethod.Invoke(implementation, new object[] {}).Should().Be(true);
+            }
+        }
+
+        [Test]
+        public void There_should_be_a_conversion_property_for_each_of_value_types()
+        {
+            var allValueTypes = GetAllValueTypes();
+
+            var allImplementations = GetAllImplementations();
+
+            foreach (var valueType in allValueTypes)
+            {
+                var conversionProperty = typeof(HerculesValue).GetProperty($"As{valueType}", BindingFlags.Public | BindingFlags.Instance);
+
+                conversionProperty.Should().NotBeNull();
+
+                var implementation = allImplementations.Single(impl => impl.Type == valueType);
+
+                conversionProperty.GetMethod.Invoke(implementation, new object[] {});
+            }
+        }
+
+        private static HerculesValueType[] GetAllValueTypes()
+        {
+            return Enum.GetValues(typeof(HerculesValueType)).Cast<HerculesValueType>().ToArray();
         }
 
         private static Type[] GetAllImplementationTypes()
