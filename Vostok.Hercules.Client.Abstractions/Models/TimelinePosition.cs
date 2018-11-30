@@ -22,7 +22,6 @@ namespace Vostok.Hercules.Client.Abstractions.Models
         /// <summary>
         /// Id of the last read event (used to resolve timestamp collisions).
         /// </summary>
-        [CanBeNull]
         public string EventId;
     }
 }
