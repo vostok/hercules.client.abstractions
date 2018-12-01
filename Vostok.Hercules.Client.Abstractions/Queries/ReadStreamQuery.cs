@@ -39,7 +39,7 @@ namespace Vostok.Hercules.Client.Abstractions.Queries
         /// <summary>
         /// <para>Starting coordinates in the stream.</para>
         /// <para><see cref="StreamCoordinates.Empty"/> by default (start from the beginning)</para>
-        /// <para>Use this state to resume a previous read by passing a value obtained from <see cref="HerculesStreamReadResult"/>.</para>
+        /// <para>Use this state to resume a previous read by passing a value obtained from <see cref="ReadStreamResult"/>.</para>
         /// </summary>
         public StreamCoordinates Coordinates { get; set; } = StreamCoordinates.Empty;
     }

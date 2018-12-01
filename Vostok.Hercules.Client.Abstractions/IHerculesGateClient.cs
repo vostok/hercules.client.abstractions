@@ -11,6 +11,6 @@ namespace Vostok.Hercules.Client.Abstractions
     public interface IHerculesGateClient
     {
         [ItemNotNull]
-        Task<HerculesInsertResult> InsertAsync([NotNull] InsertQuery query, TimeSpan timeout, CancellationToken cancellationToken = default);
+        Task<InsertEventsResult> InsertAsync([NotNull] InsertQuery query, TimeSpan timeout, CancellationToken cancellationToken = default);
     }
 }

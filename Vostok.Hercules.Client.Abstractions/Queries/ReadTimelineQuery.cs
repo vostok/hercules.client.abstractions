@@ -49,7 +49,7 @@ namespace Vostok.Hercules.Client.Abstractions.Queries
         /// <summary>
         /// <para>Starting coordinates in the queried range.</para>
         /// <para><see cref="TimelineCoordinates.Empty"/> by default (start from the beginning of queried interval).</para>
-        /// <para>Use this state to resume a previous read by passing a value obtained from <see cref="HerculesTimelineReadResult"/>.</para>
+        /// <para>Use this state to resume a previous read by passing a value obtained from <see cref="ReadTimelineResult"/>.</para>
         /// <para>Don't use it instead of <see cref="From"/> and <see cref="To"/> to express ranges.</para>
         /// </summary>
         public TimelineCoordinates Coordinates { get; set; } = TimelineCoordinates.Empty;

@@ -8,9 +8,9 @@ using Vostok.Hercules.Client.Abstractions.Queries;
 namespace Vostok.Hercules.Client.Abstractions.Results
 {
     [PublicAPI]
-    public class HerculesTimelineReadPayload
+    public class ReadTimelinePayload
     {
-        public HerculesTimelineReadPayload(
+        public ReadTimelinePayload(
             [NotNull] IList<HerculesEvent> events, 
             [NotNull] TimelineCoordinates next)
         {

@@ -3,9 +3,9 @@
 namespace Vostok.Hercules.Client.Abstractions.Results
 {
     [PublicAPI]
-    public class HerculesInsertResult : HerculesResult
+    public class InsertEventsResult : HerculesResult
     {
-        public HerculesInsertResult(HerculesStatus status)
+        public InsertEventsResult(HerculesStatus status)
             : base(status)
         {
         }

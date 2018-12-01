@@ -11,6 +11,6 @@ namespace Vostok.Hercules.Client.Abstractions
     public interface IHerculesTimelineClient
     {
         [ItemNotNull]
-        Task<HerculesTimelineReadResult> ReadAsync([NotNull] ReadTimelineQuery query, TimeSpan timeout, CancellationToken cancellationToken = default);
+        Task<ReadTimelineResult> ReadAsync([NotNull] ReadTimelineQuery query, TimeSpan timeout, CancellationToken cancellationToken = default);
     }
 }
