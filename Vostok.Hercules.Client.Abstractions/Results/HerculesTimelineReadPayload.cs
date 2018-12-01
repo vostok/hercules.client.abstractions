@@ -8,26 +8,28 @@ using Vostok.Hercules.Client.Abstractions.Queries;
 namespace Vostok.Hercules.Client.Abstractions.Results
 {
     [PublicAPI]
-    public class HerculesStreamReadPayload
+    public class HerculesTimelineReadPayload
     {
-        public HerculesStreamReadPayload(
+        public HerculesTimelineReadPayload(
             [NotNull] IList<HerculesEvent> events, 
-            [NotNull] StreamCoordinates next)
+            [NotNull] TimelineCoordinates next)
         {
             Events = events ?? throw new ArgumentNullException(nameof(events));
             Next = next ?? throw new ArgumentNullException(nameof(next));
         }
 
         /// <summary>
-        /// Events read from the stream.
+        /// Events read from the timeline.
         /// </summary>
         [NotNull]
         public IList<HerculesEvent> Events { get; }
 
         /// <summary>
-        /// Coordinates for the next sequential read. Put them in a <see cref="ReadStreamQuery"/> to continue reading from this point.
+        /// <para>Coordinates for the next sequential read (if the requested time range was not completely consumed).</para>
+        /// <para>Put them in a <see cref="ReadTimelineQuery"/> to continue reading from this point.</para>
+        /// <para>Don't use them for reads with a different time range from the one used in this operation!</para>
         /// </summary>
         [NotNull]
-        public StreamCoordinates Next { get; }
+        public TimelineCoordinates Next { get; }
     }
 }

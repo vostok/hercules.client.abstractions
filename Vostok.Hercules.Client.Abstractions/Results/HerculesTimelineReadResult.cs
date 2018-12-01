@@ -1,15 +1,11 @@
-﻿using System.Collections.Generic;
-using JetBrains.Annotations;
-using Vostok.Hercules.Client.Abstractions.Events;
+﻿using JetBrains.Annotations;
 
 namespace Vostok.Hercules.Client.Abstractions.Results
 {
-    // TODO(iloktionov): add read state to result
-
     [PublicAPI]
-    public class HerculesTimelineReadResult : HerculesResult<IList<HerculesEvent>>
+    public class HerculesTimelineReadResult : HerculesResult<HerculesTimelineReadPayload>
     {
-        public HerculesTimelineReadResult(HerculesStatus status, IList<HerculesEvent> payload)
+        public HerculesTimelineReadResult(HerculesStatus status, HerculesTimelineReadPayload payload)
             : base(status, payload)
         {
         }
