@@ -5,6 +5,10 @@ using Vostok.Hercules.Client.Abstractions.Results;
 
 namespace Vostok.Hercules.Client.Abstractions
 {
+    /// <summary>
+    /// <para><see cref="IHerculesManagementClient"/> provides CRUD for streams and timelines and lets you manage permissions and API keys.</para>
+    /// <para>Note that many of the operations performed by this client require a special admin API key.</para>
+    /// </summary>
     [PublicAPI]
     public interface IHerculesManagementClient
     {

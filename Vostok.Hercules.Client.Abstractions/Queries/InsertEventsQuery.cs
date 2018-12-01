@@ -7,9 +7,9 @@ using Vostok.Hercules.Client.Abstractions.Models;
 namespace Vostok.Hercules.Client.Abstractions.Queries
 {
     [PublicAPI]
-    public class InsertQuery
+    public class InsertEventsQuery
     {
-        public InsertQuery([NotNull] string stream, [NotNull] IList<HerculesEvent> events)
+        public InsertEventsQuery([NotNull] string stream, [NotNull] IList<HerculesEvent> events)
         {
             Stream = stream ?? throw new ArgumentNullException(nameof(stream));
             Events = events ?? throw new ArgumentNullException(nameof(events));
