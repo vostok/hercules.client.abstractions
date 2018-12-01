@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System.Threading;
+using JetBrains.Annotations;
 
 namespace Vostok.Hercules.Client.Abstractions.Results
 {
@@ -57,6 +58,11 @@ namespace Vostok.Hercules.Client.Abstractions.Results
         /// Operation has failed due to server-side throttling.
         /// </summary>
         Throttled,
+
+        /// <summary>
+        /// Operation has been cancelled with a user-provided <see cref="CancellationToken"/>.
+        /// </summary>
+        Canceled,
 
         /// <summary>
         /// Operation has failed due to expiry of available time before obtaining a meaningful result.
