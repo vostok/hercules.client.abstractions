@@ -12,8 +12,12 @@ namespace Vostok.Hercules.Client.Abstractions
     [PublicAPI]
     public interface IHerculesManagementClient
     {
-        Task<HerculesStatus> CreateStreamAsync([NotNull] CreateStreamQuery query);
+        Task<HerculesResult> CreateStreamAsync([NotNull] CreateStreamQuery query);
 
-        Task<HerculesStatus> CreateTimelineAsync([NotNull] CreateTimelineQuery query);
+        Task<HerculesResult> CreateTimelineAsync([NotNull] CreateTimelineQuery query);
+
+        Task<DeleteStreamResult> DeleteStreamAsync([NotNull] string name);
+
+        Task<DeleteTimelineResult> DeleteTimelineAsync([NotNull] string name);
     }
 }
