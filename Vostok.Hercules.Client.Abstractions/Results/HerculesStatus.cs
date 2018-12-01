@@ -3,7 +3,7 @@
 namespace Vostok.Hercules.Client.Abstractions.Results
 {
     /// <summary>
-    /// Represents the result of an arbitrary request to Hercules APIs.
+    /// Represents the status of an arbitrary request to Hercules APIs.
     /// </summary>
     [PublicAPI]
     public enum HerculesStatus
