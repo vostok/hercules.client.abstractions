@@ -43,31 +43,31 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
-        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IEnumerable<byte> values);
+        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IList<byte> values);
 
         /// <summary><inheritdoc cref="AddArray(string,IEnumerable{byte})"/></summary>
-        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IEnumerable<short> values);
+        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IList<short> values);
 
         /// <summary><inheritdoc cref="AddArray(string,IEnumerable{byte})"/></summary>
-        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IEnumerable<int> values);
+        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IList<int> values);
 
         /// <summary><inheritdoc cref="AddArray(string,IEnumerable{byte})"/></summary>
-        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IEnumerable<long> values);
+        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IList<long> values);
 
         /// <summary><inheritdoc cref="AddArray(string,IEnumerable{byte})"/></summary>
-        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IEnumerable<bool> values);
+        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IList<bool> values);
 
         /// <summary><inheritdoc cref="AddArray(string,IEnumerable{byte})"/></summary>
-        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IEnumerable<float> values);
+        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IList<float> values);
 
         /// <summary><inheritdoc cref="AddArray(string,IEnumerable{byte})"/></summary>
-        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IEnumerable<double> values);
+        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IList<double> values);
 
         /// <summary><inheritdoc cref="AddArray(string,IEnumerable{byte})"/></summary>
-        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IEnumerable<Guid> values);
+        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IList<Guid> values);
 
         /// <summary><inheritdoc cref="AddArray(string,IEnumerable{byte})"/></summary>
-        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IEnumerable<string> values);
+        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IList<string> values);
 
         /// <summary>
         /// <para>Adds a container tag with given <paramref name="key"/> and contents built using given <paramref name="valueBuilder"/> delegate.</para>
