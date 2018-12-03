@@ -45,28 +45,28 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// </summary>
         IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IList<byte> values);
 
-        /// <summary><inheritdoc cref="AddArray(string,IEnumerable{byte})"/></summary>
+        /// <summary><inheritdoc cref="AddArray(string,IList{byte})"/></summary>
         IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IList<short> values);
 
-        /// <summary><inheritdoc cref="AddArray(string,IEnumerable{byte})"/></summary>
+        /// <summary><inheritdoc cref="AddArray(string,IList{byte})"/></summary>
         IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IList<int> values);
 
-        /// <summary><inheritdoc cref="AddArray(string,IEnumerable{byte})"/></summary>
+        /// <summary><inheritdoc cref="AddArray(string,IList{byte})"/></summary>
         IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IList<long> values);
 
-        /// <summary><inheritdoc cref="AddArray(string,IEnumerable{byte})"/></summary>
+        /// <summary><inheritdoc cref="AddArray(string,IList{byte})"/></summary>
         IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IList<bool> values);
 
-        /// <summary><inheritdoc cref="AddArray(string,IEnumerable{byte})"/></summary>
+        /// <summary><inheritdoc cref="AddArray(string,IList{byte})"/></summary>
         IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IList<float> values);
 
-        /// <summary><inheritdoc cref="AddArray(string,IEnumerable{byte})"/></summary>
+        /// <summary><inheritdoc cref="AddArray(string,IList{byte})"/></summary>
         IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IList<double> values);
 
-        /// <summary><inheritdoc cref="AddArray(string,IEnumerable{byte})"/></summary>
+        /// <summary><inheritdoc cref="AddArray(string,IList{byte})"/></summary>
         IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IList<Guid> values);
 
-        /// <summary><inheritdoc cref="AddArray(string,IEnumerable{byte})"/></summary>
+        /// <summary><inheritdoc cref="AddArray(string,IList{byte})"/></summary>
         IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IList<string> values);
 
         /// <summary>
@@ -81,6 +81,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
-        IHerculesTagsBuilder AddArrayOfContainers([NotNull] string key, [NotNull] IEnumerable<Action<IHerculesTagsBuilder>> valueBuilders);
+        IHerculesTagsBuilder AddArrayOfContainers([NotNull] string key, [NotNull] IList<Action<IHerculesTagsBuilder>> valueBuilders);
     }
 }

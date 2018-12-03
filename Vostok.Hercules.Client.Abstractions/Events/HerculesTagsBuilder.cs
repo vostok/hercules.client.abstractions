@@ -72,7 +72,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         public IHerculesTagsBuilder AddContainer(string key, Action<IHerculesTagsBuilder> valueBuilder) 
             => Set(key, BuildContainer(valueBuilder));
 
-        public IHerculesTagsBuilder AddArrayOfContainers(string key, IEnumerable<Action<IHerculesTagsBuilder>> valueBuilders)
+        public IHerculesTagsBuilder AddArrayOfContainers(string key, IList<Action<IHerculesTagsBuilder>> valueBuilders)
             => Set(key, new HerculesArray(valueBuilders.Select(b => BuildContainer(b) as HerculesValue).ToArray()));
 
         private static HerculesContainer BuildContainer(Action<IHerculesTagsBuilder> valueBuilder)
