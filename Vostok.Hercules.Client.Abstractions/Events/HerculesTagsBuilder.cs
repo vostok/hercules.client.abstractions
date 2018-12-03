@@ -41,31 +41,32 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         public IHerculesTagsBuilder AddValue(string key, string value) 
             => Set(key, new HerculesString(value));
 
-        public IHerculesTagsBuilder AddArray(string key, IEnumerable<byte> values)
+        public IHerculesTagsBuilder AddArray(string key, IList<byte> values)
+        //TODO: use size
             => Set(key, new HerculesArray(values.Select(v => new HerculesByte(v) as HerculesValue).ToArray()));
 
-        public IHerculesTagsBuilder AddArray(string key, IEnumerable<short> values)
+        public IHerculesTagsBuilder AddArray(string key, IList<short> values)
             => Set(key, new HerculesArray(values.Select(v => new HerculesShort(v) as HerculesValue).ToArray()));
 
-        public IHerculesTagsBuilder AddArray(string key, IEnumerable<int> values)
+        public IHerculesTagsBuilder AddArray(string key, IList<int> values)
             => Set(key, new HerculesArray(values.Select(v => new HerculesInt(v) as HerculesValue).ToArray()));
 
-        public IHerculesTagsBuilder AddArray(string key, IEnumerable<long> values)
+        public IHerculesTagsBuilder AddArray(string key, IList<long> values)
             => Set(key, new HerculesArray(values.Select(v => new HerculesLong(v) as HerculesValue).ToArray()));
 
-        public IHerculesTagsBuilder AddArray(string key, IEnumerable<bool> values)
+        public IHerculesTagsBuilder AddArray(string key, IList<bool> values)
             => Set(key, new HerculesArray(values.Select(v => new HerculesBool(v) as HerculesValue).ToArray()));
 
-        public IHerculesTagsBuilder AddArray(string key, IEnumerable<float> values)
+        public IHerculesTagsBuilder AddArray(string key, IList<float> values)
             => Set(key, new HerculesArray(values.Select(v => new HerculesFloat(v) as HerculesValue).ToArray()));
 
-        public IHerculesTagsBuilder AddArray(string key, IEnumerable<double> values)
+        public IHerculesTagsBuilder AddArray(string key, IList<double> values)
             => Set(key, new HerculesArray(values.Select(v => new HerculesDouble(v) as HerculesValue).ToArray()));
 
-        public IHerculesTagsBuilder AddArray(string key, IEnumerable<Guid> values)
+        public IHerculesTagsBuilder AddArray(string key, IList<Guid> values)
             => Set(key, new HerculesArray(values.Select(v => new HerculesGuid(v) as HerculesValue).ToArray()));
 
-        public IHerculesTagsBuilder AddArray(string key, IEnumerable<string> values)
+        public IHerculesTagsBuilder AddArray(string key, IList<string> values)
             => Set(key, new HerculesArray(values.Select(v => new HerculesString(v) as HerculesValue).ToArray()));
 
         public IHerculesTagsBuilder AddContainer(string key, Action<IHerculesTagsBuilder> valueBuilder) 
