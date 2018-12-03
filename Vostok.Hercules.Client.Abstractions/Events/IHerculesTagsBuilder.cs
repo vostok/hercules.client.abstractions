@@ -43,31 +43,31 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
-        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IReadOnlyList<byte> values);
+        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<byte> values);
 
-        /// <summary><inheritdoc cref="AddArray(string,IReadOnlyList{byte})"/></summary>
-        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IReadOnlyList<short> values);
+        /// <summary><inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/></summary>
+        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<short> values);
 
-        /// <summary><inheritdoc cref="AddArray(string,IReadOnlyList{byte})"/></summary>
-        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IReadOnlyList<int> values);
+        /// <summary><inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/></summary>
+        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<int> values);
 
-        /// <summary><inheritdoc cref="AddArray(string,IReadOnlyList{byte})"/></summary>
-        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IReadOnlyList<long> values);
+        /// <summary><inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/></summary>
+        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<long> values);
 
-        /// <summary><inheritdoc cref="AddArray(string,IReadOnlyList{byte})"/></summary>
-        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IReadOnlyList<bool> values);
+        /// <summary><inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/></summary>
+        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<bool> values);
 
-        /// <summary><inheritdoc cref="AddArray(string,IReadOnlyList{byte})"/></summary>
-        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IReadOnlyList<float> values);
+        /// <summary><inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/></summary>
+        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<float> values);
 
-        /// <summary><inheritdoc cref="AddArray(string,IReadOnlyList{byte})"/></summary>
-        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IReadOnlyList<double> values);
+        /// <summary><inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/></summary>
+        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<double> values);
 
-        /// <summary><inheritdoc cref="AddArray(string,IReadOnlyList{byte})"/></summary>
-        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IReadOnlyList<Guid> values);
+        /// <summary><inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/></summary>
+        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<Guid> values);
 
-        /// <summary><inheritdoc cref="AddArray(string,IReadOnlyList{byte})"/></summary>
-        IHerculesTagsBuilder AddArray([NotNull] string key, [NotNull] IReadOnlyList<string> values);
+        /// <summary><inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/></summary>
+        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<string> values);
 
         /// <summary>
         /// <para>Adds a container tag with given <paramref name="key"/> and contents built using given <paramref name="valueBuilder"/> delegate.</para>
@@ -81,6 +81,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
-        IHerculesTagsBuilder AddArrayOfContainers([NotNull] string key, [NotNull] IReadOnlyList<Action<IHerculesTagsBuilder>> valueBuilders);
+        IHerculesTagsBuilder AddVectorOfContainers([NotNull] string key, [NotNull] IReadOnlyList<Action<IHerculesTagsBuilder>> valueBuilders);
     }
 }
