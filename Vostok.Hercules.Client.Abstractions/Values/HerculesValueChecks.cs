@@ -48,9 +48,9 @@
         public bool IsString => this is HerculesString;
 
         /// <summary>
-        /// Returns <c>true</c> if this value is of <see cref="HerculesValueType.Array"/> type, or <c>false</c> otherwise.
+        /// Returns <c>true</c> if this value is of <see cref="HerculesValueType.Vector"/> type, or <c>false</c> otherwise.
         /// </summary>
-        public bool IsArray => this is HerculesArray;
+        public bool IsVector => this is HerculesVector;
 
         /// <summary>
         /// Returns <c>true</c> if this value is of <see cref="HerculesValueType.Container"/> type, or <c>false</c> otherwise.

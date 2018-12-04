@@ -62,11 +62,11 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public string AsString => As<string, HerculesString>();
 
         /// <summary>
-        /// Returns the value cast to an array of arbitrary <see cref="HerculesValue"/>s. Requires the value to have <see cref="HerculesValueType.Array"/> type.
+        /// Returns the value cast to a vector of arbitrary <see cref="HerculesValue"/>s. Requires the value to have <see cref="HerculesValueType.Vector"/> type.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
         [NotNull]
-        public HerculesValue[] AsArray => As<HerculesValue[], HerculesArray>();
+        public HerculesValue[] AsVector => As<HerculesValue[], HerculesVector>();
 
         /// <summary>
         /// Returns the value cast to a container of arbitrary tags (<see cref="HerculesTags"/>). Requires the value to have <see cref="HerculesValueType.Container"/> type.
