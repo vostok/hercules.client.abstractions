@@ -42,38 +42,37 @@ namespace Vostok.Hercules.Client.Abstractions.Events
             => Set(key, new HerculesString(value));
 
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<byte> values)
-        //TODO: use size
-            => Set(key, new HerculesVector(values.Select(v => new HerculesByte(v) as HerculesValue).ToArray(), HerculesValueType.Byte));
+            => AddVector(key, values, HerculesValueType.Byte, x => new HerculesByte(x));
 
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<short> values)
-            => Set(key, new HerculesVector(values.Select(v => new HerculesShort(v) as HerculesValue).ToArray(), HerculesValueType.Short));
+            => AddVector(key, values, HerculesValueType.Short, x => new HerculesShort(x));
 
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<int> values)
-            => Set(key, new HerculesVector(values.Select(v => new HerculesInt(v) as HerculesValue).ToArray(), HerculesValueType.Int));
+            => AddVector(key, values, HerculesValueType.Int, x => new HerculesInt(x));
 
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<long> values)
-            => Set(key, new HerculesVector(values.Select(v => new HerculesLong(v) as HerculesValue).ToArray(), HerculesValueType.Long));
+            => AddVector(key, values, HerculesValueType.Long, x => new HerculesLong(x));
 
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<bool> values)
-            => Set(key, new HerculesVector(values.Select(v => new HerculesBool(v) as HerculesValue).ToArray(), HerculesValueType.Bool));
+            => AddVector(key, values, HerculesValueType.Bool, x => new HerculesBool(x));
 
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<float> values)
-            => Set(key, new HerculesVector(values.Select(v => new HerculesFloat(v) as HerculesValue).ToArray(), HerculesValueType.Float));
+            => AddVector(key, values, HerculesValueType.Float, x => new HerculesFloat(x));
 
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<double> values)
-            => Set(key, new HerculesVector(values.Select(v => new HerculesDouble(v) as HerculesValue).ToArray(), HerculesValueType.Double));
+            => AddVector(key, values, HerculesValueType.Double, x => new HerculesDouble(x));
 
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<Guid> values)
-            => Set(key, new HerculesVector(values.Select(v => new HerculesGuid(v) as HerculesValue).ToArray(), HerculesValueType.Guid));
+            => AddVector(key, values, HerculesValueType.Guid, x => new HerculesGuid(x));
 
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<string> values)
-            => Set(key, new HerculesVector(values.Select(v => new HerculesString(v) as HerculesValue).ToArray(), HerculesValueType.String));
+            => AddVector(key, values, HerculesValueType.String, x => new HerculesString(x));
 
         public IHerculesTagsBuilder AddContainer(string key, Action<IHerculesTagsBuilder> valueBuilder) 
             => Set(key, BuildContainer(valueBuilder));
 
         public IHerculesTagsBuilder AddVectorOfContainers(string key, IReadOnlyList<Action<IHerculesTagsBuilder>> valueBuilders)
-            => Set(key, new HerculesVector(valueBuilders.Select(b => BuildContainer(b) as HerculesValue).ToArray(), HerculesValueType.Container));
+            => AddVector(key, valueBuilders, HerculesValueType.Container, x => BuildContainer(x));
 
         private static HerculesContainer BuildContainer(Action<IHerculesTagsBuilder> valueBuilder)
         {
@@ -89,6 +88,16 @@ namespace Vostok.Hercules.Client.Abstractions.Events
             tags = tags.Set(key, value);
 
             return this;
+        }
+
+        private IHerculesTagsBuilder AddVector<T>(string key, IReadOnlyList<T> values, HerculesValueType type, Func<T, HerculesValue> toHerculesValue)
+        {
+            var array = new HerculesValue[values.Count];
+            
+            for (var i = 0; i < array.Length; i++)
+                array[i] = toHerculesValue(values[i]);
+            
+            return Set(key, new HerculesVector(array, type));
         }
     }
 }
