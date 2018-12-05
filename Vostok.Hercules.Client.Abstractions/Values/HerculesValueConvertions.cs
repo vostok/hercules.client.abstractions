@@ -66,7 +66,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
         [NotNull]
-        public HerculesValue[] AsVector => As<HerculesValue[], HerculesVector>();
+        public HerculesVector AsVector => As<HerculesVector>();
 
         /// <summary>
         /// Returns the value cast to a container of arbitrary tags (<see cref="HerculesTags"/>). Requires the value to have <see cref="HerculesValueType.Container"/> type.
@@ -83,6 +83,15 @@ namespace Vostok.Hercules.Client.Abstractions.Values
                 throw new InvalidCastException($"Current value cannot be cast to '{nameof(TValue)}' due to being of type '{Type}'.");
 
             return implementation.TypedValue;
+        }
+        
+        private TValue As<TValue>() where TValue : HerculesValue
+        {
+            var implementation = this as TValue;
+            if (implementation == null)
+                throw new InvalidCastException($"Current value cannot be cast to '{nameof(TValue)}' due to being of type '{Type}'.");
+
+            return implementation;
         }
     }
 }

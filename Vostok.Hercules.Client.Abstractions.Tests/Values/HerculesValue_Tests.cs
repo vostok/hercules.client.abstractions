@@ -60,7 +60,11 @@ namespace Vostok.Hercules.Client.Abstractions.Tests.Values
 
         private static HerculesValueType[] GetAllValueTypes()
         {
-            return Enum.GetValues(typeof(HerculesValueType)).Cast<HerculesValueType>().ToArray();
+            return Enum
+                .GetValues(typeof(HerculesValueType))
+                .Cast<HerculesValueType>()
+                .Where(x => x != HerculesValueType.Vector)
+                .ToArray();
         }
 
         private static Type[] GetAllImplementationTypes()
@@ -69,6 +73,7 @@ namespace Vostok.Hercules.Client.Abstractions.Tests.Values
                 .GetTypes()
                 .Where(type => typeof(HerculesValue).IsAssignableFrom(type))
                 .Where(type => !type.IsAbstract)
+                .Where(type => type != typeof(HerculesVector))
                 .ToArray();
         }
 

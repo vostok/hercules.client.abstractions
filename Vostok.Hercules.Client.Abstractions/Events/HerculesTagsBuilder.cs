@@ -43,37 +43,37 @@ namespace Vostok.Hercules.Client.Abstractions.Events
 
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<byte> values)
         //TODO: use size
-            => Set(key, new HerculesVector(values.Select(v => new HerculesByte(v) as HerculesValue).ToArray()));
+            => Set(key, new HerculesVector(values.Select(v => new HerculesByte(v) as HerculesValue).ToArray(), HerculesValueType.Byte));
 
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<short> values)
-            => Set(key, new HerculesVector(values.Select(v => new HerculesShort(v) as HerculesValue).ToArray()));
+            => Set(key, new HerculesVector(values.Select(v => new HerculesShort(v) as HerculesValue).ToArray(), HerculesValueType.Short));
 
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<int> values)
-            => Set(key, new HerculesVector(values.Select(v => new HerculesInt(v) as HerculesValue).ToArray()));
+            => Set(key, new HerculesVector(values.Select(v => new HerculesInt(v) as HerculesValue).ToArray(), HerculesValueType.Int));
 
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<long> values)
-            => Set(key, new HerculesVector(values.Select(v => new HerculesLong(v) as HerculesValue).ToArray()));
+            => Set(key, new HerculesVector(values.Select(v => new HerculesLong(v) as HerculesValue).ToArray(), HerculesValueType.Long));
 
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<bool> values)
-            => Set(key, new HerculesVector(values.Select(v => new HerculesBool(v) as HerculesValue).ToArray()));
+            => Set(key, new HerculesVector(values.Select(v => new HerculesBool(v) as HerculesValue).ToArray(), HerculesValueType.Bool));
 
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<float> values)
-            => Set(key, new HerculesVector(values.Select(v => new HerculesFloat(v) as HerculesValue).ToArray()));
+            => Set(key, new HerculesVector(values.Select(v => new HerculesFloat(v) as HerculesValue).ToArray(), HerculesValueType.Float));
 
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<double> values)
-            => Set(key, new HerculesVector(values.Select(v => new HerculesDouble(v) as HerculesValue).ToArray()));
+            => Set(key, new HerculesVector(values.Select(v => new HerculesDouble(v) as HerculesValue).ToArray(), HerculesValueType.Double));
 
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<Guid> values)
-            => Set(key, new HerculesVector(values.Select(v => new HerculesGuid(v) as HerculesValue).ToArray()));
+            => Set(key, new HerculesVector(values.Select(v => new HerculesGuid(v) as HerculesValue).ToArray(), HerculesValueType.Guid));
 
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<string> values)
-            => Set(key, new HerculesVector(values.Select(v => new HerculesString(v) as HerculesValue).ToArray()));
+            => Set(key, new HerculesVector(values.Select(v => new HerculesString(v) as HerculesValue).ToArray(), HerculesValueType.String));
 
         public IHerculesTagsBuilder AddContainer(string key, Action<IHerculesTagsBuilder> valueBuilder) 
             => Set(key, BuildContainer(valueBuilder));
 
         public IHerculesTagsBuilder AddVectorOfContainers(string key, IReadOnlyList<Action<IHerculesTagsBuilder>> valueBuilders)
-            => Set(key, new HerculesVector(valueBuilders.Select(b => BuildContainer(b) as HerculesValue).ToArray()));
+            => Set(key, new HerculesVector(valueBuilders.Select(b => BuildContainer(b) as HerculesValue).ToArray(), HerculesValueType.Container));
 
         private static HerculesContainer BuildContainer(Action<IHerculesTagsBuilder> valueBuilder)
         {
