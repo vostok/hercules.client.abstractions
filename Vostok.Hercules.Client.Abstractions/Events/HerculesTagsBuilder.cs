@@ -97,7 +97,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
             for (var i = 0; i < array.Length; i++)
                 array[i] = toHerculesValue(values[i]);
             
-            return Set(key, new HerculesVector(array, type));
+            return Set(key, new HerculesVectorHolder(new HerculesVector(array, type)));
         }
     }
 }

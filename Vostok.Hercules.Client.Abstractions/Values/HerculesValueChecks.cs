@@ -50,7 +50,7 @@
         /// <summary>
         /// Returns <c>true</c> if this value is of <see cref="HerculesValueType.Vector"/> type, or <c>false</c> otherwise.
         /// </summary>
-        public bool IsVector => this is HerculesVector;
+        public bool IsVector => this is HerculesVectorHolder;
 
         /// <summary>
         /// Returns <c>true</c> if this value is of <see cref="HerculesValueType.Container"/> type, or <c>false</c> otherwise.

@@ -63,7 +63,6 @@ namespace Vostok.Hercules.Client.Abstractions.Tests.Values
             return Enum
                 .GetValues(typeof(HerculesValueType))
                 .Cast<HerculesValueType>()
-                .Where(x => x != HerculesValueType.Vector)
                 .ToArray();
         }
 
@@ -73,7 +72,6 @@ namespace Vostok.Hercules.Client.Abstractions.Tests.Values
                 .GetTypes()
                 .Where(type => typeof(HerculesValue).IsAssignableFrom(type))
                 .Where(type => !type.IsAbstract)
-                .Where(type => type != typeof(HerculesVector))
                 .ToArray();
         }
 
