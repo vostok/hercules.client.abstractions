@@ -7,22 +7,20 @@ namespace Vostok.Hercules.Client.Abstractions.Values
     /// Represents a vector of values of same type in <see cref="HerculesTags"/>.
     /// </summary>
     [PublicAPI]
-    public class HerculesVector
+    public abstract partial class HerculesVector
     {
-        internal HerculesVector(HerculesValue[] value, HerculesValueType elementType)
-        {
-            Value = value;
-            ElementType = elementType;
-        }
-        
+        private HerculesValue[] valuesArray;
+
         /// <summary>
         /// Returns elements of vector as array of <see cref="HerculesValue"/>.
         /// </summary>
-        public HerculesValue[] Value { get; }
+        public HerculesValue[] AsHerculesValueArray => valuesArray ?? (valuesArray = CreateArrayOfValues());
         
         /// <summary>
         /// Returns <see cref="HerculesValueType"/> of vector elements.
         /// </summary>
-        public HerculesValueType ElementType { get; }
+        public abstract HerculesValueType ElementType { get; }
+
+        protected abstract HerculesValue[] CreateArrayOfValues();
     }
 }
