@@ -14,9 +14,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<bool> values);
 
-        /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
-        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IEnumerable<bool> values);
-        
     #endregion
 
     #region short
@@ -27,9 +24,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<short> values);
 
-        /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
-        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IEnumerable<short> values);
-        
     #endregion
 
     #region int
@@ -40,9 +34,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<int> values);
 
-        /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
-        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IEnumerable<int> values);
-        
     #endregion
 
     #region long
@@ -53,9 +44,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<long> values);
 
-        /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
-        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IEnumerable<long> values);
-        
     #endregion
 
     #region float
@@ -66,9 +54,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<float> values);
 
-        /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
-        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IEnumerable<float> values);
-        
     #endregion
 
     #region double
@@ -79,9 +64,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<double> values);
 
-        /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
-        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IEnumerable<double> values);
-        
     #endregion
 
     #region Guid
@@ -92,9 +74,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<Guid> values);
 
-        /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
-        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IEnumerable<Guid> values);
-        
     #endregion
 
     #region string
@@ -105,9 +84,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<string> values);
 
-        /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
-        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IEnumerable<string> values);
-        
     #endregion
 
     }

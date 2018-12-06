@@ -29,9 +29,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<<#=type #>> values);
 
-        /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
-        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IEnumerable<<#=type #>> values);
-        
     #endregion
 
 <#

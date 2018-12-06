@@ -61,8 +61,5 @@ namespace Vostok.Hercules.Client.Abstractions.Events
             
             return Set(key, new HerculesValue<HerculesVector>(new HerculesVector<T>(array)));
         }
-
-        private IHerculesTagsBuilder AddVectorGeneric<T>(string key, IEnumerable<T> values)
-            => AddVectorGeneric(key, values.ToArray());
     }
 }

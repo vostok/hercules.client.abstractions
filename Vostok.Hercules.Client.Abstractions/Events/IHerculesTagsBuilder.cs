@@ -21,9 +21,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// </summary>
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<byte> values);
 
-        /// <inheritdoc cref="AddVector(string,System.Collections.Generic.IReadOnlyList{byte})"/>
-        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IEnumerable<byte> values);
-
         /// <summary>
         /// <para>Adds a container tag with given <paramref name="key"/> and contents built using given <paramref name="valueBuilder"/> delegate.</para>
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
