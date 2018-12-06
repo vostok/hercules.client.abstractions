@@ -1,0 +1,53 @@
+<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+using System;
+using JetBrains.Annotations;
+using Vostok.Hercules.Client.Abstractions.Events;
+
+namespace Vostok.Hercules.Client.Abstractions.Values
+{
+    public abstract partial class HerculesValue
+    {
+<#
+    foreach (var (type, name) in new [] { 
+        ("byte", "Byte"),
+        ("short", "Short"),
+        ("int", "Int"),
+        ("long", "Long"),
+        ("float", "Float"),
+        ("double", "Double"),
+        ("Guid", "Guid"),
+        ("string", "String"),
+        ("HerculesVector", "Vector"),
+        ("HerculesTags", "Container")
+    })
+    {
+#>
+        #region <#=type #>
+
+        /// <summary>
+        /// Returns <c>true</c> if this value is of <see cref="HerculesValueType.<#=name #>"/> type, or <c>false</c> otherwise.
+        /// </summary>
+        public bool Is<#=name #> => this is HerculesValue<<#=type #>>;
+
+        /// <summary>
+        /// Returns the value cast to <see cref="<#=type #>>"/>. Requires the value to have <see cref="HerculesValueType.<#=name #>"/> type.
+        /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
+        /// </summary>
+        public <#=type #> As<#=name #> => As<<#=type #>>();
+
+        #endregion
+
+<#
+    }
+#>
+
+        private TValue As<TValue>()
+        {
+            if (this is HerculesValue<TValue> typedValue)
+                return typedValue.TypedValue;
+            
+            throw new InvalidCastException($"Elements of vector cannot be cast to '{nameof(TValue)}' due to being of type '{Type}'.");
+        }
+    }
+}

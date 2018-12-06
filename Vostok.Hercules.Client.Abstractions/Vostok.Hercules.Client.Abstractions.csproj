@@ -29,5 +29,16 @@
   <ItemGroup>
     <Compile Include="..\..\vostok.commons.collections\Vostok.Commons.Collections\ImmutableArrayDictionary.cs" Link="Commons\ImmutableArrayDictionary.cs" />
   </ItemGroup>
-  
+
+  <ItemGroup>
+    <Compile Update="Values\HerculesValue.Boilerplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HerculesValue.Boilerplate.tt</DependentUpon>
+    </Compile>
+    <None Update="Values\HerculesValue.Boilerplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+  </ItemGroup>
+
 </Project>
