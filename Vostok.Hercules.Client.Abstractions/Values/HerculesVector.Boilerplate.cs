@@ -6,6 +6,21 @@ namespace Vostok.Hercules.Client.Abstractions.Values
 {
     public abstract partial class HerculesVector
     {
+        #region bool
+        
+        /// <summary>
+        /// Returns <c>true</c> if this elements is of <see cref="HerculesValueType.Bool"/> type, or <c>false</c> otherwise.
+        /// </summary>
+        public bool IsVectorOfBool => this is HerculesVector<bool>;
+
+        /// <summary>
+        /// Returns the array of values cast to <see cref="bool"/>. Requires the <see cref="ElementType"/> to have <see cref="HerculesValueType.Bool"/> type.
+        /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
+        /// </summary>
+        public bool[] AsBoolArray => As<bool>();
+
+        #endregion
+
         #region byte
         
         /// <summary>

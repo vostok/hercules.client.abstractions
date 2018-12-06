@@ -10,6 +10,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
     {
 <#
     foreach (var (type, name) in new [] { 
+        ("bool", "Bool"),
         ("byte", "Byte"),
         ("short", "Short"),
         ("int", "Int"),

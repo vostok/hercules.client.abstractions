@@ -22,7 +22,7 @@ namespace Vostok.Hercules.Client.Abstractions.Tests.Values
             {
                 var checkProperty = typeof(HerculesValue).GetProperty($"Is{valueType}", BindingFlags.Public | BindingFlags.Instance);
 
-                checkProperty.Should().NotBeNull();
+                checkProperty.Should().NotBeNull($"Is{valueType} should not be null");
 
                 var implementation = allImplementations.Single(impl => impl.Type == valueType);
 
