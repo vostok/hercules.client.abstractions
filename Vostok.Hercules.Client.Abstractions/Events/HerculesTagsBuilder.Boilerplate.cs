@@ -13,8 +13,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         
         public IHerculesTagsBuilder AddVector(string key, IEnumerable<bool> values) => AddVectorGeneric(key, values);
         
-        public IHerculesTagsBuilder AddVector(string key, bool[] values) => AddVectorGeneric(key, values);
-        
     #endregion
 
     #region byte
@@ -24,8 +22,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<byte> values) => AddVectorGeneric(key, values);
         
         public IHerculesTagsBuilder AddVector(string key, IEnumerable<byte> values) => AddVectorGeneric(key, values);
-        
-        public IHerculesTagsBuilder AddVector(string key, byte[] values) => AddVectorGeneric(key, values);
         
     #endregion
 
@@ -37,8 +33,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         
         public IHerculesTagsBuilder AddVector(string key, IEnumerable<short> values) => AddVectorGeneric(key, values);
         
-        public IHerculesTagsBuilder AddVector(string key, short[] values) => AddVectorGeneric(key, values);
-        
     #endregion
 
     #region int
@@ -48,8 +42,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<int> values) => AddVectorGeneric(key, values);
         
         public IHerculesTagsBuilder AddVector(string key, IEnumerable<int> values) => AddVectorGeneric(key, values);
-        
-        public IHerculesTagsBuilder AddVector(string key, int[] values) => AddVectorGeneric(key, values);
         
     #endregion
 
@@ -61,8 +53,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         
         public IHerculesTagsBuilder AddVector(string key, IEnumerable<long> values) => AddVectorGeneric(key, values);
         
-        public IHerculesTagsBuilder AddVector(string key, long[] values) => AddVectorGeneric(key, values);
-        
     #endregion
 
     #region float
@@ -72,8 +62,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<float> values) => AddVectorGeneric(key, values);
         
         public IHerculesTagsBuilder AddVector(string key, IEnumerable<float> values) => AddVectorGeneric(key, values);
-        
-        public IHerculesTagsBuilder AddVector(string key, float[] values) => AddVectorGeneric(key, values);
         
     #endregion
 
@@ -85,8 +73,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         
         public IHerculesTagsBuilder AddVector(string key, IEnumerable<double> values) => AddVectorGeneric(key, values);
         
-        public IHerculesTagsBuilder AddVector(string key, double[] values) => AddVectorGeneric(key, values);
-        
     #endregion
 
     #region Guid
@@ -97,8 +83,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         
         public IHerculesTagsBuilder AddVector(string key, IEnumerable<Guid> values) => AddVectorGeneric(key, values);
         
-        public IHerculesTagsBuilder AddVector(string key, Guid[] values) => AddVectorGeneric(key, values);
-        
     #endregion
 
     #region string
@@ -108,8 +92,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<string> values) => AddVectorGeneric(key, values);
         
         public IHerculesTagsBuilder AddVector(string key, IEnumerable<string> values) => AddVectorGeneric(key, values);
-        
-        public IHerculesTagsBuilder AddVector(string key, string[] values) => AddVectorGeneric(key, values);
         
     #endregion
 

@@ -42,6 +42,9 @@ namespace Vostok.Hercules.Client.Abstractions.Events
 
         private IHerculesTagsBuilder AddVectorGeneric<T>(string key, IReadOnlyList<T> values)
         {
+            if (values is T[] arr)
+                return AddVectorGeneric(key, arr);
+                
             var array = new T[values.Count];
             
             for (var i = 0; i < array.Length; i++)

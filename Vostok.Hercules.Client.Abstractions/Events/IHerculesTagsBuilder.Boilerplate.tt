@@ -25,13 +25,10 @@ namespace Vostok.Hercules.Client.Abstractions.Events
     
         /// <inheritdoc cref="AddValue(string,byte)"/>
         IHerculesTagsBuilder AddValue([NotNull] string key, <#=type #> value);
-        
+
         /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<<#=type #>> values);
-        
-        /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
-        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] <#=type #>[] values);
-        
+
         /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IEnumerable<<#=type #>> values);
         
