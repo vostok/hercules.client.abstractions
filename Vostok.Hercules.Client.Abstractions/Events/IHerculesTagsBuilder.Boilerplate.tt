@@ -1,0 +1,44 @@
+<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+using System;
+using System.Collections.Generic;
+using JetBrains.Annotations;
+
+namespace Vostok.Hercules.Client.Abstractions.Events
+{
+    public partial interface IHerculesTagsBuilder
+    {
+<#
+    foreach (var type in new [] { 
+        "bool",
+        "short",
+        "int",
+        "long",
+        "float",
+        "double",
+        "Guid",
+        "string"
+    })
+    {
+#>
+    #region <#=type #>
+    
+        /// <inheritdoc cref="AddValue(string,byte)"/>
+        IHerculesTagsBuilder AddValue([NotNull] string key, <#=type #> value);
+        
+        /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
+        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<<#=type #>> values);
+        
+        /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
+        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] <#=type #>[] values);
+        
+        /// <inheritdoc cref="AddVector(string,IReadOnlyList{byte})"/>
+        IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IEnumerable<<#=type #>> values);
+        
+    #endregion
+
+<#
+    }
+#>
+    }
+}

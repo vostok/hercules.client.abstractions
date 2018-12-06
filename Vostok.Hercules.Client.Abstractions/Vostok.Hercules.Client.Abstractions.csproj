@@ -52,4 +52,26 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Events\HerculesTagsBuilder.Boilerplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HerculesTagsBuilder.Boilerplate.tt</DependentUpon>
+    </Compile>
+    <None Update="Events\HerculesTagsBuilder.Boilerplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Update="Events\IHerculesTagsBuilder.Boilerplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IHerculesTagsBuilder.Boilerplate.tt</DependentUpon>
+    </Compile>
+    <None Update="Events\IHerculesTagsBuilder.Boilerplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+  </ItemGroup>
+
 </Project>

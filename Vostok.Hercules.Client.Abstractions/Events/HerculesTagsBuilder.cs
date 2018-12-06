@@ -8,48 +8,12 @@ using Vostok.Hercules.Client.Abstractions.Values;
 namespace Vostok.Hercules.Client.Abstractions.Events
 {
     [PublicAPI]
-    public class HerculesTagsBuilder : IHerculesTagsBuilder
+    public partial class HerculesTagsBuilder : IHerculesTagsBuilder
     {
         private ImmutableArrayDictionary<string, HerculesValue> tags
             = ImmutableArrayDictionary<string, HerculesValue>.Empty;
 
         public HerculesTags BuildTags() => new HerculesTags(tags);
-
-        public IHerculesTagsBuilder AddValue(string key, byte value) => AddValueGeneric(key, value);
-
-        public IHerculesTagsBuilder AddValue(string key, short value) => AddValueGeneric(key, value);
-
-        public IHerculesTagsBuilder AddValue(string key, int value) => AddValueGeneric(key, value);
-
-        public IHerculesTagsBuilder AddValue(string key, long value) => AddValueGeneric(key, value);
-
-        public IHerculesTagsBuilder AddValue(string key, bool value) => AddValueGeneric(key, value);
-
-        public IHerculesTagsBuilder AddValue(string key, float value) => AddValueGeneric(key, value);
-
-        public IHerculesTagsBuilder AddValue(string key, double value) => AddValueGeneric(key, value);
-
-        public IHerculesTagsBuilder AddValue(string key, Guid value) => AddValueGeneric(key, value);
-
-        public IHerculesTagsBuilder AddValue(string key, string value) => AddValueGeneric(key, value);
-
-        public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<byte> values) => AddVectorGeneric(key, values);
-
-        public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<short> values) => AddVectorGeneric(key, values);
-
-        public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<int> values) => AddVectorGeneric(key, values);
-
-        public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<long> values) => AddVectorGeneric(key, values);
-
-        public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<bool> values) => AddVectorGeneric(key, values);
-
-        public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<float> values) => AddVectorGeneric(key, values);
-
-        public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<double> values) => AddVectorGeneric(key, values);
-
-        public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<Guid> values) => AddVectorGeneric(key, values);
-
-        public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<string> values) => AddVectorGeneric(key, values);
 
         public IHerculesTagsBuilder AddContainer(string key, Action<IHerculesTagsBuilder> valueBuilder) 
             => Set(key, BuildContainer(valueBuilder));
@@ -85,5 +49,17 @@ namespace Vostok.Hercules.Client.Abstractions.Events
             
             return Set(key, new HerculesValue<HerculesVector>(new HerculesVector<T>(array)));
         }
+        
+        private IHerculesTagsBuilder AddVectorGeneric<T>(string key, T[] values)
+        {
+            var array = new T[values.Length];
+            
+            Buffer.BlockCopy(values, 0, array, 0, values.Length);
+            
+            return Set(key, new HerculesValue<HerculesVector>(new HerculesVector<T>(array)));
+        }
+
+        private IHerculesTagsBuilder AddVectorGeneric<T>(string key, IEnumerable<T> values)
+            => AddVectorGeneric(key, values.ToArray());
     }
 }

@@ -1,0 +1,40 @@
+<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+using System;
+using System.Collections.Generic;
+
+namespace Vostok.Hercules.Client.Abstractions.Events
+{
+    public partial class HerculesTagsBuilder
+    {
+<#
+    foreach (var type in new [] { 
+        "bool",
+        "byte",
+        "short",
+        "int",
+        "long",
+        "float",
+        "double",
+        "Guid",
+        "string"
+    })
+    {
+#>
+    #region <#=type #>
+    
+        public IHerculesTagsBuilder AddValue(string key, <#=type #> value) => AddValueGeneric(key, value);
+        
+        public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<<#=type #>> values) => AddVectorGeneric(key, values);
+        
+        public IHerculesTagsBuilder AddVector(string key, IEnumerable<<#=type #>> values) => AddVectorGeneric(key, values);
+        
+        public IHerculesTagsBuilder AddVector(string key, <#=type #>[] values) => AddVectorGeneric(key, values);
+        
+    #endregion
+
+<#
+    }
+#>
+    }
+}
