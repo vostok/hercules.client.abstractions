@@ -171,13 +171,5 @@ namespace Vostok.Hercules.Client.Abstractions.Values
 
         #endregion
 
-
-        private TValue[] As<TValue>()
-        {
-            if (this is HerculesVector<TValue> typedVector)
-                return typedVector.TypedValue;
-            
-            throw new InvalidCastException($"Value of vector element cannot be cast to '{nameof(TValue)}' due to being of type '{ElementType}'.");
-        }
     }
 }

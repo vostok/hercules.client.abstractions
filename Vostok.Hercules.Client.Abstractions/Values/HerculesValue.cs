@@ -40,6 +40,14 @@ namespace Vostok.Hercules.Client.Abstractions.Values
             [typeof(HerculesVector)] = HerculesValueType.Vector,
             [typeof(HerculesTags)] = HerculesValueType.Container
         };
+        
+        private TValue As<TValue>()
+        {
+            if (this is HerculesValue<TValue> typedValue)
+                return typedValue.TypedValue;
+            
+            throw new InvalidCastException($"Elements of vector cannot be cast to '{nameof(TValue)}' due to being of type '{Type}'.");
+        }
 
         internal static HerculesValueType? TryMapToHerculesType(Type type)
             => typeMapping.TryGetValue(type, out var herculesType) ? herculesType as HerculesValueType? : null;
