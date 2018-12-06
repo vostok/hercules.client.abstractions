@@ -1,5 +1,4 @@
 using System;
-using JetBrains.Annotations;
 using Vostok.Hercules.Client.Abstractions.Events;
 
 namespace Vostok.Hercules.Client.Abstractions.Values

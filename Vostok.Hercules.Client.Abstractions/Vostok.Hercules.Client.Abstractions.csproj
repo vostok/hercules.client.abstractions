@@ -41,4 +41,15 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Values\HerculesVector.Boilerplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HerculesVector.Boilerplate.tt</DependentUpon>
+    </Compile>
+    <None Update="Values\HerculesVector.Boilerplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+  </ItemGroup>
+
 </Project>
