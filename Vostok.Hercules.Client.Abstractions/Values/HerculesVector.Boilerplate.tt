@@ -1,0 +1,46 @@
+<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+using System;
+using JetBrains.Annotations;
+using Vostok.Hercules.Client.Abstractions.Events;
+
+namespace Vostok.Hercules.Client.Abstractions.Values
+{
+    public abstract partial class HerculesVector
+    {
+<#
+    foreach (var (type, name) in new [] { 
+        ("bool", "Bool"),
+        ("byte", "Byte"),
+        ("short", "Short"),
+        ("int", "Int"),
+        ("long", "Long"),
+        ("float", "Float"),
+        ("double", "Double"),
+        ("Guid", "Guid"),
+        ("string", "String"),
+        ("HerculesVector", "Vector"),
+        ("HerculesTags", "Container")
+    })
+    {
+#>
+        #region <#=type #>
+        
+        /// <summary>
+        /// Returns <c>true</c> if this elements is of <see cref="HerculesValueType.<#=name #>"/> type, or <c>false</c> otherwise.
+        /// </summary>
+        public bool IsVectorOf<#=name #> => this is HerculesVector<<#=type #>>;
+
+        /// <summary>
+        /// Returns the array of values cast to <see cref="<#=type #>"/>. Requires the <see cref="ElementType"/> to have <see cref="HerculesValueType.<#=name #>"/> type.
+        /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
+        /// </summary>
+        public <#=type #>[] As<#=name #>Array => As<<#=type #>>();
+
+        #endregion
+
+<#
+    }
+#>
+    }
+}
