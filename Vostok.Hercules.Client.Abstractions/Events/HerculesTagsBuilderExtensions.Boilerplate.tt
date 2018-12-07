@@ -1,0 +1,49 @@
+<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+using System;
+using System.Collections.Generic;
+
+namespace Vostok.Hercules.Client.Abstractions.Events
+{
+    public static partial class HerculesTagsBuilderExtensions
+    {
+        /// <summary>
+        /// <para>Tries to add a tag with given <paramref name="key"/> and <paramref name="value"/>.</para>
+        /// <para><paramref name="value"/> representation depends on its runtime type.</para>
+        /// </summary>
+        /// <returns><c>true</c> when <paramref name="value"/> runtime type is natively supported by Hercules, <c>false</c> otherwise.</returns>
+        private static bool TryAddObject(this IHerculesTagsBuilder builder, string key, object value)
+        {
+            switch (value)
+            {
+<#
+    foreach (var type in new [] { 
+        "bool",
+        "byte",
+        "short",
+        "int",
+        "long",
+        "float",
+        "double",
+        "Guid",
+        "string"
+    })
+    {
+#>
+                case <#=type #> <#=type #>Value:
+                    builder.AddValue(key, <#=type #>Value);
+                    return true;
+
+                case IReadOnlyList<<#=type #>> <#=type #>List:
+                    builder.AddVector(key, <#=type #>List);
+                    return true;
+
+<#
+    }
+#>
+                default:
+                    return false;
+            }
+        }
+    }
+}
