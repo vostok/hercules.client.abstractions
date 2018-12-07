@@ -13,7 +13,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsBool => this is HerculesValue<bool>;
 
         /// <summary>
-        /// Returns the value cast to <see cref="bool>"/>. Requires the value to have <see cref="HerculesValueType.Bool"/> type.
+        /// Returns the value cast to <see cref="bool"/>. Requires the value to have <see cref="HerculesValueType.Bool"/> type.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
         public bool AsBool => As<bool>();
@@ -28,7 +28,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsByte => this is HerculesValue<byte>;
 
         /// <summary>
-        /// Returns the value cast to <see cref="byte>"/>. Requires the value to have <see cref="HerculesValueType.Byte"/> type.
+        /// Returns the value cast to <see cref="byte"/>. Requires the value to have <see cref="HerculesValueType.Byte"/> type.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
         public byte AsByte => As<byte>();
@@ -43,7 +43,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsShort => this is HerculesValue<short>;
 
         /// <summary>
-        /// Returns the value cast to <see cref="short>"/>. Requires the value to have <see cref="HerculesValueType.Short"/> type.
+        /// Returns the value cast to <see cref="short"/>. Requires the value to have <see cref="HerculesValueType.Short"/> type.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
         public short AsShort => As<short>();
@@ -58,7 +58,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsInt => this is HerculesValue<int>;
 
         /// <summary>
-        /// Returns the value cast to <see cref="int>"/>. Requires the value to have <see cref="HerculesValueType.Int"/> type.
+        /// Returns the value cast to <see cref="int"/>. Requires the value to have <see cref="HerculesValueType.Int"/> type.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
         public int AsInt => As<int>();
@@ -73,7 +73,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsLong => this is HerculesValue<long>;
 
         /// <summary>
-        /// Returns the value cast to <see cref="long>"/>. Requires the value to have <see cref="HerculesValueType.Long"/> type.
+        /// Returns the value cast to <see cref="long"/>. Requires the value to have <see cref="HerculesValueType.Long"/> type.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
         public long AsLong => As<long>();
@@ -88,7 +88,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsFloat => this is HerculesValue<float>;
 
         /// <summary>
-        /// Returns the value cast to <see cref="float>"/>. Requires the value to have <see cref="HerculesValueType.Float"/> type.
+        /// Returns the value cast to <see cref="float"/>. Requires the value to have <see cref="HerculesValueType.Float"/> type.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
         public float AsFloat => As<float>();
@@ -103,7 +103,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsDouble => this is HerculesValue<double>;
 
         /// <summary>
-        /// Returns the value cast to <see cref="double>"/>. Requires the value to have <see cref="HerculesValueType.Double"/> type.
+        /// Returns the value cast to <see cref="double"/>. Requires the value to have <see cref="HerculesValueType.Double"/> type.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
         public double AsDouble => As<double>();
@@ -118,7 +118,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsGuid => this is HerculesValue<Guid>;
 
         /// <summary>
-        /// Returns the value cast to <see cref="Guid>"/>. Requires the value to have <see cref="HerculesValueType.Guid"/> type.
+        /// Returns the value cast to <see cref="Guid"/>. Requires the value to have <see cref="HerculesValueType.Guid"/> type.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
         public Guid AsGuid => As<Guid>();
@@ -133,7 +133,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsString => this is HerculesValue<string>;
 
         /// <summary>
-        /// Returns the value cast to <see cref="string>"/>. Requires the value to have <see cref="HerculesValueType.String"/> type.
+        /// Returns the value cast to <see cref="string"/>. Requires the value to have <see cref="HerculesValueType.String"/> type.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
         public string AsString => As<string>();
@@ -148,7 +148,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsVector => this is HerculesValue<HerculesVector>;
 
         /// <summary>
-        /// Returns the value cast to <see cref="HerculesVector>"/>. Requires the value to have <see cref="HerculesValueType.Vector"/> type.
+        /// Returns the value cast to <see cref="HerculesVector"/>. Requires the value to have <see cref="HerculesValueType.Vector"/> type.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
         public HerculesVector AsVector => As<HerculesVector>();
@@ -163,7 +163,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsContainer => this is HerculesValue<HerculesTags>;
 
         /// <summary>
-        /// Returns the value cast to <see cref="HerculesTags>"/>. Requires the value to have <see cref="HerculesValueType.Container"/> type.
+        /// Returns the value cast to <see cref="HerculesTags"/>. Requires the value to have <see cref="HerculesValueType.Container"/> type.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
         public HerculesTags AsContainer => As<HerculesTags>();

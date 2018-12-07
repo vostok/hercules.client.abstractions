@@ -31,7 +31,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool Is<#=name #> => this is HerculesValue<<#=type #>>;
 
         /// <summary>
-        /// Returns the value cast to <see cref="<#=type #>>"/>. Requires the value to have <see cref="HerculesValueType.<#=name #>"/> type.
+        /// Returns the value cast to <see cref="<#=type #>"/>. Requires the value to have <see cref="HerculesValueType.<#=name #>"/> type.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
         public <#=type #> As<#=name #> => As<<#=type #>>();
