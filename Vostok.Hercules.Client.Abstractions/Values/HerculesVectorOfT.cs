@@ -2,16 +2,16 @@ namespace Vostok.Hercules.Client.Abstractions.Values
 {
     internal class HerculesVector<TValue> : HerculesVector
     {
-        private static readonly HerculesValueType? type = HerculesValue.TryMapToHerculesType(typeof(TValue));
+        private static readonly HerculesValueType? type = HerculesValueHelpers.TryMapToHerculesType(typeof(TValue));
         
         public HerculesVector(TValue[] value)
         {
             if (type == null)
-                HerculesValue.ThrowNotSupportedException(typeof(TValue));
+                HerculesValueHelpers.ThrowNotSupportedException(typeof(TValue));
             
             TypedValue = value;
         }
-        
+
         public TValue[] TypedValue { get; }
 
         public override HerculesValueType ElementType => type.Value;

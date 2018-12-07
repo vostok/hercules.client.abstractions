@@ -23,8 +23,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public abstract HerculesValueType ElementType { get; }
 
         protected abstract HerculesValue[] CreateArrayOfValues();
-        
-        
+
         private TValue[] As<TValue>()
         {
             if (this is HerculesVector<TValue> typedVector)
