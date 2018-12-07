@@ -9,19 +9,19 @@ namespace Vostok.Hercules.Client.Abstractions.Values
             if (type == null)
                 HerculesValueHelpers.ThrowNotSupportedException(typeof(TValue));
             
-            TypedValue = value;
+            Elements = value;
         }
 
-        public TValue[] TypedValue { get; }
+        public TValue[] Elements { get; }
 
         public override HerculesValueType ElementType => type.Value;
 
         protected override HerculesValue[] CreateArrayOfValues()
         {
-            var array = new HerculesValue[TypedValue.Length];
+            var array = new HerculesValue[Elements.Length];
             
             for (var i = 0; i < array.Length; i++)
-                array[i] = new HerculesValue<TValue>(TypedValue[i]);
+                array[i] = new HerculesValue<TValue>(Elements[i]);
 
             return array;
         }
