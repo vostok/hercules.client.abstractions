@@ -25,6 +25,6 @@ namespace Vostok.Hercules.Client.Abstractions.Values
             => TypeMapping.TryGetValue(type, out var herculesType) ? herculesType as HerculesValueType? : null;
 
         public static HerculesValueType ThrowNotSupportedException(Type type)
-            => throw new NotSupportedException($"Type '{type.FullName}' cannot be mapped to Hercules value type.");
+            => throw new NotSupportedException($"Type '{type.Name}' cannot be mapped to Hercules value type.");
     }
 }
