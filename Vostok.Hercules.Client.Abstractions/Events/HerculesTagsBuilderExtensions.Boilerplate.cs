@@ -10,7 +10,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para><paramref name="value"/> representation depends on its runtime type.</para>
         /// </summary>
         /// <returns><c>true</c> when <paramref name="value"/> runtime type is natively supported by Hercules, <c>false</c> otherwise.</returns>
-        private static bool TryAddObject(this IHerculesTagsBuilder builder, string key, object value)
+        public static bool TryAddObject(this IHerculesTagsBuilder builder, string key, object value)
         {
             switch (value)
             {
