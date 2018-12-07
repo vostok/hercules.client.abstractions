@@ -69,7 +69,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         {
             var array = new T[values.Length];
             
-            Buffer.BlockCopy(values, 0, array, 0, values.Length);
+            Array.Copy(values, 0, array, 0, values.Length);
             
             return Set(key, new HerculesValue<HerculesVector>(new HerculesVector<T>(array)));
         }
