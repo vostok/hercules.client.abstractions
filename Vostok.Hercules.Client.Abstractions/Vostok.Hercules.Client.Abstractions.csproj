@@ -38,6 +38,7 @@
     </Compile>
     <None Update="Values\HerculesValue.Boilerplate.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HerculesValue.Boilerplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -49,6 +50,7 @@
     </Compile>
     <None Update="Values\HerculesVector.Boilerplate.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HerculesVector.Boilerplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -60,6 +62,7 @@
     </Compile>
     <None Update="Events\HerculesTagsBuilder.Boilerplate.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HerculesTagsBuilder.Boilerplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
   
@@ -71,7 +74,24 @@
     </Compile>
     <None Update="Events\IHerculesTagsBuilder.Boilerplate.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IHerculesTagsBuilder.Boilerplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  
+   <ItemGroup>
+    <Compile Update="Events\IHerculesTagsBuilderExtensions.Boilerplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IHerculesTagsBuilderExtensions.Boilerplate.tt</DependentUpon>
+    </Compile>
+    <None Update="Events\IHerculesTagsBuilderExtensions.Boilerplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IHerculesTagsBuilderExtensions.Boilerplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  
+   <ItemGroup>
+     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+   </ItemGroup>
 
 </Project>

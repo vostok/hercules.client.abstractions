@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Vostok.Hercules.Client.Abstractions.Events
 {
-    public static partial class HerculesTagsBuilderExtensions
+    public static partial class IHerculesTagsBuilderExtensions
     {
         /// <summary>
         /// <para>Tries to add a tag with given <paramref name="key"/> and <paramref name="value"/>.</para>

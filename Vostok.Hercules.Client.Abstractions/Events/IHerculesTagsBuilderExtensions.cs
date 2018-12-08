@@ -9,7 +9,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
     /// A set of extensions for <see cref="IHerculesTagsBuilder"/>.
     /// </summary>
     [PublicAPI]
-    public static partial class HerculesTagsBuilderExtensions
+    public static partial class IHerculesTagsBuilderExtensions
     {
         /// <summary>
         /// <para>Adds a tag that represents an array of containers with given <paramref name="key"/> and container values built from given <paramref name="values"/> via <paramref name="valueBuilder"/> delegate.</para>

@@ -19,7 +19,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
             => AddValueGeneric(key, BuildContainer(valueBuilder));
 
         public IHerculesTagsBuilder AddVectorOfContainers(string key, IReadOnlyList<Action<IHerculesTagsBuilder>> valueBuilders)
-            => AddVectorGeneric(key, valueBuilders.Select(x => BuildContainer(x)).ToArray());
+            => AddVectorGeneric(key, valueBuilders.Select(BuildContainer).ToArray());
 
         private IHerculesTagsBuilder AddValueGeneric<T>(string key, T value) 
             => Set(key, new HerculesValue<T>(value));
