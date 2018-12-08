@@ -8,12 +8,12 @@ namespace Vostok.Hercules.Client.Abstractions.Values
     [DebuggerDisplay("{" + nameof(TypedValue) + "}")]
     internal class HerculesValue<TValue> : HerculesValue
     {
-        private static readonly HerculesValueType? type = HerculesValueHelpers.TryMapToHerculesType(typeof(TValue));
+        private static readonly HerculesValueType? type = HerculesValueTypesMapping.TryMap(typeof(TValue));
 
         public HerculesValue(TValue value)
         {
             if (type == null)
-                HerculesValueHelpers.ThrowNotSupportedException(typeof(TValue));
+                HerculesValueTypesMapping.ThrowNotSupportedException(typeof(TValue));
 
             TypedValue = value;
         }

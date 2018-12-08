@@ -5,9 +5,9 @@ using Vostok.Hercules.Client.Abstractions.Events;
 
 namespace Vostok.Hercules.Client.Abstractions.Values
 {
-    internal static class HerculesValueHelpers
+    internal static class HerculesValueTypesMapping
     {
-        private static readonly Dictionary<Type, HerculesValueType> TypeMapping = new Dictionary<Type, HerculesValueType>
+        private static readonly Dictionary<Type, HerculesValueType> Mapping = new Dictionary<Type, HerculesValueType>
         {
             [typeof(bool)] = HerculesValueType.Bool,
             [typeof(byte)] = HerculesValueType.Byte,
@@ -24,13 +24,13 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         };
 
         private static readonly Dictionary<HerculesValueType, Type> ReverseMapping
-            = TypeMapping.ToDictionary(pair => pair.Value, pair => pair.Key);
+            = Mapping.ToDictionary(pair => pair.Value, pair => pair.Key);
 
-        public static HerculesValueType? TryMapToHerculesType(Type type)
-            => TypeMapping.TryGetValue(type, out var herculesType) ? herculesType as HerculesValueType? : null;
+        public static HerculesValueType? TryMap(Type type)
+            => Mapping.TryGetValue(type, out var result) ? result as HerculesValueType? : null;
 
-        public static Type TryMapToRuntimeType(HerculesValueType type)
-            => ReverseMapping.TryGetValue(type, out var runtimeType) ? runtimeType : null;
+        public static Type TryMap(HerculesValueType type)
+            => ReverseMapping.TryGetValue(type, out var result) ? result : null;
 
         public static HerculesValueType ThrowNotSupportedException(Type type)
             => throw new NotSupportedException($"Type '{type.Name}' cannot be mapped to Hercules value type.");

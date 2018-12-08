@@ -104,7 +104,7 @@ namespace Vostok.Hercules.Client.Abstractions.Tests.Values
 
         private static Type GetTypeByHerculesType(HerculesValueType type)
         {
-            return HerculesValueHelpers.TryMapToRuntimeType(type) ?? throw new ArgumentException($"Unknown Hercules value type: '{type}'", nameof(type));
+            return HerculesValueTypesMapping.TryMap(type) ?? throw new ArgumentException($"Unknown Hercules value type: '{type}'", nameof(type));
         }
     }
 }
