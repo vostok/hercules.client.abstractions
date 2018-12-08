@@ -19,7 +19,8 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         ("Guid", "Guid"),
         ("string", "String"),
         ("HerculesVector", "Vector"),
-        ("HerculesTags", "Container")
+        ("HerculesTags", "Container"),
+        ("HerculesNull", "Null")
     })
     {
 #>

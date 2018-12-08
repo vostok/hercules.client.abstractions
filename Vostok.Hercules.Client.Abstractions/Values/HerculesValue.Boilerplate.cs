@@ -170,5 +170,20 @@ namespace Vostok.Hercules.Client.Abstractions.Values
 
         #endregion
 
+        #region HerculesNull
+
+        /// <summary>
+        /// Returns <c>true</c> if this value is of <see cref="HerculesValueType.Null"/> type, or <c>false</c> otherwise.
+        /// </summary>
+        public bool IsNull => this is HerculesValue<HerculesNull>;
+
+        /// <summary>
+        /// Returns the value cast to <see cref="HerculesNull"/>. Requires the value to have <see cref="HerculesValueType.Null"/> type.
+        /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
+        /// </summary>
+        public HerculesNull AsNull => As<HerculesNull>();
+
+        #endregion
+
     }
 }

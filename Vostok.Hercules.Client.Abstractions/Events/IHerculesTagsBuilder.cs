@@ -22,5 +22,13 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// </summary>
         [NotNull]
         IHerculesTagsBuilder AddVectorOfContainers([NotNull] string key, [NotNull] IReadOnlyList<Action<IHerculesTagsBuilder>> valueBuilders);
+
+        /// <summary>
+        /// <para>Adds a tag that represents a null value of no particular type.</para>
+        /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
+        /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
+        /// </summary>
+        [NotNull]
+        IHerculesTagsBuilder AddNull([NotNull] string key);
     }
 }

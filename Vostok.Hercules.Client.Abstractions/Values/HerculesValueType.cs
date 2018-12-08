@@ -19,6 +19,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         Guid,
         String,
         Vector,
-        Container
+        Container,
+        Null
     }
 }

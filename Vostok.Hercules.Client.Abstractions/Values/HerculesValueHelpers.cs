@@ -19,7 +19,8 @@ namespace Vostok.Hercules.Client.Abstractions.Values
             [typeof(double)] = HerculesValueType.Double,
             [typeof(string)] = HerculesValueType.String,
             [typeof(HerculesVector)] = HerculesValueType.Vector,
-            [typeof(HerculesTags)] = HerculesValueType.Container
+            [typeof(HerculesTags)] = HerculesValueType.Container,
+            [typeof(HerculesNull)] = HerculesValueType.Null
         };
 
         private static readonly Dictionary<HerculesValueType, Type> ReverseMapping
