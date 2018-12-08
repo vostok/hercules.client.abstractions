@@ -21,7 +21,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
 
         public override HerculesValueType Type => type.Value;
         
-        public override object Value => TypedValue;
+        public override object Value => HerculesValueHelpers.UnwrapValue(this);
     }
 
 }

@@ -48,6 +48,30 @@ namespace Vostok.Hercules.Client.Abstractions.Tests.Values
             }
         }
 
+        [Test]
+        public void Value_property_should_unwrap_nulls()
+        {
+            var value = new HerculesValue<HerculesNull>(HerculesNull.Instance);
+
+            value.Value.Should().BeNull();
+        }
+
+        [Test]
+        public void Value_property_should_unwrap_vectors()
+        {
+            var value = new HerculesValue<HerculesVector>(new HerculesVector<int>(new [] {1, 2, 3}));
+
+            value.Value.Should().BeEquivalentTo(new [] {1, 2, 3});
+        }
+
+        [Test]
+        public void Value_property_should_unwrap_simple_typed_values()
+        {
+            var value = new HerculesValue<int>(150);
+
+            value.Value.Should().Be(150);
+        }
+
         private static HerculesValueType[] GetAllValueTypes()
         {
             return Enum

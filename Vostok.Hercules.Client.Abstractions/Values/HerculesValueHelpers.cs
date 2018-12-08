@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using Vostok.Hercules.Client.Abstractions.Events;
 
 namespace Vostok.Hercules.Client.Abstractions.Values
@@ -34,5 +35,17 @@ namespace Vostok.Hercules.Client.Abstractions.Values
 
         public static HerculesValueType ThrowNotSupportedException(Type type)
             => throw new NotSupportedException($"Type '{type.Name}' cannot be mapped to Hercules value type.");
+
+        [CanBeNull]
+        public static object UnwrapValue<T>(HerculesValue<T> value)
+        {
+            if (value.IsNull)
+                return null;
+
+            if (value.IsVector)
+                return value.AsVector.Elements.Select(element => element.Value);
+
+            return value.TypedValue;
+        }
     }
 }
