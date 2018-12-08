@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics;
 
+// ReSharper disable PossibleInvalidOperationException
+
 namespace Vostok.Hercules.Client.Abstractions.Values
 {
     [DebuggerDisplay("{" + nameof(TypedValue) + "}")]

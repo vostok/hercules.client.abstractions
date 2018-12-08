@@ -1,3 +1,5 @@
+// ReSharper disable PossibleInvalidOperationException
+
 namespace Vostok.Hercules.Client.Abstractions.Values
 {
     internal class HerculesVector<TValue> : HerculesVector
