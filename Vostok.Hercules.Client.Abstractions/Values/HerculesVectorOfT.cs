@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+
 // ReSharper disable PossibleInvalidOperationException
 
 namespace Vostok.Hercules.Client.Abstractions.Values
@@ -6,26 +9,21 @@ namespace Vostok.Hercules.Client.Abstractions.Values
     {
         private static readonly HerculesValueType? type = HerculesValueHelpers.TryMapToHerculesType(typeof(TValue));
         
-        public HerculesVector(TValue[] value)
+        public HerculesVector(IReadOnlyList<TValue> elements)
         {
             if (type == null)
                 HerculesValueHelpers.ThrowNotSupportedException(typeof(TValue));
             
-            Elements = value;
+            TypedElements = elements;
         }
 
-        public TValue[] Elements { get; }
+        public IReadOnlyList<TValue> TypedElements { get; }
 
         public override HerculesValueType ElementType => type.Value;
 
-        protected override HerculesValue[] CreateArrayOfValues()
-        {
-            var array = new HerculesValue[Elements.Length];
-            
-            for (var i = 0; i < array.Length; i++)
-                array[i] = new HerculesValue<TValue>(Elements[i]);
+        public override IEnumerable<HerculesValue> Elements 
+            => TypedElements.Select(element => new HerculesValue<TValue>(element));
 
-            return array;
-        }
+        public override int Count => TypedElements.Count;
     }
 }

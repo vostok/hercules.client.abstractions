@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using Vostok.Hercules.Client.Abstractions.Events;
 
@@ -10,24 +11,25 @@ namespace Vostok.Hercules.Client.Abstractions.Values
     [PublicAPI]
     public abstract partial class HerculesVector
     {
-        private HerculesValue[] valuesArray;
-
-        /// <summary>
-        /// Returns elements of vector as array of <see cref="HerculesValue"/>.
-        /// </summary>
-        public HerculesValue[] AsHerculesValueArray => valuesArray ?? (valuesArray = CreateArrayOfValues());
-        
         /// <summary>
         /// Returns <see cref="HerculesValueType"/> of vector elements.
         /// </summary>
         public abstract HerculesValueType ElementType { get; }
 
-        protected abstract HerculesValue[] CreateArrayOfValues();
+        /// <summary>
+        /// Returns elements of the vector as a sequence of <see cref="HerculesValue"/>s.
+        /// </summary>
+        public abstract IEnumerable<HerculesValue> Elements { get; }
 
-        private TValue[] As<TValue>()
+        /// <summary>
+        /// Returns elements count in this vector.
+        /// </summary>
+        public abstract int Count { get; }
+
+        private IReadOnlyList<TValue> As<TValue>()
         {
             if (this is HerculesVector<TValue> typedVector)
-                return typedVector.Elements;
+                return typedVector.TypedElements;
             
             throw new InvalidCastException($"Value of vector element cannot be cast to '{nameof(TValue)}' due to being of type '{ElementType}'.");
         }

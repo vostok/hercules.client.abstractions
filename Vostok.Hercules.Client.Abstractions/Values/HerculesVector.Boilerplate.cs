@@ -1,5 +1,5 @@
 using System;
-using JetBrains.Annotations;
+using System.Collections.Generic;
 using Vostok.Hercules.Client.Abstractions.Events;
 
 namespace Vostok.Hercules.Client.Abstractions.Values
@@ -14,10 +14,10 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsVectorOfBool => this is HerculesVector<bool>;
 
         /// <summary>
-        /// Returns the array of values cast to <see cref="bool"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Bool"/>.
+        /// Returns a list of values cast to <see cref="bool"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Bool"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
-        public bool[] AsBoolArray => As<bool>();
+        public IReadOnlyList<bool> AsBoolList => As<bool>();
 
         #endregion
 
@@ -29,10 +29,10 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsVectorOfByte => this is HerculesVector<byte>;
 
         /// <summary>
-        /// Returns the array of values cast to <see cref="byte"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Byte"/>.
+        /// Returns a list of values cast to <see cref="byte"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Byte"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
-        public byte[] AsByteArray => As<byte>();
+        public IReadOnlyList<byte> AsByteList => As<byte>();
 
         #endregion
 
@@ -44,10 +44,10 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsVectorOfShort => this is HerculesVector<short>;
 
         /// <summary>
-        /// Returns the array of values cast to <see cref="short"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Short"/>.
+        /// Returns a list of values cast to <see cref="short"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Short"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
-        public short[] AsShortArray => As<short>();
+        public IReadOnlyList<short> AsShortList => As<short>();
 
         #endregion
 
@@ -59,10 +59,10 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsVectorOfInt => this is HerculesVector<int>;
 
         /// <summary>
-        /// Returns the array of values cast to <see cref="int"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Int"/>.
+        /// Returns a list of values cast to <see cref="int"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Int"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
-        public int[] AsIntArray => As<int>();
+        public IReadOnlyList<int> AsIntList => As<int>();
 
         #endregion
 
@@ -74,10 +74,10 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsVectorOfLong => this is HerculesVector<long>;
 
         /// <summary>
-        /// Returns the array of values cast to <see cref="long"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Long"/>.
+        /// Returns a list of values cast to <see cref="long"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Long"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
-        public long[] AsLongArray => As<long>();
+        public IReadOnlyList<long> AsLongList => As<long>();
 
         #endregion
 
@@ -89,10 +89,10 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsVectorOfFloat => this is HerculesVector<float>;
 
         /// <summary>
-        /// Returns the array of values cast to <see cref="float"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Float"/>.
+        /// Returns a list of values cast to <see cref="float"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Float"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
-        public float[] AsFloatArray => As<float>();
+        public IReadOnlyList<float> AsFloatList => As<float>();
 
         #endregion
 
@@ -104,10 +104,10 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsVectorOfDouble => this is HerculesVector<double>;
 
         /// <summary>
-        /// Returns the array of values cast to <see cref="double"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Double"/>.
+        /// Returns a list of values cast to <see cref="double"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Double"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
-        public double[] AsDoubleArray => As<double>();
+        public IReadOnlyList<double> AsDoubleList => As<double>();
 
         #endregion
 
@@ -119,10 +119,10 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsVectorOfGuid => this is HerculesVector<Guid>;
 
         /// <summary>
-        /// Returns the array of values cast to <see cref="Guid"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Guid"/>.
+        /// Returns a list of values cast to <see cref="Guid"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Guid"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
-        public Guid[] AsGuidArray => As<Guid>();
+        public IReadOnlyList<Guid> AsGuidList => As<Guid>();
 
         #endregion
 
@@ -134,10 +134,10 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsVectorOfString => this is HerculesVector<string>;
 
         /// <summary>
-        /// Returns the array of values cast to <see cref="string"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.String"/>.
+        /// Returns a list of values cast to <see cref="string"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.String"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
-        public string[] AsStringArray => As<string>();
+        public IReadOnlyList<string> AsStringList => As<string>();
 
         #endregion
 
@@ -149,10 +149,10 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsVectorOfVector => this is HerculesVector<HerculesVector>;
 
         /// <summary>
-        /// Returns the array of values cast to <see cref="HerculesVector"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Vector"/>.
+        /// Returns a list of values cast to <see cref="HerculesVector"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Vector"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
-        public HerculesVector[] AsVectorArray => As<HerculesVector>();
+        public IReadOnlyList<HerculesVector> AsVectorList => As<HerculesVector>();
 
         #endregion
 
@@ -164,10 +164,10 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public bool IsVectorOfContainer => this is HerculesVector<HerculesTags>;
 
         /// <summary>
-        /// Returns the array of values cast to <see cref="HerculesTags"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Container"/>.
+        /// Returns a list of values cast to <see cref="HerculesTags"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Container"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
-        public HerculesTags[] AsContainerArray => As<HerculesTags>();
+        public IReadOnlyList<HerculesTags> AsContainerList => As<HerculesTags>();
 
         #endregion
 
