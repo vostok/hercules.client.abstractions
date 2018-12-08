@@ -8,7 +8,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
     public static partial class IHerculesTagsBuilderExtensions
     {
         /// <summary>
-        /// <para>Tries to add a tag with given <paramref name="key"/> and <paramref name="value"/>.</para>
+        /// <para>Attempts to add a tag with given <paramref name="key"/> and <paramref name="value"/>.</para>
         /// <para><paramref name="value"/> representation depends on its runtime type.</para>
         /// </summary>
         /// <returns><c>true</c> when <paramref name="value"/> runtime type is natively supported by Hercules, <c>false</c> otherwise.</returns>
