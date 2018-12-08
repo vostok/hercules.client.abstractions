@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace Vostok.Hercules.Client.Abstractions.Events
 {
@@ -10,7 +11,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para><paramref name="value"/> representation depends on its runtime type.</para>
         /// </summary>
         /// <returns><c>true</c> when <paramref name="value"/> runtime type is natively supported by Hercules, <c>false</c> otherwise.</returns>
-        public static bool TryAddObject(this IHerculesTagsBuilder builder, string key, object value)
+        public static bool TryAddObject([NotNull] this IHerculesTagsBuilder builder, [NotNull] string key, [NotNull] object value)
         {
             switch (value)
             {

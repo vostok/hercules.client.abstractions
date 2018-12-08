@@ -16,12 +16,15 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         public static IHerculesTagsBuilder AddVectorOfContainers<TValue>(
-            this IHerculesTagsBuilder builder,
-            string key,
-            IReadOnlyList<TValue> values,
-            Action<IHerculesTagsBuilder, TValue> valueBuilder)
-            => builder.AddVectorOfContainers(key,
+            [NotNull] this IHerculesTagsBuilder builder,
+            [NotNull] string key,
+            [NotNull] IReadOnlyList<TValue> values,
+            [NotNull] Action<IHerculesTagsBuilder, TValue> valueBuilder)
+            => builder.AddVectorOfContainers(
+                key,
                 values.Select(x => new Action<IHerculesTagsBuilder>(b => valueBuilder(b, x))).ToArray());
+
     }
 }

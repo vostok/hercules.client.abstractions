@@ -13,6 +13,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddValue([NotNull] string key, byte value);
 
         /// <summary>
@@ -20,6 +21,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<byte> values);
 
         #endregion
@@ -31,6 +33,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddValue([NotNull] string key, bool value);
 
         /// <summary>
@@ -38,6 +41,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<bool> values);
 
         #endregion
@@ -49,6 +53,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddValue([NotNull] string key, short value);
 
         /// <summary>
@@ -56,6 +61,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<short> values);
 
         #endregion
@@ -67,6 +73,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddValue([NotNull] string key, int value);
 
         /// <summary>
@@ -74,6 +81,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<int> values);
 
         #endregion
@@ -85,6 +93,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddValue([NotNull] string key, long value);
 
         /// <summary>
@@ -92,6 +101,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<long> values);
 
         #endregion
@@ -103,6 +113,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddValue([NotNull] string key, float value);
 
         /// <summary>
@@ -110,6 +121,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<float> values);
 
         #endregion
@@ -121,6 +133,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddValue([NotNull] string key, double value);
 
         /// <summary>
@@ -128,6 +141,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<double> values);
 
         #endregion
@@ -139,6 +153,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddValue([NotNull] string key, Guid value);
 
         /// <summary>
@@ -146,6 +161,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<Guid> values);
 
         #endregion
@@ -157,6 +173,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddValue([NotNull] string key, string value);
 
         /// <summary>
@@ -164,6 +181,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<string> values);
 
         #endregion

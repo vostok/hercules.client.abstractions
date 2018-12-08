@@ -12,6 +12,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddContainer([NotNull] string key, [NotNull] Action<IHerculesTagsBuilder> valueBuilder);
 
         /// <summary>
@@ -19,6 +20,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
         /// <para>Returned value is utilized solely for the purpose of fluent syntax (chaining calls) and should not return a different instance of <see cref="IHerculesTagsBuilder"/>.</para>
         /// </summary>
+        [NotNull]
         IHerculesTagsBuilder AddVectorOfContainers([NotNull] string key, [NotNull] IReadOnlyList<Action<IHerculesTagsBuilder>> valueBuilders);
     }
 }
