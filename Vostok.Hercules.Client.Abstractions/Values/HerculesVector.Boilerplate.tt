@@ -2,6 +2,7 @@
 <#@ output extension=".cs" #>
 using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Vostok.Hercules.Client.Abstractions.Events;
 
 namespace Vostok.Hercules.Client.Abstractions.Values
@@ -35,6 +36,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         /// Returns a list of values cast to <see cref="<#=type #>"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.<#=name #>"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
+        [NotNull]
         public IReadOnlyList<<#=type #>> As<#=name #>List => As<<#=type #>>();
 
         #endregion

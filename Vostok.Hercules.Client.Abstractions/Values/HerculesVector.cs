@@ -30,7 +30,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         {
             if (this is HerculesVector<TValue> typedVector)
                 return typedVector.TypedElements;
-            
+
             throw new InvalidCastException($"Value of vector element cannot be cast to '{nameof(TValue)}' due to being of type '{ElementType}'.");
         }
     }

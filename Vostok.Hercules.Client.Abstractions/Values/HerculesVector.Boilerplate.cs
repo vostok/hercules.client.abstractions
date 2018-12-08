@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Vostok.Hercules.Client.Abstractions.Events;
 
 namespace Vostok.Hercules.Client.Abstractions.Values
@@ -17,6 +18,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         /// Returns a list of values cast to <see cref="bool"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Bool"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
+        [NotNull]
         public IReadOnlyList<bool> AsBoolList => As<bool>();
 
         #endregion
@@ -32,6 +34,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         /// Returns a list of values cast to <see cref="byte"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Byte"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
+        [NotNull]
         public IReadOnlyList<byte> AsByteList => As<byte>();
 
         #endregion
@@ -47,6 +50,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         /// Returns a list of values cast to <see cref="short"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Short"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
+        [NotNull]
         public IReadOnlyList<short> AsShortList => As<short>();
 
         #endregion
@@ -62,6 +66,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         /// Returns a list of values cast to <see cref="int"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Int"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
+        [NotNull]
         public IReadOnlyList<int> AsIntList => As<int>();
 
         #endregion
@@ -77,6 +82,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         /// Returns a list of values cast to <see cref="long"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Long"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
+        [NotNull]
         public IReadOnlyList<long> AsLongList => As<long>();
 
         #endregion
@@ -92,6 +98,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         /// Returns a list of values cast to <see cref="float"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Float"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
+        [NotNull]
         public IReadOnlyList<float> AsFloatList => As<float>();
 
         #endregion
@@ -107,6 +114,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         /// Returns a list of values cast to <see cref="double"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Double"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
+        [NotNull]
         public IReadOnlyList<double> AsDoubleList => As<double>();
 
         #endregion
@@ -122,6 +130,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         /// Returns a list of values cast to <see cref="Guid"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Guid"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
+        [NotNull]
         public IReadOnlyList<Guid> AsGuidList => As<Guid>();
 
         #endregion
@@ -137,6 +146,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         /// Returns a list of values cast to <see cref="string"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.String"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
+        [NotNull]
         public IReadOnlyList<string> AsStringList => As<string>();
 
         #endregion
@@ -152,6 +162,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         /// Returns a list of values cast to <see cref="HerculesVector"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Vector"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
+        [NotNull]
         public IReadOnlyList<HerculesVector> AsVectorList => As<HerculesVector>();
 
         #endregion
@@ -167,6 +178,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         /// Returns a list of values cast to <see cref="HerculesTags"/>. Requires the <see cref="ElementType"/> to be <see cref="HerculesValueType.Container"/>.
         /// <exception cref="InvalidCastException">The cast is not valid due to mismatching value type.</exception>
         /// </summary>
+        [NotNull]
         public IReadOnlyList<HerculesTags> AsContainerList => As<HerculesTags>();
 
         #endregion
