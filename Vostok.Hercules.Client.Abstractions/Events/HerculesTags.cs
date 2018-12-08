@@ -22,18 +22,30 @@ namespace Vostok.Hercules.Client.Abstractions.Events
 
         public int Count => tags.Count;
 
-        public bool ContainsKey([NotNull] string key) => tags.ContainsKey(key);
+        public bool ContainsKey([NotNull] string key)
+            => tags.ContainsKey(key);
 
-        public bool TryGetValue([NotNull] string key, out HerculesValue value) => tags.TryGetValue(key, out value);
+        public bool TryGetValue([NotNull] string key, out HerculesValue value)
+            => tags.TryGetValue(key, out value);
 
-        public IEnumerator<KeyValuePair<string, HerculesValue>> GetEnumerator() => tags.GetEnumerator();
+        public IEnumerator<KeyValuePair<string, HerculesValue>> GetEnumerator()
+            => tags.GetEnumerator();
+
+        /// <summary>
+        /// <para>Returns the value of tag with given <paramref name="key"/>.</para>
+        /// <para>Throws a <see cref="KeyNotFoundException"/> if no such tag exists.</para>
+        /// </summary>
+        [NotNull]
+        public HerculesValue GetValue([NotNull] string key)
+            => tags.TryGetValue(key, out var value) ? value : throw new KeyNotFoundException($"Tag with name '{key}' does not exist in this Hercules container.");
 
         /// <summary>
         /// <para>Returns the value of tag with given <paramref name="key"/> or <c>null</c> if no such tag exists.</para>
         /// <para>Does not throw exceptions.</para>
         /// </summary>
         [CanBeNull]
-        public HerculesValue this[[NotNull] string key] => tags.TryGetValue(key, out var value) ? value : null;
+        public HerculesValue this[[NotNull] string key]
+            => tags.TryGetValue(key, out var value) ? value : null;
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
