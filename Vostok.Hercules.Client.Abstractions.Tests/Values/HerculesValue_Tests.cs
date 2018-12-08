@@ -3,7 +3,6 @@ using System.Linq;
 using System.Reflection;
 using FluentAssertions;
 using NUnit.Framework;
-using Vostok.Hercules.Client.Abstractions.Events;
 using Vostok.Hercules.Client.Abstractions.Values;
 
 namespace Vostok.Hercules.Client.Abstractions.Tests.Values
@@ -81,33 +80,7 @@ namespace Vostok.Hercules.Client.Abstractions.Tests.Values
 
         private static Type GetTypeByHerculesType(HerculesValueType type)
         {
-            switch (type)
-            {
-                case HerculesValueType.Byte:
-                    return typeof(byte);
-                case HerculesValueType.Short:
-                    return typeof(short);
-                case HerculesValueType.Int:
-                    return typeof(int);
-                case HerculesValueType.Long:
-                    return typeof(long);
-                case HerculesValueType.Bool:
-                    return typeof(bool);
-                case HerculesValueType.Float:
-                    return typeof(float);
-                case HerculesValueType.Double:
-                    return typeof(double);
-                case HerculesValueType.Guid:
-                    return typeof(Guid);
-                case HerculesValueType.String:
-                    return typeof(string);
-                case HerculesValueType.Vector:
-                    return typeof(HerculesVector);
-                case HerculesValueType.Container:
-                    return typeof(HerculesTags);
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
-            }
+            return HerculesValueHelpers.TryMapToRuntimeType(type) ?? throw new ArgumentException($"Unknown Hercules value type: '{type}'", nameof(type));
         }
     }
 }

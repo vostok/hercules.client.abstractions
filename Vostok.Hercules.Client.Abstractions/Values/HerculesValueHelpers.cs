@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Vostok.Hercules.Client.Abstractions.Events;
 
 namespace Vostok.Hercules.Client.Abstractions.Values
@@ -21,8 +22,14 @@ namespace Vostok.Hercules.Client.Abstractions.Values
             [typeof(HerculesTags)] = HerculesValueType.Container
         };
 
+        private static readonly Dictionary<HerculesValueType, Type> ReverseMapping
+            = TypeMapping.ToDictionary(pair => pair.Value, pair => pair.Key);
+
         public static HerculesValueType? TryMapToHerculesType(Type type)
             => TypeMapping.TryGetValue(type, out var herculesType) ? herculesType as HerculesValueType? : null;
+
+        public static Type TryMapToRuntimeType(HerculesValueType type)
+            => ReverseMapping.TryGetValue(type, out var runtimeType) ? runtimeType : null;
 
         public static HerculesValueType ThrowNotSupportedException(Type type)
             => throw new NotSupportedException($"Type '{type.Name}' cannot be mapped to Hercules value type.");
