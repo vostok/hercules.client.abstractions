@@ -20,6 +20,8 @@ namespace Vostok.Hercules.Client.Abstractions.Events
             this.tags = tags;
         }
 
+        public int Count => tags.Count;
+
         public bool ContainsKey([NotNull] string key) => tags.ContainsKey(key);
 
         public bool TryGetValue([NotNull] string key, out HerculesValue value) => tags.TryGetValue(key, out value);
