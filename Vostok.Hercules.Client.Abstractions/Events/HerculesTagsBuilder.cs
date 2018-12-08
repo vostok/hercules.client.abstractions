@@ -15,15 +15,12 @@ namespace Vostok.Hercules.Client.Abstractions.Events
 
         public HerculesTags BuildTags() => new HerculesTags(tags);
 
-        public IHerculesTagsBuilder AddContainer(string key, Action<IHerculesTagsBuilder> valueBuilder) 
+        public IHerculesTagsBuilder AddContainer(string key, Action<IHerculesTagsBuilder> valueBuilder)
             => AddValueGeneric(key, BuildContainer(valueBuilder));
 
         public IHerculesTagsBuilder AddVectorOfContainers(string key, IReadOnlyList<Action<IHerculesTagsBuilder>> valueBuilders)
             => AddVectorGeneric(key, valueBuilders.Select(BuildContainer).ToArray());
 
-        private IHerculesTagsBuilder AddValueGeneric<T>(string key, T value) 
-            => Set(key, new HerculesValue<T>(value));
-        
         private static HerculesTags BuildContainer(Action<IHerculesTagsBuilder> valueBuilder)
         {
             var internalTagsBuilder = new HerculesTagsBuilder();
@@ -33,33 +30,17 @@ namespace Vostok.Hercules.Client.Abstractions.Events
             return internalTagsBuilder.BuildTags();
         }
 
+        private IHerculesTagsBuilder AddValueGeneric<T>(string key, T value)
+            => Set(key, new HerculesValue<T>(value));
+
+        private IHerculesTagsBuilder AddVectorGeneric<T>(string key, IReadOnlyList<T> values)
+            => Set(key, new HerculesValue<HerculesVector>(new HerculesVector<T>(values)));
+
         private HerculesTagsBuilder Set(string key, HerculesValue value)
         {
             tags = tags.Set(key, value);
 
             return this;
-        }
-
-        private IHerculesTagsBuilder AddVectorGeneric<T>(string key, IReadOnlyList<T> values)
-        {
-            if (values is T[] arr)
-                return AddVectorGeneric(key, arr);
-                
-            var array = new T[values.Count];
-            
-            for (var i = 0; i < array.Length; i++)
-                array[i] = values[i];
-            
-            return Set(key, new HerculesValue<HerculesVector>(new HerculesVector<T>(array)));
-        }
-        
-        private IHerculesTagsBuilder AddVectorGeneric<T>(string key, T[] values)
-        {
-            var array = new T[values.Length];
-            
-            Array.Copy(values, 0, array, 0, values.Length);
-            
-            return Set(key, new HerculesValue<HerculesVector>(new HerculesVector<T>(array)));
         }
     }
 }
