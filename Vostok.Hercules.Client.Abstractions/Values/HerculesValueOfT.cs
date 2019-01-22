@@ -35,5 +35,8 @@ namespace Vostok.Hercules.Client.Abstractions.Values
                 return TypedValue;
             }
         }
+
+        public override string ToString() =>
+            TypedValue?.ToString() ?? string.Empty;
     }
 }
