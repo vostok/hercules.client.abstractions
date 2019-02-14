@@ -24,5 +24,8 @@ namespace Vostok.Hercules.Client.Abstractions
 
         [ItemNotNull]
         Task<DeleteTimelineResult> DeleteTimelineAsync([NotNull] string name, TimeSpan timeout);
+
+        [ItemNotNull]
+        Task<HerculesResult<string[]>> ListStreamsAsync(TimeSpan timeout);
     }
 }

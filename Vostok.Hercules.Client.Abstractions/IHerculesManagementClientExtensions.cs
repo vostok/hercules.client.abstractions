@@ -31,5 +31,11 @@ namespace Vostok.Hercules.Client.Abstractions
         {
             return client.DeleteTimelineAsync(name, timeout).GetAwaiter().GetResult();
         }
+
+        public static HerculesResult<string[]> ListStreams(
+            [NotNull] this IHerculesManagementClient client, TimeSpan timeout)
+        {
+            return client.ListStreamsAsync(timeout).GetAwaiter().GetResult();
+        }
     }
 }
