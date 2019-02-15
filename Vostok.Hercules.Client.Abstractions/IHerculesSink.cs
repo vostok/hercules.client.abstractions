@@ -23,5 +23,10 @@ namespace Vostok.Hercules.Client.Abstractions
         /// <para>Builds a <see cref="HerculesEvent"/> using given <paramref name="buildEvent"/> delegate and queues it for delivery to given <paramref name="stream"/>.</para>
         /// </summary>
         void Put([NotNull] string stream, [NotNull] Action<IHerculesEventBuilder> buildEvent);
+
+        /// <summary>
+        /// <para>Sets per-stream settings for <see cref="stream"/>.</para>
+        /// </summary>
+        void ConfigureStream(string stream, StreamSettings settings);
     }
 }
