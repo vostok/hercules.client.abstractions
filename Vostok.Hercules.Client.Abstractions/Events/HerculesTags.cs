@@ -45,6 +45,8 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         public HerculesValue GetValue([NotNull] string key)
             => tags.TryGetValue(key, out var value) ? value : throw new KeyNotFoundException($"Tag with name '{key}' does not exist in this Hercules container.");
 
+        public override string ToString() => HerculesTagsRenderer.Render(this);
+
         /// <summary>
         /// <para>Returns the value of tag with given <paramref name="key"/> or <c>null</c> if no such tag exists.</para>
         /// <para>Does not throw exceptions.</para>

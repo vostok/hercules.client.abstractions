@@ -8,6 +8,8 @@ namespace Vostok.Hercules.Client.Abstractions.Values
     {
         public static readonly HerculesNull Instance = new HerculesNull();
 
+        public override string ToString() => "<null>";
+
         #region Equality
 
         public bool Equals(HerculesNull other) => true;

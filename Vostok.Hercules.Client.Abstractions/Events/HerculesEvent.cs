@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using JetBrains.Annotations;
 
 namespace Vostok.Hercules.Client.Abstractions.Events
@@ -20,6 +21,31 @@ namespace Vostok.Hercules.Client.Abstractions.Events
 
         [NotNull]
         public HerculesTags Tags { get; }
+
+        #region ToString
+
+        public override string ToString()
+        {
+            var builder = new StringBuilder();
+
+            builder.Append("Timestamp: ");
+            builder.AppendLine(Timestamp.ToString("u"));
+            builder.Append("Tags: ");
+
+            if (Tags.Count == 0)
+            {
+                builder.Append("{}");
+            }
+            else
+            {
+                builder.AppendLine();
+                builder.Append(HerculesTagsRenderer.Render(Tags));
+            }
+
+            return builder.ToString();
+        } 
+
+        #endregion
 
         #region Equality
 

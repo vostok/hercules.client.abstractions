@@ -26,6 +26,8 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         /// </summary>
         public abstract int Count { get; }
 
+        public override string ToString() => HerculesTagsRenderer.Render(this);
+
         private IReadOnlyList<TValue> As<TValue>()
         {
             if (this is HerculesVector<TValue> typedVector)

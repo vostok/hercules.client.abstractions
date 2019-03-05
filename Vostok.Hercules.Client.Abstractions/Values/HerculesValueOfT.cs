@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -39,7 +38,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         }
 
         public override string ToString() =>
-            TypedValue?.ToString() ?? string.Empty;
+            TypedValue?.ToString() ?? "<null>";
 
         #region Equality
 
