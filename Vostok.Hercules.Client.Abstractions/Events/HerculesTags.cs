@@ -9,7 +9,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
     /// Represents an immutable key-value collection of tags, mapping case-sensitive string keys to <see cref="HerculesValue"/>s.
     /// </summary>
     [PublicAPI]
-    public class HerculesTags : IEnumerable<KeyValuePair<string, HerculesValue>>
+    public class HerculesTags : IReadOnlyDictionary<string, HerculesValue>
     {
         public static readonly HerculesTags Empty = new HerculesTags(new Dictionary<string, HerculesValue>());
 
@@ -22,10 +22,14 @@ namespace Vostok.Hercules.Client.Abstractions.Events
 
         public int Count => tags.Count;
 
+        public IEnumerable<string> Keys => tags.Keys;
+
+        public IEnumerable<HerculesValue> Values => tags.Values;
+
         public bool ContainsKey([NotNull] string key)
             => tags.ContainsKey(key);
 
-        public bool TryGetValue([NotNull] string key, out HerculesValue value)
+        public bool TryGetValue(string key, out HerculesValue value)
             => tags.TryGetValue(key, out value);
 
         public IEnumerator<KeyValuePair<string, HerculesValue>> GetEnumerator()
