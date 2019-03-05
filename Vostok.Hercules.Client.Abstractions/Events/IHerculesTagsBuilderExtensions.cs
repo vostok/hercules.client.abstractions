@@ -65,13 +65,13 @@ namespace Vostok.Hercules.Client.Abstractions.Events
                 case HerculesValueType.String:
                     builder.AddVector(key, vector.AsStringList);
                     break;
-                case HerculesValueType.Vector:
-                    throw new NotImplementedException("Support of nested vectors is not implemented.");
                 case HerculesValueType.Container:
                     builder.AddVectorOfContainers(key, vector.AsContainerList, (tagsBuilder, tags) => tagsBuilder.AddTags(tags));
                     break;
+                case HerculesValueType.Vector:
+                    throw new NotSupportedException("Support of nested vectors is not implemented.");
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(nameof(vector.ElementType), vector.ElementType, "Unknown vector element type.");
             }
 
             return builder;
