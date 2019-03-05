@@ -72,6 +72,17 @@ namespace Vostok.Hercules.Client.Abstractions.Tests.Values
             value.Value.Should().Be(150);
         }
 
+        [Test]
+        public void Should_have_target_type_name_in_InvalidCastException_message_thrown_by_As_method()
+        {
+            var value = new HerculesValue<int>(150);
+
+            new Action(() => value.AsLong.GetHashCode())
+                .Should()
+                .Throw<InvalidCastException>()
+                .Where(x => x.Message.Contains(typeof(long).ToString()));
+        }
+
         private static HerculesValueType[] GetAllValueTypes()
         {
             return Enum

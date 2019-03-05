@@ -25,7 +25,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
             if (this is HerculesValue<TValue> typedValue)
                 return typedValue.TypedValue;
 
-            throw new InvalidCastException($"Value cannot be cast to '{nameof(TValue)}' due to being of type '{Type}'.");
+            throw new InvalidCastException($"Value cannot be cast to '{typeof(TValue)}' due to being of type '{Type}'.");
         }
     }
 }
