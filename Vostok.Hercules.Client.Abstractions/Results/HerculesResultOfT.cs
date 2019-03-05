@@ -19,6 +19,6 @@ namespace Vostok.Hercules.Client.Abstractions.Results
         /// <summary>
         /// Returns the payload, but only if this result <see cref="HerculesResult.IsSuccessful"/>. Otherwise, a <see cref="HerculesException"/> is thrown.
         /// </summary>
-        public TPayload Payload => ((HerculesResult<TPayload>) EnsureSuccess()).payload;
+        public TPayload Payload => ((HerculesResult<TPayload>)EnsureSuccess()).payload;
     }
 }

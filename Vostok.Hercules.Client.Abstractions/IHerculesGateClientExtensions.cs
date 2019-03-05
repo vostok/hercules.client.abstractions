@@ -11,7 +11,10 @@ namespace Vostok.Hercules.Client.Abstractions
     {
         [NotNull]
         public static InsertEventsResult Insert(
-            [NotNull] this IHerculesGateClient client, [NotNull] InsertEventsQuery query, TimeSpan timeout, CancellationToken cancellationToken = default)
+            [NotNull] this IHerculesGateClient client,
+            [NotNull] InsertEventsQuery query,
+            TimeSpan timeout,
+            CancellationToken cancellationToken = default)
         {
             return client.InsertAsync(query, timeout, cancellationToken).GetAwaiter().GetResult();
         }

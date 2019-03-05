@@ -10,7 +10,7 @@ namespace Vostok.Hercules.Client.Abstractions.Models
         /// <para>Base streams are filled by Hercules clients and can be used to build derived streams and timelines.</para>
         /// </summary>
         Base,
-        
+
         /// <summary>
         /// <para>Derived streams are automatically built from one or more base streams with optional filtering and resharding.</para>
         /// <para>Derived streams cannot be written to directly by clients.</para>

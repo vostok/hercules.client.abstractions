@@ -7,7 +7,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
     public partial interface IHerculesTagsBuilder
     {
         #region byte
-    
+
         /// <summary>
         /// <para>Adds a scalar tag with given <paramref name="key"/> and byte <paramref name="value"/> to the tags collection.</para>
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
@@ -27,7 +27,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         #endregion
 
         #region bool
-    
+
         /// <summary>
         /// <para>Adds a scalar tag with given <paramref name="key"/> and bool <paramref name="value"/> to the tags collection.</para>
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
@@ -47,7 +47,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         #endregion
 
         #region short
-    
+
         /// <summary>
         /// <para>Adds a scalar tag with given <paramref name="key"/> and short <paramref name="value"/> to the tags collection.</para>
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
@@ -67,7 +67,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         #endregion
 
         #region int
-    
+
         /// <summary>
         /// <para>Adds a scalar tag with given <paramref name="key"/> and int <paramref name="value"/> to the tags collection.</para>
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
@@ -87,7 +87,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         #endregion
 
         #region long
-    
+
         /// <summary>
         /// <para>Adds a scalar tag with given <paramref name="key"/> and long <paramref name="value"/> to the tags collection.</para>
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
@@ -107,7 +107,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         #endregion
 
         #region float
-    
+
         /// <summary>
         /// <para>Adds a scalar tag with given <paramref name="key"/> and float <paramref name="value"/> to the tags collection.</para>
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
@@ -127,7 +127,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         #endregion
 
         #region double
-    
+
         /// <summary>
         /// <para>Adds a scalar tag with given <paramref name="key"/> and double <paramref name="value"/> to the tags collection.</para>
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
@@ -147,7 +147,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         #endregion
 
         #region Guid
-    
+
         /// <summary>
         /// <para>Adds a scalar tag with given <paramref name="key"/> and Guid <paramref name="value"/> to the tags collection.</para>
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
@@ -167,7 +167,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         #endregion
 
         #region string
-    
+
         /// <summary>
         /// <para>Adds a scalar tag with given <paramref name="key"/> and string <paramref name="value"/> to the tags collection.</para>
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
@@ -185,6 +185,5 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         IHerculesTagsBuilder AddVector([NotNull] string key, [NotNull] IReadOnlyList<string> values);
 
         #endregion
-
     }
 }

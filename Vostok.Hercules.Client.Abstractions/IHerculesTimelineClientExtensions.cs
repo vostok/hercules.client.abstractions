@@ -14,14 +14,20 @@ namespace Vostok.Hercules.Client.Abstractions
     {
         [NotNull]
         public static ReadTimelineResult Read(
-            [NotNull] this IHerculesTimelineClient client, [NotNull] ReadTimelineQuery query, TimeSpan timeout, CancellationToken cancellationToken = default)
+            [NotNull] this IHerculesTimelineClient client,
+            [NotNull] ReadTimelineQuery query,
+            TimeSpan timeout,
+            CancellationToken cancellationToken = default)
         {
             return client.ReadAsync(query, timeout, cancellationToken).GetAwaiter().GetResult();
         }
 
         [NotNull]
         public static IEnumerable<HerculesEvent> Scan(
-            [NotNull] this IHerculesTimelineClient client, [NotNull] ScanTimelineQuery query, TimeSpan perRequestTimeout, CancellationToken cancellationToken = default)
+            [NotNull] this IHerculesTimelineClient client,
+            [NotNull] ScanTimelineQuery query,
+            TimeSpan perRequestTimeout,
+            CancellationToken cancellationToken = default)
         {
             var nextCoordinates = TimelineCoordinates.Empty;
 

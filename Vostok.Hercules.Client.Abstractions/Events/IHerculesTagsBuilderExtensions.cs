@@ -73,10 +73,10 @@ namespace Vostok.Hercules.Client.Abstractions.Events
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            
+
             return builder;
         }
-        
+
         /// <summary>
         /// <para>Adds tags from existing <see cref="HerculesTags"/> <paramref name="tags"/> to <paramref name="builder"/>.</para>
         /// <para>Conflict resolution (behaviour when a tag with such name already exists) is implementation-specific.</para>
@@ -90,7 +90,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
             {
                 var key = tag.Key;
                 var value = tag.Value;
-                
+
                 switch (value.Type)
                 {
                     case HerculesValueType.Byte:
@@ -130,7 +130,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
                         throw new ArgumentOutOfRangeException(nameof(value.Type), value.Type, "Unknown tag type.");
                 }
             }
-            
+
             return builder;
         }
     }

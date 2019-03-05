@@ -10,7 +10,7 @@ namespace Vostok.Hercules.Client.Abstractions.Results
         {
         }
 
-        public override bool IsSuccessful 
+        public override bool IsSuccessful
             => Status == HerculesStatus.Success || Status == HerculesStatus.StreamNotFound;
     }
 }

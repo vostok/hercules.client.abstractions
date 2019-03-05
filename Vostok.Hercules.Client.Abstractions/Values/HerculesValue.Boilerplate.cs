@@ -184,6 +184,5 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public HerculesNull AsNull => As<HerculesNull>();
 
         #endregion
-
     }
 }

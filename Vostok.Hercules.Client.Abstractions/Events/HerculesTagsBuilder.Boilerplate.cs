@@ -8,7 +8,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         #region bool
 
         public IHerculesTagsBuilder AddValue(string key, bool value) => AddValueGeneric(key, value);
-        
+
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<bool> values) => AddVectorGeneric(key, values);
 
         #endregion
@@ -16,7 +16,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         #region byte
 
         public IHerculesTagsBuilder AddValue(string key, byte value) => AddValueGeneric(key, value);
-        
+
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<byte> values) => AddVectorGeneric(key, values);
 
         #endregion
@@ -24,7 +24,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         #region short
 
         public IHerculesTagsBuilder AddValue(string key, short value) => AddValueGeneric(key, value);
-        
+
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<short> values) => AddVectorGeneric(key, values);
 
         #endregion
@@ -32,7 +32,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         #region int
 
         public IHerculesTagsBuilder AddValue(string key, int value) => AddValueGeneric(key, value);
-        
+
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<int> values) => AddVectorGeneric(key, values);
 
         #endregion
@@ -40,7 +40,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         #region long
 
         public IHerculesTagsBuilder AddValue(string key, long value) => AddValueGeneric(key, value);
-        
+
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<long> values) => AddVectorGeneric(key, values);
 
         #endregion
@@ -48,7 +48,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         #region float
 
         public IHerculesTagsBuilder AddValue(string key, float value) => AddValueGeneric(key, value);
-        
+
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<float> values) => AddVectorGeneric(key, values);
 
         #endregion
@@ -56,7 +56,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         #region double
 
         public IHerculesTagsBuilder AddValue(string key, double value) => AddValueGeneric(key, value);
-        
+
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<double> values) => AddVectorGeneric(key, values);
 
         #endregion
@@ -64,7 +64,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         #region Guid
 
         public IHerculesTagsBuilder AddValue(string key, Guid value) => AddValueGeneric(key, value);
-        
+
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<Guid> values) => AddVectorGeneric(key, values);
 
         #endregion
@@ -72,10 +72,9 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         #region string
 
         public IHerculesTagsBuilder AddValue(string key, string value) => AddValueGeneric(key, value);
-        
+
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<string> values) => AddVectorGeneric(key, values);
 
         #endregion
-
     }
 }

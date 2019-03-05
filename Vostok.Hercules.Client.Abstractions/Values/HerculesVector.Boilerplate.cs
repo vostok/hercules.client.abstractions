@@ -8,7 +8,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
     public abstract partial class HerculesVector
     {
         #region bool
-        
+
         /// <summary>
         /// Returns <c>true</c> if this vector's elements are of <see cref="HerculesValueType.Bool"/> type, or <c>false</c> otherwise.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         #endregion
 
         #region byte
-        
+
         /// <summary>
         /// Returns <c>true</c> if this vector's elements are of <see cref="HerculesValueType.Byte"/> type, or <c>false</c> otherwise.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         #endregion
 
         #region short
-        
+
         /// <summary>
         /// Returns <c>true</c> if this vector's elements are of <see cref="HerculesValueType.Short"/> type, or <c>false</c> otherwise.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         #endregion
 
         #region int
-        
+
         /// <summary>
         /// Returns <c>true</c> if this vector's elements are of <see cref="HerculesValueType.Int"/> type, or <c>false</c> otherwise.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         #endregion
 
         #region long
-        
+
         /// <summary>
         /// Returns <c>true</c> if this vector's elements are of <see cref="HerculesValueType.Long"/> type, or <c>false</c> otherwise.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         #endregion
 
         #region float
-        
+
         /// <summary>
         /// Returns <c>true</c> if this vector's elements are of <see cref="HerculesValueType.Float"/> type, or <c>false</c> otherwise.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         #endregion
 
         #region double
-        
+
         /// <summary>
         /// Returns <c>true</c> if this vector's elements are of <see cref="HerculesValueType.Double"/> type, or <c>false</c> otherwise.
         /// </summary>
@@ -120,7 +120,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         #endregion
 
         #region Guid
-        
+
         /// <summary>
         /// Returns <c>true</c> if this vector's elements are of <see cref="HerculesValueType.Guid"/> type, or <c>false</c> otherwise.
         /// </summary>
@@ -136,7 +136,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         #endregion
 
         #region string
-        
+
         /// <summary>
         /// Returns <c>true</c> if this vector's elements are of <see cref="HerculesValueType.String"/> type, or <c>false</c> otherwise.
         /// </summary>
@@ -152,7 +152,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         #endregion
 
         #region HerculesVector
-        
+
         /// <summary>
         /// Returns <c>true</c> if this vector's elements are of <see cref="HerculesValueType.Vector"/> type, or <c>false</c> otherwise.
         /// </summary>
@@ -168,7 +168,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         #endregion
 
         #region HerculesTags
-        
+
         /// <summary>
         /// Returns <c>true</c> if this vector's elements are of <see cref="HerculesValueType.Container"/> type, or <c>false</c> otherwise.
         /// </summary>
@@ -182,6 +182,5 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public IReadOnlyList<HerculesTags> AsContainerList => As<HerculesTags>();
 
         #endregion
-
     }
 }
