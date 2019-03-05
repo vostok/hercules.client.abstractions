@@ -41,4 +41,4 @@ namespace Vostok.Hercules.Client.Abstractions
             instance = herculesSink ?? throw new ArgumentNullException(nameof(herculesSink));
         }
     }
-} 
+}

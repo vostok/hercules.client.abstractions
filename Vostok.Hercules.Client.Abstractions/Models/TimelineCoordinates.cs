@@ -8,7 +8,7 @@ namespace Vostok.Hercules.Client.Abstractions.Models
     [PublicAPI]
     public class TimelineCoordinates
     {
-        public static readonly TimelineCoordinates Empty = new TimelineCoordinates(new TimelinePosition[] { });
+        public static readonly TimelineCoordinates Empty = new TimelineCoordinates(new TimelinePosition[] {});
 
         public TimelineCoordinates([NotNull] TimelinePosition[] positions)
         {

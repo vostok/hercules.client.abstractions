@@ -11,7 +11,7 @@ namespace Vostok.Hercules.Client.Abstractions.Results
     public class ReadTimelinePayload
     {
         public ReadTimelinePayload(
-            [NotNull] IList<HerculesEvent> events, 
+            [NotNull] IList<HerculesEvent> events,
             [NotNull] TimelineCoordinates next)
         {
             Events = events ?? throw new ArgumentNullException(nameof(events));

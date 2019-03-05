@@ -24,7 +24,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         #region <#=type #>
 
         public IHerculesTagsBuilder AddValue(string key, <#=type #> value) => AddValueGeneric(key, value);
-        
+
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<<#=type #>> values) => AddVectorGeneric(key, values);
 
         #endregion

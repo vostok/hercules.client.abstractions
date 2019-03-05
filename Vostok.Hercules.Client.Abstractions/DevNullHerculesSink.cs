@@ -10,7 +10,13 @@ namespace Vostok.Hercules.Client.Abstractions
     [PublicAPI]
     public class DevNullHerculesSink : IHerculesSink
     {
+        /// <inheritdoc />
         public void Put(string stream, Action<IHerculesEventBuilder> buildEvent)
+        {
+        }
+
+        /// <inheritdoc />
+        public void ConfigureStream(string stream, StreamSettings settings)
         {
         }
     }

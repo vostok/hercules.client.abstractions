@@ -11,7 +11,7 @@ namespace Vostok.Hercules.Client.Abstractions.Results
     public class ReadStreamPayload
     {
         public ReadStreamPayload(
-            [NotNull] IList<HerculesEvent> events, 
+            [NotNull] IList<HerculesEvent> events,
             [NotNull] StreamCoordinates next)
         {
             Events = events ?? throw new ArgumentNullException(nameof(events));
