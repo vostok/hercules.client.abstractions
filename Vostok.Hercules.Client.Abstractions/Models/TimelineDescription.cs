@@ -39,12 +39,14 @@ namespace Vostok.Hercules.Client.Abstractions.Models
         /// <para>When <c>null</c> or empty, events are distributed randomly between slices.</para>
         /// </summary>
         [CanBeNull]
+        [ItemNotNull]
         public string[] ShardingKey { get; set; }
 
         /// <summary>
         /// <para>Names of all streams used as data sources for this timeline.</para>
         /// </summary>
         [CanBeNull]
+        [ItemNotNull]
         public string[] Sources { get; set; }
     }
 }

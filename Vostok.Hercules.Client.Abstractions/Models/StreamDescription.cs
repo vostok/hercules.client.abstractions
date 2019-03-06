@@ -39,6 +39,7 @@ namespace Vostok.Hercules.Client.Abstractions.Models
         /// <para>When <c>null</c> or empty, events are distributed randomly between partitions.</para>
         /// </summary>
         [CanBeNull]
+        [ItemNotNull]
         public string[] ShardingKey { get; set; }
 
         /// <summary>
@@ -46,6 +47,7 @@ namespace Vostok.Hercules.Client.Abstractions.Models
         /// <para>Only relevant for <see cref="StreamType.Derived"/> streams.</para>
         /// </summary>
         [CanBeNull]
+        [ItemNotNull]
         public string[] Sources { get; set; }
     }
 }
