@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
+using Vostok.Hercules.Client.Abstractions.Models;
 using Vostok.Hercules.Client.Abstractions.Queries;
 using Vostok.Hercules.Client.Abstractions.Results;
 
@@ -26,6 +27,15 @@ namespace Vostok.Hercules.Client.Abstractions
         Task<DeleteTimelineResult> DeleteTimelineAsync([NotNull] string name, TimeSpan timeout);
 
         [ItemNotNull]
+        Task<HerculesResult<StreamDescription>> GetStreamDescriptionAsync([NotNull] string name, TimeSpan timeout);
+
+        [ItemNotNull]
+        Task<HerculesResult<TimelineDescription>> GetTimelineDescriptionAsync ([NotNull] string name, TimeSpan timeout);
+
+        [ItemNotNull]
         Task<HerculesResult<string[]>> ListStreamsAsync(TimeSpan timeout);
+
+        [ItemNotNull]
+        Task<HerculesResult<string[]>> ListTimelinesAsync(TimeSpan timeout);
     }
 }

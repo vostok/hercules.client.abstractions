@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using Vostok.Hercules.Client.Abstractions.Models;
 using Vostok.Hercules.Client.Abstractions.Queries;
 using Vostok.Hercules.Client.Abstractions.Results;
 
@@ -40,11 +41,35 @@ namespace Vostok.Hercules.Client.Abstractions
             return client.DeleteTimelineAsync(name, timeout).GetAwaiter().GetResult();
         }
 
+        public static HerculesResult<StreamDescription> GetStreamDescriptionAsync(
+            [NotNull] this IHerculesManagementClient client,
+            [NotNull] string name,
+            TimeSpan timeout)
+        {
+            return client.GetStreamDescriptionAsync(name, timeout).GetAwaiter().GetResult();
+        }
+
+        public static HerculesResult<TimelineDescription> GetTimelineDescriptionAsync(
+            [NotNull] this IHerculesManagementClient client,
+            [NotNull] string name,
+            TimeSpan timeout)
+        {
+            return client.GetTimelineDescriptionAsync(name, timeout).GetAwaiter().GetResult();
+        }
+
+
         public static HerculesResult<string[]> ListStreams(
             [NotNull] this IHerculesManagementClient client,
             TimeSpan timeout)
         {
             return client.ListStreamsAsync(timeout).GetAwaiter().GetResult();
+        }
+
+        public static HerculesResult<string[]> ListTimelinesAsync(
+            [NotNull] this IHerculesManagementClient client,
+            TimeSpan timeout)
+        {
+            return client.ListTimelinesAsync(timeout).GetAwaiter().GetResult();
         }
     }
 }
