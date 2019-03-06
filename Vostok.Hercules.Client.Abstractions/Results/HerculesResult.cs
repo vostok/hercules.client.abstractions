@@ -8,12 +8,16 @@ namespace Vostok.Hercules.Client.Abstractions.Results
     [PublicAPI]
     public class HerculesResult
     {
-        public HerculesResult(HerculesStatus status)
+        public HerculesResult(HerculesStatus status, [CanBeNull] string errorDetails = null)
         {
             Status = status;
+            ErrorDetails = errorDetails;
         }
 
         public HerculesStatus Status { get; }
+
+        [CanBeNull]
+        public string ErrorDetails { get; }
 
         /// <summary>
         /// Returns <c>true</c> if operation completed successfully or <c>false</c> otherwise.
@@ -26,7 +30,7 @@ namespace Vostok.Hercules.Client.Abstractions.Results
         public HerculesResult EnsureSuccess()
         {
             if (!IsSuccessful)
-                throw new HerculesException(Status);
+                throw new HerculesException(Status, ErrorDetails);
 
             return this;
         }

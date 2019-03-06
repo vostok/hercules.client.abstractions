@@ -5,8 +5,8 @@ namespace Vostok.Hercules.Client.Abstractions.Results
     [PublicAPI]
     public class DeleteStreamResult : HerculesResult
     {
-        public DeleteStreamResult(HerculesStatus status)
-            : base(status)
+        public DeleteStreamResult(HerculesStatus status, [CanBeNull] string errorDetails = null)
+            : base(status, errorDetails)
         {
         }
 

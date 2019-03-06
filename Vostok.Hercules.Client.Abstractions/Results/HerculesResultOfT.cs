@@ -10,8 +10,8 @@ namespace Vostok.Hercules.Client.Abstractions.Results
     {
         private readonly TPayload payload;
 
-        public HerculesResult(HerculesStatus status, TPayload payload)
-            : base(status)
+        public HerculesResult(HerculesStatus status, TPayload payload, [CanBeNull] string errorDetails = null)
+            : base(status, errorDetails)
         {
             this.payload = payload;
         }
