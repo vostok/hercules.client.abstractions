@@ -1,6 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
 using Vostok.Hercules.Client.Abstractions.Events;
+using Vostok.Hercules.Client.Abstractions.Models;
 
 namespace Vostok.Hercules.Client.Abstractions
 {
@@ -27,6 +28,6 @@ namespace Vostok.Hercules.Client.Abstractions
         /// <summary>
         /// <para>Sets per-stream settings for <see cref="stream"/>.</para>
         /// </summary>
-        void ConfigureStream(string stream, StreamSettings settings);
+        void ConfigureStream([NotNull] string stream, [NotNull] StreamSettings settings);
     }
 }
