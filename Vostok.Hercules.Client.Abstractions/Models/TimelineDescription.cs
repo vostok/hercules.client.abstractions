@@ -44,6 +44,7 @@ namespace Vostok.Hercules.Client.Abstractions.Models
 
         /// <summary>
         /// <para>Names of all streams used as data sources for this timeline.</para>
+        /// <para>Timeline should have at least one source stream.</para>
         /// </summary>
         [CanBeNull]
         [ItemNotNull]

@@ -7,6 +7,10 @@ namespace Vostok.Hercules.Client.Abstractions.Queries
     [PublicAPI]
     public class CreateTimelineQuery
     {
+        /// <param name="name">Unique name of the timeline. See: <see cref="Name"/>.</param>
+        /// <param name="sources">Names of all streams used as data sources for this timeline. Timeline should have at least one source stream.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="name"/> or <paramref name="sources"/> is null.</exception>
+        /// <exception cref="ArgumentException"><paramref name="sources"/> is empty.</exception>
         public CreateTimelineQuery([NotNull] string name, [NotNull] [ItemNotNull] string[] sources)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));

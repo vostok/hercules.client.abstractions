@@ -8,6 +8,8 @@ namespace Vostok.Hercules.Client.Abstractions.Queries
     public class CreateStreamQuery
     {
         /// <param name="name">Unique name of the stream. See: <see cref="Name"/>.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="name"/> is null.</exception>
+
         public CreateStreamQuery([NotNull] string name)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
