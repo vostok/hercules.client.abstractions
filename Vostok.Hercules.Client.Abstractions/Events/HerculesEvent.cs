@@ -43,7 +43,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
             }
 
             return builder.ToString();
-        } 
+        }
 
         #endregion
 

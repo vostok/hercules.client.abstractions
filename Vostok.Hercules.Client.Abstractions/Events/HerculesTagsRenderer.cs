@@ -63,7 +63,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
                     .Append(Colon)
                     .Append(Space);
 
-
                 if (HasChildren(pair.Value))
                 {
                     builder.AppendLine();

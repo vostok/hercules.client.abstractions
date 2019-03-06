@@ -52,7 +52,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         {
             unchecked
             {
-                return TypedElements.Aggregate(TypedElements.Count, (current, element) => current * 397 ^ (element?.GetHashCode() ?? 0));
+                return TypedElements.Aggregate(TypedElements.Count, (current, element) => (current * 397) ^ (element?.GetHashCode() ?? 0));
             }
         }
 

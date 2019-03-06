@@ -56,7 +56,7 @@ namespace Vostok.Hercules.Client.Abstractions.Values
         public override bool Equals(object other)
             => Equals(other as HerculesValue<TValue>);
 
-        public override int GetHashCode() 
+        public override int GetHashCode()
             => TypedValue?.GetHashCode() ?? 0;
 
         #endregion
