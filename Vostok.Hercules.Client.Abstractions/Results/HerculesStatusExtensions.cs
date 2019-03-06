@@ -8,10 +8,8 @@ namespace Vostok.Hercules.Client.Abstractions.Results
         /// <summary>
         /// Returns <c>true</c> if given <paramref name="status"/> is <see cref="HerculesStatus.Success"/> or <c>false</c> otherwise.
         /// </summary>
-        public static bool IsSuccessful(this HerculesStatus status)
-        {
-            return status == HerculesStatus.Success;
-        }
+        public static bool IsSuccessful(this HerculesStatus status) =>
+            status == HerculesStatus.Success;
 
         /// <summary>
         /// Throws a <see cref="HerculesException"/> if given <paramref name="status"/> is not <see cref="IsSuccessful"/>.

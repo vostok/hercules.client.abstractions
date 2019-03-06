@@ -14,9 +14,7 @@ namespace Vostok.Hercules.Client.Abstractions
             [NotNull] this IHerculesGateClient client,
             [NotNull] InsertEventsQuery query,
             TimeSpan timeout,
-            CancellationToken cancellationToken = default)
-        {
-            return client.InsertAsync(query, timeout, cancellationToken).GetAwaiter().GetResult();
-        }
+            CancellationToken cancellationToken = default) =>
+            client.InsertAsync(query, timeout, cancellationToken).GetAwaiter().GetResult();
     }
 }
