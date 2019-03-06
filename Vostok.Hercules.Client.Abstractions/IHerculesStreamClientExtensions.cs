@@ -7,7 +7,7 @@ using Vostok.Hercules.Client.Abstractions.Results;
 namespace Vostok.Hercules.Client.Abstractions
 {
     [PublicAPI]
-    public static class IHerculesStreamClientExtensions
+    public static class HerculesStreamClientExtensions
     {
         [NotNull]
         public static ReadStreamResult Read(

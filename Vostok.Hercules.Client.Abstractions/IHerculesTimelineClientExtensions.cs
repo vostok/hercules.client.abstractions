@@ -10,7 +10,7 @@ using Vostok.Hercules.Client.Abstractions.Results;
 namespace Vostok.Hercules.Client.Abstractions
 {
     [PublicAPI]
-    public static class IHerculesTimelineClientExtensions
+    public static class HerculesTimelineClientExtensions
     {
         [NotNull]
         public static ReadTimelineResult Read(
