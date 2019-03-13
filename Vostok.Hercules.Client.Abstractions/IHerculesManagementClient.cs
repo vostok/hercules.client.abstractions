@@ -30,7 +30,7 @@ namespace Vostok.Hercules.Client.Abstractions
         Task<HerculesResult<StreamDescription>> GetStreamDescriptionAsync([NotNull] string name, TimeSpan timeout);
 
         [ItemNotNull]
-        Task<HerculesResult<TimelineDescription>> GetTimelineDescriptionAsync ([NotNull] string name, TimeSpan timeout);
+        Task<HerculesResult<TimelineDescription>> GetTimelineDescriptionAsync([NotNull] string name, TimeSpan timeout);
 
         [ItemNotNull]
         Task<HerculesResult<string[]>> ListStreamsAsync(TimeSpan timeout);
