@@ -33,13 +33,13 @@ namespace Vostok.Hercules.Client.Abstractions
             TimeSpan timeout) =>
             client.DeleteTimelineAsync(name, timeout).GetAwaiter().GetResult();
 
-        public static HerculesResult<StreamDescription> GetStreamDescriptionAsync(
+        public static HerculesResult<StreamDescription> GetStreamDescription(
             [NotNull] this IHerculesManagementClient client,
             [NotNull] string name,
             TimeSpan timeout) =>
             client.GetStreamDescriptionAsync(name, timeout).GetAwaiter().GetResult();
 
-        public static HerculesResult<TimelineDescription> GetTimelineDescriptionAsync(
+        public static HerculesResult<TimelineDescription> GetTimelineDescription(
             [NotNull] this IHerculesManagementClient client,
             [NotNull] string name,
             TimeSpan timeout) =>
@@ -50,9 +50,21 @@ namespace Vostok.Hercules.Client.Abstractions
             TimeSpan timeout) =>
             client.ListStreamsAsync(timeout).GetAwaiter().GetResult();
 
-        public static HerculesResult<string[]> ListTimelinesAsync(
+        public static HerculesResult<string[]> ListTimelines(
             [NotNull] this IHerculesManagementClient client,
             TimeSpan timeout) =>
             client.ListTimelinesAsync(timeout).GetAwaiter().GetResult();
+
+        public static bool StreamExists(
+            [NotNull] this IHerculesManagementClient client,
+            [NotNull] string name,
+            TimeSpan timeout) =>
+            GetStreamDescription(client, name, timeout).Payload != null;
+
+        public static bool TimelineExists(
+            [NotNull] this IHerculesManagementClient client,
+            [NotNull] string name,
+            TimeSpan timeout) =>
+            GetTimelineDescription(client, name, timeout).Payload != null;
     }
 }
