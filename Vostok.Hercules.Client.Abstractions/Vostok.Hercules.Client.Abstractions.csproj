@@ -16,16 +16,7 @@
 
   <PropertyGroup>
     <Title>Vostok.Hercules.Client.Abstractions</Title>
-    <Description>
-      Facade with main Hercules client interfaces and data model.
-      
-      Interfaces:
-       - IHerculesSink
-       - IHerculesGateClient
-       - IHerculesStreamClient
-       - IHerculesTimelineClient
-       - IHerculesManagementClient
-    </Description>
+    <Description>Facade with main Hercules client interfaces and data model.</Description>
   </PropertyGroup>
 
   <PropertyGroup>
