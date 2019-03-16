@@ -70,6 +70,16 @@ namespace Vostok.Hercules.Client.Abstractions.Results
         Timeout,
 
         /// <summary>
+        /// Operation has failed due to network-related error, such as connection failure.
+        /// </summary>
+        NetworkError,
+
+        /// <summary>
+        /// Operation has failed due to server-side error.
+        /// </summary>
+        ServerError,
+
+        /// <summary>
         /// Operation has failed due to unclassified error.
         /// </summary>
         UnknownError
