@@ -67,12 +67,12 @@ namespace Vostok.Hercules.Client.Abstractions
             [NotNull] this IHerculesManagementClient client,
             [NotNull] string name,
             TimeSpan timeout) =>
-            GetStreamDescription(client, name, timeout).Payload != null;
+            GetStreamDescription(client, name, timeout).IsSuccessful;
 
         public static bool TimelineExists(
             [NotNull] this IHerculesManagementClient client,
             [NotNull] string name,
             TimeSpan timeout) =>
-            GetTimelineDescription(client, name, timeout).Payload != null;
+            GetTimelineDescription(client, name, timeout).IsSuccessful;
     }
 }
