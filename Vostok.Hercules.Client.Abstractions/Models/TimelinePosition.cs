@@ -17,11 +17,11 @@ namespace Vostok.Hercules.Client.Abstractions.Models
         /// <summary>
         /// Event offset inside the slice.
         /// </summary>
-        public DateTimeOffset Offset;
+        public long Offset;
 
         /// <summary>
         /// Id of the last read event (used to resolve timestamp collisions).
         /// </summary>
-        public Guid EventId;
+        public byte[] EventId;
     }
 }
