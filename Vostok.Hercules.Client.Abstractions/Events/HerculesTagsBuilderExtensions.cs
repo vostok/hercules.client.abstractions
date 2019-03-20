@@ -68,6 +68,9 @@ namespace Vostok.Hercules.Client.Abstractions.Events
                 case HerculesValueType.Container:
                     builder.AddVectorOfContainers(key, vector.AsContainerList, (tagsBuilder, tags) => tagsBuilder.AddTags(tags));
                     break;
+                case HerculesValueType.Null:
+                    builder.AddNull(key);
+                    break;
                 case HerculesValueType.Vector:
                     throw new NotSupportedException("Support of nested vectors is not implemented.");
                 default:
@@ -103,7 +106,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
                         builder.AddValue(key, value.AsInt);
                         break;
                     case HerculesValueType.Long:
-                        builder.AddValue(key, value.AsShort);
+                        builder.AddValue(key, value.AsLong);
                         break;
                     case HerculesValueType.Bool:
                         builder.AddValue(key, value.AsBool);
@@ -125,6 +128,9 @@ namespace Vostok.Hercules.Client.Abstractions.Events
                         break;
                     case HerculesValueType.Container:
                         builder.AddContainer(key, tagsBuilder => tagsBuilder.AddTags(value.AsContainer));
+                        break;
+                    case HerculesValueType.Null:
+                        builder.AddNull(key);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException(nameof(value.Type), value.Type, "Unknown tag type.");
