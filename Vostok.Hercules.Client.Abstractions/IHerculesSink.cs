@@ -26,7 +26,7 @@ namespace Vostok.Hercules.Client.Abstractions
         void Put([NotNull] string stream, [NotNull] Action<IHerculesEventBuilder> buildEvent);
 
         /// <summary>
-        /// <para>Sets per-stream settings for <see cref="stream"/>.</para>
+        /// <para>Sets per-stream settings for <paramref paramref="stream"/>.</para>
         /// </summary>
         void ConfigureStream([NotNull] string stream, [NotNull] StreamSettings settings);
     }
