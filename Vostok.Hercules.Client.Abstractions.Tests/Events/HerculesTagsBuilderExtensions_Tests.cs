@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
 using Vostok.Hercules.Client.Abstractions.Events;
@@ -10,23 +11,76 @@ namespace Vostok.Hercules.Client.Abstractions.Tests.Events
         [Test]
         public void AddTags_should_copy_tags_from_other_HerculesTags()
         {
-            var builder1 = new HerculesTagsBuilder();
-            builder1
-                .AddValue("int", 1)
-                .AddVector("vec", new[] {2, 3, 4})
-                .AddContainer("tags", builder => builder.AddValue("v", 1))
-                .AddVectorOfContainers("tags-vec", new Action<IHerculesTagsBuilder>[] {b => b.AddValue("v", 2)});
+            var expectedEventBuilder = new HerculesTagsBuilder();
+            WriteTagsWithAllDataTypes(expectedEventBuilder);
 
-            var tags1 = builder1.BuildTags();
+            var expectedTags = expectedEventBuilder.BuildTags();
 
-            var builder2 = new HerculesTagsBuilder();
-            builder2.AddTags(tags1);
-            var tags2 = builder2.BuildTags();
+            var actualEventBuilder = new HerculesTagsBuilder();
+            actualEventBuilder.AddTags(expectedTags);
 
-            tags2["int"].AsInt.Should().Be(1);
-            tags2["vec"].AsVector.AsIntList.Should().BeEquivalentTo(new[] {2, 3, 4}, c => c.WithStrictOrdering());
-            tags2["tags"].AsContainer["v"].AsInt.Should().Be(1);
-            tags2["tags-vec"].AsVector.AsContainerList[0]["v"].AsInt.Should().Be(2);
+            var actualTags = actualEventBuilder.BuildTags();
+
+            actualTags.Equals(expectedTags).Should().BeTrue();
+        }
+
+        private void WriteTagsWithAllDataTypes(IHerculesTagsBuilder builder)
+        {
+            var guid = Guid.NewGuid();
+            var @bool = true;
+            var @byte = (byte)42;
+            var @double = Math.PI;
+            var @float = (float)@double;
+            var @int = int.MaxValue;
+            var @long = long.MinValue;
+            var @short = short.MinValue;
+            var @string = "dotnet";
+
+            var guidVec = new[] {Guid.NewGuid(), Guid.NewGuid()};
+            var boolVec = new[] {true, false};
+            var byteVec = new[] {(byte)42, (byte)25};
+            var doubleVec = new[] {Math.PI, Math.E};
+            var floatVec = doubleVec.Select(x => (float)x).ToArray();
+            var intVec = new[] {1337, 31337, int.MaxValue, int.MinValue};
+            var longVec = new[] {long.MaxValue, long.MinValue, (long)1e18 + 1};
+            var shortVec = new short[] {1000, 2000};
+            var stringVec = new[] {"dotnet", "hercules"};
+
+            builder
+                .AddNull("null")
+                .AddValue("guid", guid)
+                .AddValue("bool", @bool)
+                .AddValue("byte", @byte)
+                .AddValue("double", @double)
+                .AddValue("float", @float)
+                .AddValue("int", @int)
+                .AddValue("long", @long)
+                .AddValue("short", @short)
+                .AddValue("string", @string)
+                .AddVector("guidVec", guidVec)
+                .AddVector("boolVec", boolVec)
+                .AddVector("byteVec", byteVec)
+                .AddVector("doubleVec", doubleVec)
+                .AddVector("floatVec", floatVec)
+                .AddVector("intVec", intVec)
+                .AddVector("longVec", longVec)
+                .AddVector("shortVec", shortVec)
+                .AddVector("stringVec", stringVec)
+                .AddVector("emptyVec", new int[0])
+                .AddContainer(
+                    "container",
+                    b => b
+                        .AddValue("inner", "x")
+                        .AddVector("innerVec", new[] {1, 2, 3}))
+                .AddVectorOfContainers(
+                    "containerVec",
+                    new Action<IHerculesTagsBuilder>[]
+                    {
+                        b => b
+                            .AddValue("inner", "y")
+                            .AddVector("innerVec", new long[] {1, 3, 5})
+                    })
+                .AddVectorOfContainers("emptyContainerVec", new Action<IHerculesTagsBuilder>[0]);
         }
     }
 }
