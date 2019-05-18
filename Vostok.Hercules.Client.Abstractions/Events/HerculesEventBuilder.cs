@@ -8,6 +8,16 @@ namespace Vostok.Hercules.Client.Abstractions.Events
     {
         private DateTimeOffset eventTimestamp;
 
+        public HerculesEventBuilder()
+        {
+        }
+
+        public HerculesEventBuilder(HerculesEvent @event)
+            : base(@event.Tags)
+        {
+            eventTimestamp = @event.Timestamp;
+        }
+
         /// <returns>Resulting <see cref="HerculesEvent"/></returns>
         public HerculesEvent BuildEvent() => new HerculesEvent(eventTimestamp, BuildTags());
 

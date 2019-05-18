@@ -13,6 +13,16 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         private ImmutableArrayDictionary<string, HerculesValue> tags
             = ImmutableArrayDictionary<string, HerculesValue>.Empty;
 
+        public HerculesTagsBuilder()
+        {
+        }
+
+        public HerculesTagsBuilder(HerculesTags startingTags)
+        {
+            foreach (var pair in startingTags)
+                Set(pair.Key, pair.Value);
+        }
+
         public HerculesTags BuildTags() => new HerculesTags(tags);
 
         public IHerculesTagsBuilder AddContainer(string key, Action<IHerculesTagsBuilder> valueBuilder)
@@ -23,6 +33,9 @@ namespace Vostok.Hercules.Client.Abstractions.Events
 
         public IHerculesTagsBuilder AddNull(string key)
             => AddValueGeneric(key, HerculesNull.Instance);
+
+        public IHerculesTagsBuilder RemoveTags(string key)
+            => Remove(key);
 
         private static HerculesTags BuildContainer(Action<IHerculesTagsBuilder> valueBuilder)
         {
@@ -42,6 +55,13 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         private HerculesTagsBuilder Set(string key, HerculesValue value)
         {
             tags = tags.Set(key, value);
+
+            return this;
+        }
+
+        private HerculesTagsBuilder Remove(string key)
+        {
+            tags = tags.Remove(key);
 
             return this;
         }
