@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using Vostok.Commons.Helpers.Comparers;
 
@@ -20,6 +22,13 @@ namespace Vostok.Hercules.Client.Abstractions.Models
         /// </summary>
         [NotNull]
         public TimelinePosition[] Positions { get; }
+
+        /// <summary>
+        /// Returns <see cref="Positions"/> organized as a dictionary keyed by timeline slice index.
+        /// </summary>
+        [NotNull]
+        public Dictionary<int, TimelinePosition> ToDictionary()
+            => Positions.ToDictionary(position => position.Slice, position => position);
 
         #region Equality
 

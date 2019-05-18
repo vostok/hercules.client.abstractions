@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using Vostok.Commons.Helpers.Comparers;
 
@@ -20,6 +22,13 @@ namespace Vostok.Hercules.Client.Abstractions.Models
         /// </summary>
         [NotNull]
         public StreamPosition[] Positions { get; }
+
+        /// <summary>
+        /// Returns <see cref="Positions"/> organized as a dictionary keyed by stream partition index.
+        /// </summary>
+        [NotNull]
+        public Dictionary<int, StreamPosition> ToDictionary()
+            => Positions.ToDictionary(position => position.Partition, position => position);
 
         #region Equality
 
