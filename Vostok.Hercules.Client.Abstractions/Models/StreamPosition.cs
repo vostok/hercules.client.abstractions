@@ -21,9 +21,11 @@ namespace Vostok.Hercules.Client.Abstractions.Models
         /// </summary>
         public long Offset;
 
+        public override string ToString() => $"{Partition} --> {Offset}";
+
         #region Equality
 
-        public bool Equals(StreamPosition other) 
+        public bool Equals(StreamPosition other)
             => Partition == other.Partition && Offset == other.Offset;
 
         public override bool Equals(object obj)
@@ -35,7 +37,7 @@ namespace Vostok.Hercules.Client.Abstractions.Models
             {
                 return (Partition * 397) ^ Offset.GetHashCode();
             }
-        } 
+        }
 
         #endregion
     }

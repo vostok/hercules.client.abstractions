@@ -30,6 +30,8 @@ namespace Vostok.Hercules.Client.Abstractions.Models
         public Dictionary<int, StreamPosition> ToDictionary()
             => Positions.ToDictionary(position => position.Partition, position => position);
 
+        public override string ToString() => string.Join("; ", Positions);
+
         #region Equality
 
         public bool Equals(StreamCoordinates other)
