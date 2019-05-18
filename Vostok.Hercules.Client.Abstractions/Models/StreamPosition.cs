@@ -1,4 +1,7 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
+
+// ReSharper disable NonReadonlyMemberInGetHashCode
 
 namespace Vostok.Hercules.Client.Abstractions.Models
 {
@@ -6,7 +9,7 @@ namespace Vostok.Hercules.Client.Abstractions.Models
     /// Represents reader's position inside a single partition of a stream.
     /// </summary>
     [PublicAPI]
-    public struct StreamPosition
+    public struct StreamPosition : IEquatable<StreamPosition>
     {
         /// <summary>
         /// Zero-based partition index.
@@ -17,5 +20,23 @@ namespace Vostok.Hercules.Client.Abstractions.Models
         /// Event offset inside the partition.
         /// </summary>
         public long Offset;
+
+        #region Equality
+
+        public bool Equals(StreamPosition other) 
+            => Partition == other.Partition && Offset == other.Offset;
+
+        public override bool Equals(object obj)
+            => obj is StreamPosition other && Equals(other);
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (Partition * 397) ^ Offset.GetHashCode();
+            }
+        } 
+
+        #endregion
     }
 }
