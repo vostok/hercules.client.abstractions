@@ -16,7 +16,7 @@ namespace Vostok.Hercules.Client.Abstractions.Queries
         /// </summary>
         [NotNull]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// <para>Zero-based index of the client-side virtual shard.</para>
         /// <para>These shards are mapped into actual physical shards by Hercules.</para>

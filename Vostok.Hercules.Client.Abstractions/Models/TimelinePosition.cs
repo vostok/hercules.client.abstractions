@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using JetBrains.Annotations;
 using Vostok.Commons.Helpers.Comparers;
 
@@ -31,7 +30,7 @@ namespace Vostok.Hercules.Client.Abstractions.Models
         #region Equality 
 
         public bool Equals(TimelinePosition other) =>
-           Slice == other.Slice && Offset == other.Offset && ListComparer<byte>.Instance.Equals(EventId, other.EventId);
+            Slice == other.Slice && Offset == other.Offset && ListComparer<byte>.Instance.Equals(EventId, other.EventId);
 
         public override bool Equals(object obj)
             => obj is TimelinePosition other && Equals(other);
@@ -45,7 +44,7 @@ namespace Vostok.Hercules.Client.Abstractions.Models
                 hashCode = (hashCode * 397) ^ ListComparer<byte>.Instance.GetHashCode(EventId);
                 return hashCode;
             }
-        } 
+        }
 
         #endregion
     }
