@@ -16,5 +16,13 @@ namespace Vostok.Hercules.Client.Abstractions
             TimeSpan timeout,
             CancellationToken cancellationToken = default) =>
             client.ReadAsync(query, timeout, cancellationToken).GetAwaiter().GetResult();
+
+        [NotNull]
+        public static SeekToEndStreamResult SeekToEnd(
+            [NotNull] this IHerculesStreamClient client,
+            [NotNull] SeekToEndStreamQuery query,
+            TimeSpan timeout,
+            CancellationToken cancellationToken = default) =>
+            client.SeekToEndAsync(query, timeout, cancellationToken).GetAwaiter().GetResult();
     }
 }
