@@ -19,12 +19,12 @@ namespace Vostok.Hercules.Client.Abstractions.Queries
         /// Name of the <see cref="StreamType.Base"/> stream to insert to.
         /// </summary>
         [NotNull]
-        public string Stream { get; set; }
+        public string Stream { get; }
 
         /// <summary>
         /// Events to be inserted.
         /// </summary>
         [NotNull]
-        public IList<HerculesEvent> Events { get; set; }
+        public IList<HerculesEvent> Events { get; }
     }
 }

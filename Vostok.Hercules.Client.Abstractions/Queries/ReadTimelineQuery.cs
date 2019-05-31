@@ -17,7 +17,7 @@ namespace Vostok.Hercules.Client.Abstractions.Queries
         /// Name of timeline to read from.
         /// </summary>
         [NotNull]
-        public string Name { get; set; }
+        public string Name { get; }
 
         /// <summary>
         /// Left inclusive bound of the queried time range.

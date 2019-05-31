@@ -15,7 +15,7 @@ namespace Vostok.Hercules.Client.Abstractions.Queries
         /// Name of the stream to read from.
         /// </summary>
         [NotNull]
-        public string Name { get; set; }
+        public string Name { get; }
 
         /// <summary>
         /// <para>Zero-based index of the client-side virtual shard.</para>
