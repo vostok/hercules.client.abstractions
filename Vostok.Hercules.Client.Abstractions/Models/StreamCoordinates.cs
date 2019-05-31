@@ -30,7 +30,7 @@ namespace Vostok.Hercules.Client.Abstractions.Models
         public Dictionary<int, StreamPosition> ToDictionary()
             => Positions.ToDictionary(position => position.Partition, position => position);
 
-        public override string ToString() => string.Join("; ", Positions);
+        public override string ToString() => Positions.Length > 0 ? string.Join("; ", Positions) : "empty";
 
         #region Equality
 
