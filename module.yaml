@@ -9,7 +9,6 @@ notests *default:
     - Vostok.Hercules.Client.Abstractions/bin/Release/netstandard2.0/Vostok.Hercules.Client.Abstractions.dll
 
   deps:
-    - force: $CURRENT_BRANCH
     - vostok.devtools
     - vostok.commons.collections/src
     - vostok.commons.helpers/src
