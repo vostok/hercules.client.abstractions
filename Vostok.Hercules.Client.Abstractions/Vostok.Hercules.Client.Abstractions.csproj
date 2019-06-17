@@ -29,11 +29,20 @@
     <Compile Include="..\..\vostok.commons.helpers\Vostok.Commons.Helpers\Comparers\ListComparer.cs" Link="Commons\ListComparer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Events\DummyHerculesTagsBuilder.Boilerplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DummyHerculesTagsBuilder.Boilerplate.tt</DependentUpon>
+    </Compile>
     <Compile Update="Values\HerculesValue.Boilerplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>HerculesValue.Boilerplate.tt</DependentUpon>
     </Compile>
+    <None Update="Events\DummyHerculesTagsBuilder.Boilerplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DummyHerculesTagsBuilder.Boilerplate.cs</LastGenOutput>
+    </None>
     <None Update="Values\HerculesValue.Boilerplate.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>HerculesValue.Boilerplate.cs</LastGenOutput>
@@ -82,5 +91,8 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>IHerculesTagsBuilderExtensions.Boilerplate.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 </Project>
