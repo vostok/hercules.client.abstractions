@@ -10,7 +10,7 @@ namespace Vostok.Hercules.Client.Abstractions.Tests.Values
         [Test]
         public void Should_have_target_type_name_in_InvalidCastException_message_thrown_by_As_method()
         {
-            var value = new HerculesVector<int>(new []{1, 2, 3});
+            var value = new HerculesVector<int>(new[] {1, 2, 3});
 
             new Action(() => value.AsLongList.GetHashCode())
                 .Should()

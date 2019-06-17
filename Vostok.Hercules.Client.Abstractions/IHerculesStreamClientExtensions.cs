@@ -41,7 +41,7 @@ namespace Vostok.Hercules.Client.Abstractions
             {
                 this.client = client;
             }
-            
+
             public async Task<ReadStreamResult<HerculesEvent>> ReadAsync(ReadStreamQuery query, TimeSpan timeout, CancellationToken cancellationToken = default)
             {
                 var result = await client.ReadAsync(query, timeout, cancellationToken).ConfigureAwait(false);

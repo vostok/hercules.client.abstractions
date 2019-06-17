@@ -1,5 +1,3 @@
-
-
 using System;
 using System.Collections.Generic;
 
@@ -7,7 +5,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
 {
     public partial class DummyHerculesTagsBuilder
     {
-
         #region bool
 
         public IHerculesTagsBuilder AddValue(string key, bool value) => this;
@@ -15,7 +12,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<bool> values) => this;
 
         #endregion
-
 
         #region byte
 
@@ -25,7 +21,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
 
         #endregion
 
-
         #region short
 
         public IHerculesTagsBuilder AddValue(string key, short value) => this;
@@ -33,7 +28,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<short> values) => this;
 
         #endregion
-
 
         #region int
 
@@ -43,7 +37,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
 
         #endregion
 
-
         #region long
 
         public IHerculesTagsBuilder AddValue(string key, long value) => this;
@@ -51,7 +44,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<long> values) => this;
 
         #endregion
-
 
         #region float
 
@@ -61,7 +53,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
 
         #endregion
 
-
         #region double
 
         public IHerculesTagsBuilder AddValue(string key, double value) => this;
@@ -69,7 +60,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<double> values) => this;
 
         #endregion
-
 
         #region Guid
 
@@ -79,7 +69,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
 
         #endregion
 
-
         #region string
 
         public IHerculesTagsBuilder AddValue(string key, string value) => this;
@@ -87,7 +76,5 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<string> values) => this;
 
         #endregion
-
-
     }
 }

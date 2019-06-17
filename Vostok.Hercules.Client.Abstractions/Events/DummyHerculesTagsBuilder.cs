@@ -19,6 +19,7 @@ namespace Vostok.Hercules.Client.Abstractions.Events
             {
                 valueBuilder(this);
             }
+
             return this;
         }
 
