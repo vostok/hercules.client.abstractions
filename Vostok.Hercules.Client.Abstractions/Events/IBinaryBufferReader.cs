@@ -3,7 +3,7 @@
 namespace Vostok.Hercules.Client.Abstractions.Events
 {
     [PublicAPI]
-    public interface IBinaryBuffer
+    public interface IBinaryBufferReader
     {
         byte[] Buffer { get; }
         long Position { get; set; }
