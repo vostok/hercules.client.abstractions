@@ -16,7 +16,8 @@ namespace Vostok.Hercules.Client.Abstractions.Models
 
         public StreamCoordinates([NotNull] StreamPosition[] positions)
             => Positions = (positions ?? throw new ArgumentNullException(nameof(positions)))
-                .OrderBy(p => p.Partition).ToArray();
+                .OrderBy(p => p.Partition)
+                .ToArray();
 
         /// <summary>
         /// Positions in all known partitions.

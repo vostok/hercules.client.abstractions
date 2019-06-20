@@ -21,11 +21,9 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         /// <returns>Resulting <see cref="HerculesEvent"/></returns>
         public HerculesEvent BuildEvent() => new HerculesEvent(eventTimestamp, BuildTags());
 
-        /// <inheritdoc />
         public IHerculesEventBuilder SetTimestamp(DateTimeOffset timestamp)
         {
             eventTimestamp = timestamp;
-
             return this;
         }
     }
