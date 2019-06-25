@@ -8,6 +8,6 @@ Facade with main Hercules client interfaces and data model.
 Interfaces:
 - `IHerculesSink`
 - `IHerculesGateClient`
-- `IHerculesStreamClient`
+- `IHerculesStreamClient` and `IHerculesStreamClient<T>`
 - `IHerculesTimelineClient`
 - `IHerculesManagementClient`
