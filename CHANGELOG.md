@@ -1,3 +1,6 @@
+## 0.1.2 (25.06.2019):
+Added generic `IHerculesStreamClient<T>`.
+
 ## 0.1.1 (18.05.2019):
 
 * `HerculesEventBuilder` can now be initialized from a preexisting `HerculesEvent` instance.
