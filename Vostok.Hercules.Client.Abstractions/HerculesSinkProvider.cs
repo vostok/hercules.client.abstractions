@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using JetBrains.Annotations;
 
 namespace Vostok.Hercules.Client.Abstractions
@@ -35,10 +36,27 @@ namespace Vostok.Hercules.Client.Abstractions
         /// <exception cref="InvalidOperationException">Attempted to overwrite previously configured instance.</exception>
         public static void Configure([NotNull] IHerculesSink herculesSink, bool canOverwrite = false)
         {
-            if (!canOverwrite && instance != null)
+            if (!TryConfigure(herculesSink, canOverwrite))
                 throw new InvalidOperationException($"Can't overwrite existing configured Hercules sink implementation of type '{instance.GetType().Name}'.");
+        }
 
-            instance = herculesSink ?? throw new ArgumentNullException(nameof(herculesSink));
+        /// <summary>
+        /// <para>Configures the global default <see cref="IHerculesSink"/> with given instance, which will be returned by all subsequent <see cref="Get"/> calls.</para>
+        /// <para>By default, this method returns <c>false</c> when trying to overwrite a previously configured instance. This behaviour can be changed with <paramref name="canOverwrite"/> parameter.</para>
+        /// </summary>
+        /// <exception cref="ArgumentNullException">Provided instance was <c>null</c>.</exception>
+        public static bool TryConfigure([NotNull] IHerculesSink herculesSink, bool canOverwrite = false)
+        {
+            if (herculesSink == null)
+                throw new ArgumentNullException(nameof(herculesSink));
+
+            if (canOverwrite)
+            {
+                Interlocked.Exchange(ref instance, herculesSink);
+                return true;
+            }
+
+            return Interlocked.CompareExchange(ref instance, herculesSink, null) == null;
         }
     }
 }

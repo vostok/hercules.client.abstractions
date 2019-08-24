@@ -1,4 +1,9 @@
+## 0.1.3 (24.08.2019)
+
+`HerculesSinkProvider.Configure()` is now thread-safe.
+
 ## 0.1.2 (25.06.2019):
+
 Added generic `IHerculesStreamClient<T>`.
 
 ## 0.1.1 (18.05.2019):
