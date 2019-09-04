@@ -1,3 +1,7 @@
+## 0.1.4 (04-09-2019)
+
+Added generic `IHerculesTimelineClient<T>`.
+
 ## 0.1.3 (24.08.2019)
 
 `HerculesSinkProvider.Configure()` is now thread-safe.
