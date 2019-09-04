@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Vostok.Hercules.Client.Abstractions.Events;
-using Vostok.Hercules.Client.Abstractions.Models;
 using Vostok.Hercules.Client.Abstractions.Queries;
 using Vostok.Hercules.Client.Abstractions.Results;
 
 namespace Vostok.Hercules.Client.Abstractions
 {
     [PublicAPI]
-    public static class HerculesTimelineClientExtensions
+    public static class IHerculesTimelineClientExtensions
     {
         [NotNull]
         public static ReadTimelineResult Read(
@@ -25,33 +25,28 @@ namespace Vostok.Hercules.Client.Abstractions
             [NotNull] this IHerculesTimelineClient client,
             [NotNull] ScanTimelineQuery query,
             TimeSpan perRequestTimeout,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken = default) =>
+            client.ToGenericClient().Scan(query, perRequestTimeout, cancellationToken);
+
+        [NotNull]
+        public static IHerculesTimelineClient<HerculesEvent> ToGenericClient([NotNull] this IHerculesTimelineClient client)
         {
-            var nextCoordinates = TimelineCoordinates.Empty;
+            return new GenericAdapter(client);
+        }
 
-            while (true)
+        private class GenericAdapter : IHerculesTimelineClient<HerculesEvent>
+        {
+            private readonly IHerculesTimelineClient client;
+
+            public GenericAdapter(IHerculesTimelineClient client)
             {
-                var readQuery = new ReadTimelineQuery(query.Name)
-                {
-                    From = query.From,
-                    To = query.To,
-                    Limit = query.BatchSize,
-                    ClientShard = query.ClientShard,
-                    ClientShardCount = query.ClientShardCount,
-                    Coordinates = nextCoordinates
-                };
+                this.client = client;
+            }
 
-                var readPayload = client.Read(readQuery, perRequestTimeout, cancellationToken).Payload;
-
-                foreach (var @event in readPayload.Events)
-                {
-                    yield return @event;
-                }
-
-                if (readPayload.Events.Count < query.BatchSize)
-                    break;
-
-                nextCoordinates = readPayload.Next;
+            public async Task<ReadTimelineResult<HerculesEvent>> ReadAsync(ReadTimelineQuery query, TimeSpan timeout, CancellationToken cancellationToken = default)
+            {
+                var result = await client.ReadAsync(query, timeout, cancellationToken).ConfigureAwait(false);
+                return result.ToGenericResult();
             }
         }
     }
