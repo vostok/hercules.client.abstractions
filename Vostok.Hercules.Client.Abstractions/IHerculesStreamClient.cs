@@ -19,6 +19,9 @@ namespace Vostok.Hercules.Client.Abstractions
         Task<ReadStreamResult> ReadAsync([NotNull] ReadStreamQuery query, TimeSpan timeout, CancellationToken cancellationToken = default);
 
         [ItemNotNull]
+        Task<ReadStreamIEnumerableResult> ReadIEnumerableAsync([NotNull] ReadStreamQuery query, TimeSpan timeout, CancellationToken cancellationToken = default);
+
+        [ItemNotNull]
         Task<SeekToEndStreamResult> SeekToEndAsync([NotNull] SeekToEndStreamQuery query, TimeSpan timeout, CancellationToken cancellationToken = default);
     }
 }
