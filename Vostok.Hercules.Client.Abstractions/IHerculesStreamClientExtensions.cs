@@ -52,7 +52,7 @@ namespace Vostok.Hercules.Client.Abstractions
                 await client.ReadAsync(query, timeout, cancellationToken).ConfigureAwait(false);
 
             public async Task<ReadStreamIEnumerableResult<HerculesEvent>> ReadIEnumerableAsync(ReadStreamQuery query, TimeSpan timeout, CancellationToken cancellationToken = default) =>
-                await client.ReadIEnumerableAsync(query, timeout, cancellationToken);
+                await client.ReadIEnumerableAsync(query, timeout, cancellationToken).ConfigureAwait(false);
 
             public Task<SeekToEndStreamResult> SeekToEndAsync(SeekToEndStreamQuery query, TimeSpan timeout, CancellationToken cancellationToken = default) =>
                 client.SeekToEndAsync(query, timeout, cancellationToken);

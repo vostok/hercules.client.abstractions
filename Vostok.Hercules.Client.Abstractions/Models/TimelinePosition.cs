@@ -27,7 +27,7 @@ namespace Vostok.Hercules.Client.Abstractions.Models
         /// </summary>
         public byte[] EventId;
 
-        #region Equality 
+        #region Equality
 
         public bool Equals(TimelinePosition other) =>
             Slice == other.Slice && Offset == other.Offset && ListComparer<byte>.Instance.Equals(EventId, other.EventId);
