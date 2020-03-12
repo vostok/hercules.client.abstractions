@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
 using Vostok.Hercules.Client.Abstractions.Events;
 
 namespace Vostok.Hercules.Client.Abstractions.Results
@@ -16,14 +17,8 @@ namespace Vostok.Hercules.Client.Abstractions.Results
                 : new ReadTimelineResult(result.Status, null, result.ErrorDetails);
         }
 
-        public static ReadTimelineResult<HerculesEvent> ToGenericResult(this ReadTimelineResult result)
-        {
-            if (result == null)
-                return null;
-
-            return result.IsSuccessful
-                ? new ReadTimelineResult<HerculesEvent>(result.Status, new ReadTimelinePayload<HerculesEvent>(result.Payload.Events, result.Payload.Next))
-                : new ReadTimelineResult<HerculesEvent>(result.Status, null, result.ErrorDetails);
-        }
+        [Obsolete]
+        public static ReadTimelineResult<HerculesEvent> ToGenericResult(this ReadTimelineResult result) =>
+            result;
     }
 }
