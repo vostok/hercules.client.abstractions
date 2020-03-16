@@ -29,18 +29,25 @@ namespace Vostok.Hercules.Client.Abstractions
             client.ToGenericClient().Scan(query, perRequestTimeout, cancellationToken);
 
         [NotNull]
-        public static IHerculesTimelineClient<HerculesEvent> ToGenericClient([NotNull] this IHerculesTimelineClient client) =>
-            new GenericAdapter(client);
+        public static IHerculesTimelineClient<HerculesEvent> ToGenericClient([NotNull] this IHerculesTimelineClient client)
+        {
+            return new GenericAdapter(client);
+        }
 
         private class GenericAdapter : IHerculesTimelineClient<HerculesEvent>
         {
             private readonly IHerculesTimelineClient client;
 
-            public GenericAdapter(IHerculesTimelineClient client) =>
+            public GenericAdapter(IHerculesTimelineClient client)
+            {
                 this.client = client;
+            }
 
-            public async Task<ReadTimelineResult<HerculesEvent>> ReadAsync(ReadTimelineQuery query, TimeSpan timeout, CancellationToken cancellationToken = default) =>
-                await client.ReadAsync(query, timeout, cancellationToken).ConfigureAwait(false);
+            public async Task<ReadTimelineResult<HerculesEvent>> ReadAsync(ReadTimelineQuery query, TimeSpan timeout, CancellationToken cancellationToken = default)
+            {
+                var result = await client.ReadAsync(query, timeout, cancellationToken).ConfigureAwait(false);
+                return result.ToGenericResult();
+            }
         }
     }
 }
