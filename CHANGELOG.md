@@ -1,3 +1,7 @@
+## 0.1.5 (21-05-2020)
+
+Added `ReadStreamQuery.FetchTimeout` parameter.
+
 ## 0.1.4 (04-09-2019)
 
 Added generic `IHerculesTimelineClient<T>`.

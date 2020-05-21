@@ -27,6 +27,7 @@ namespace Vostok.Hercules.Client.Abstractions.Queries
         /// <summary>
         /// <para>Limit on how long to fetch events from storage, in case of no <see cref="Limit"/> events currently available.</para>
         /// <para>Provided value should be between 0.5 and 10 seconds.</para>
+        /// <para>Default value is 1 second.</para>
         /// </summary>
         public TimeSpan? FetchTimeout { get; set; }
 
