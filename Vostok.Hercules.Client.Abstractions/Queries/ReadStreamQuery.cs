@@ -25,6 +25,12 @@ namespace Vostok.Hercules.Client.Abstractions.Queries
         public int Limit { get; set; } = 10 * 1000;
 
         /// <summary>
+        /// <para>Limit on how long to fetch events from storage, in case of no <see cref="Limit"/> events currently available.</para>
+        /// <para>Provided value should be between 0.5 and 10 seconds.</para>
+        /// </summary>
+        public TimeSpan? FetchTimeout { get; set; }
+
+        /// <summary>
         /// <para>Zero-based index of the client-side virtual shard.</para>
         /// <para>These shards are mapped into actual physical shards by Hercules.</para>
         /// </summary>
