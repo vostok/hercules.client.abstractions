@@ -1,3 +1,7 @@
+## 0.1.6 (03-06-2020)
+
+Added `HerculesEventBuilderOfT` class.
+
 ## 0.1.5 (21-05-2020)
 
 Added `ReadStreamQuery.FetchTimeout` parameter.
