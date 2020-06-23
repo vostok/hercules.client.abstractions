@@ -1,3 +1,7 @@
+## 0.1.7 (23-06-2020):
+
+Slight performance optimization (`TryAddObject` extension for `IHerculesTagsBuilder`).
+
 ## 0.1.6 (03-06-2020)
 
 Added `HerculesEventBuilderOfT` class.
