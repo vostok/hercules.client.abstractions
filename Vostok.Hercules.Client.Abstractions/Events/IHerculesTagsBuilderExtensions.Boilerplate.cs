@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 
@@ -15,85 +16,91 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         {
             switch (value)
             {
-                case null:
-                    builder.AddNull(key);
-                    return true;
-
-                case bool boolValue:
-                    builder.AddValue(key, boolValue);
-                    return true;
-
-                case IReadOnlyList<bool> boolList:
-                    builder.AddVector(key, boolList);
-                    return true;
-
-                case byte byteValue:
-                    builder.AddValue(key, byteValue);
-                    return true;
-
-                case IReadOnlyList<byte> byteList:
-                    builder.AddVector(key, byteList);
-                    return true;
-
-                case short shortValue:
-                    builder.AddValue(key, shortValue);
-                    return true;
-
-                case IReadOnlyList<short> shortList:
-                    builder.AddVector(key, shortList);
+                case string stringValue:
+                    builder.AddValue(key, stringValue);
                     return true;
 
                 case int intValue:
                     builder.AddValue(key, intValue);
                     return true;
 
-                case IReadOnlyList<int> intList:
-                    builder.AddVector(key, intList);
-                    return true;
-
                 case long longValue:
                     builder.AddValue(key, longValue);
-                    return true;
-
-                case IReadOnlyList<long> longList:
-                    builder.AddVector(key, longList);
-                    return true;
-
-                case float floatValue:
-                    builder.AddValue(key, floatValue);
-                    return true;
-
-                case IReadOnlyList<float> floatList:
-                    builder.AddVector(key, floatList);
-                    return true;
-
-                case double doubleValue:
-                    builder.AddValue(key, doubleValue);
-                    return true;
-
-                case IReadOnlyList<double> doubleList:
-                    builder.AddVector(key, doubleList);
                     return true;
 
                 case Guid GuidValue:
                     builder.AddValue(key, GuidValue);
                     return true;
 
-                case IReadOnlyList<Guid> GuidList:
-                    builder.AddVector(key, GuidList);
+                case bool boolValue:
+                    builder.AddValue(key, boolValue);
                     return true;
 
-                case string stringValue:
-                    builder.AddValue(key, stringValue);
+                case double doubleValue:
+                    builder.AddValue(key, doubleValue);
                     return true;
 
-                case IReadOnlyList<string> stringList:
-                    builder.AddVector(key, stringList);
+                case byte byteValue:
+                    builder.AddValue(key, byteValue);
                     return true;
 
-                default:
-                    return false;
+                case short shortValue:
+                    builder.AddValue(key, shortValue);
+                    return true;
+
+                case float floatValue:
+                    builder.AddValue(key, floatValue);
+                    return true;
+
+               case null:
+                    builder.AddNull(key);
+                    return true;
             }
+
+            if (value is IEnumerable)
+            {
+                switch (value)
+                {
+                    case IReadOnlyList<string> stringList:
+                        builder.AddVector(key, stringList);
+                        return true;
+
+                    case IReadOnlyList<int> intList:
+                        builder.AddVector(key, intList);
+                        return true;
+
+                    case IReadOnlyList<long> longList:
+                        builder.AddVector(key, longList);
+                        return true;
+
+                    case IReadOnlyList<Guid> GuidList:
+                        builder.AddVector(key, GuidList);
+                        return true;
+
+                    case IReadOnlyList<bool> boolList:
+                        builder.AddVector(key, boolList);
+                        return true;
+
+                    case IReadOnlyList<double> doubleList:
+                        builder.AddVector(key, doubleList);
+                        return true;
+
+                    case IReadOnlyList<byte> byteList:
+                        builder.AddVector(key, byteList);
+                        return true;
+
+                    case IReadOnlyList<short> shortList:
+                        builder.AddVector(key, shortList);
+                        return true;
+
+                    case IReadOnlyList<float> floatList:
+                        builder.AddVector(key, floatList);
+                        return true;
+
+                }
+            }
+
+            return false;
         }
     }
 }

@@ -1,6 +1,7 @@
 <#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ output extension=".cs" #>
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 
@@ -17,21 +18,17 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         {
             switch (value)
             {
-                case null:
-                    builder.AddNull(key);
-                    return true;
-
 <#
     foreach (var type in new [] { 
-        "bool",
-        "byte",
-        "short",
+        "string",
         "int",
         "long",
-        "float",
-        "double",
         "Guid",
-        "string"
+        "bool",
+        "double",
+        "byte",
+        "short",
+        "float",
     })
     {
 #>
@@ -39,16 +36,43 @@ namespace Vostok.Hercules.Client.Abstractions.Events
                     builder.AddValue(key, <#=type #>Value);
                     return true;
 
-                case IReadOnlyList<<#=type #>> <#=type #>List:
-                    builder.AddVector(key, <#=type #>List);
+<#
+    }
+#>
+               case null:
+                    builder.AddNull(key);
                     return true;
+            }
+
+            if (value is IEnumerable)
+            {
+                switch (value)
+                {
+<#
+    foreach (var type in new [] { 
+        "string",
+        "int",
+        "long",
+        "Guid",
+        "bool",
+        "double",
+        "byte",
+        "short",
+        "float",
+    })
+    {
+#>
+                    case IReadOnlyList<<#=type #>> <#=type #>List:
+                        builder.AddVector(key, <#=type #>List);
+                        return true;
 
 <#
     }
 #>
-                default:
-                    return false;
+                }
             }
+
+            return false;
         }
     }
 }
