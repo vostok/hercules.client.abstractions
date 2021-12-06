@@ -1,3 +1,7 @@
+## 0.1.8 (06-12-2021):
+
+Added `net6.0` target.
+
 ## 0.1.7 (23-06-2020):
 
 Slight performance optimization (`TryAddObject` extension for `IHerculesTagsBuilder`).
