@@ -38,35 +38,35 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         {
             switch (vector.ElementType)
             {
+                case HerculesValueType.String:
+                    builder.AddVector(key, vector.AsStringList);
+                    break;
+                case HerculesValueType.Long:
+                    builder.AddVector(key, vector.AsLongList);
+                    break;
+                case HerculesValueType.Guid:
+                    builder.AddVector(key, vector.AsGuidList);
+                    break;
+                case HerculesValueType.Container:
+                    builder.AddVectorOfContainers(key, vector.AsContainerList, (tagsBuilder, tags) => tagsBuilder.AddTags(tags));
+                    break;
+                case HerculesValueType.Int:
+                    builder.AddVector(key, vector.AsIntList);
+                    break;
+                case HerculesValueType.Double:
+                    builder.AddVector(key, vector.AsDoubleList);
+                    break;
+                case HerculesValueType.Bool:
+                    builder.AddVector(key, vector.AsBoolList);
+                    break;
                 case HerculesValueType.Byte:
                     builder.AddVector(key, vector.AsByteList);
                     break;
                 case HerculesValueType.Short:
                     builder.AddVector(key, vector.AsShortList);
                     break;
-                case HerculesValueType.Int:
-                    builder.AddVector(key, vector.AsIntList);
-                    break;
-                case HerculesValueType.Long:
-                    builder.AddVector(key, vector.AsLongList);
-                    break;
-                case HerculesValueType.Bool:
-                    builder.AddVector(key, vector.AsBoolList);
-                    break;
                 case HerculesValueType.Float:
                     builder.AddVector(key, vector.AsFloatList);
-                    break;
-                case HerculesValueType.Double:
-                    builder.AddVector(key, vector.AsDoubleList);
-                    break;
-                case HerculesValueType.Guid:
-                    builder.AddVector(key, vector.AsGuidList);
-                    break;
-                case HerculesValueType.String:
-                    builder.AddVector(key, vector.AsStringList);
-                    break;
-                case HerculesValueType.Container:
-                    builder.AddVectorOfContainers(key, vector.AsContainerList, (tagsBuilder, tags) => tagsBuilder.AddTags(tags));
                     break;
                 case HerculesValueType.Null:
                     builder.AddNull(key);
@@ -96,41 +96,41 @@ namespace Vostok.Hercules.Client.Abstractions.Events
 
                 switch (value.Type)
                 {
+                    case HerculesValueType.String:
+                        builder.AddValue(key, value.AsString);
+                        break;
+                    case HerculesValueType.Long:
+                        builder.AddValue(key, value.AsLong);
+                        break;
+                    case HerculesValueType.Guid:
+                        builder.AddValue(key, value.AsGuid);
+                        break;
+                    case HerculesValueType.Container:
+                        builder.AddContainer(key, tagsBuilder => tagsBuilder.AddTags(value.AsContainer));
+                        break;
+                    case HerculesValueType.Int:
+                        builder.AddValue(key, value.AsInt);
+                        break;
+                    case HerculesValueType.Double:
+                        builder.AddValue(key, value.AsDouble);
+                        break;
+                    case HerculesValueType.Bool:
+                        builder.AddValue(key, value.AsBool);
+                        break;
+                    case HerculesValueType.Null:
+                        builder.AddNull(key);
+                        break;
                     case HerculesValueType.Byte:
                         builder.AddValue(key, value.AsByte);
                         break;
                     case HerculesValueType.Short:
                         builder.AddValue(key, value.AsShort);
                         break;
-                    case HerculesValueType.Int:
-                        builder.AddValue(key, value.AsInt);
-                        break;
-                    case HerculesValueType.Long:
-                        builder.AddValue(key, value.AsLong);
-                        break;
-                    case HerculesValueType.Bool:
-                        builder.AddValue(key, value.AsBool);
-                        break;
                     case HerculesValueType.Float:
                         builder.AddValue(key, value.AsFloat);
                         break;
-                    case HerculesValueType.Double:
-                        builder.AddValue(key, value.AsDouble);
-                        break;
-                    case HerculesValueType.Guid:
-                        builder.AddValue(key, value.AsGuid);
-                        break;
-                    case HerculesValueType.String:
-                        builder.AddValue(key, value.AsString);
-                        break;
                     case HerculesValueType.Vector:
                         builder.AddVector(key, value.AsVector);
-                        break;
-                    case HerculesValueType.Container:
-                        builder.AddContainer(key, tagsBuilder => tagsBuilder.AddTags(value.AsContainer));
-                        break;
-                    case HerculesValueType.Null:
-                        builder.AddNull(key);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException(nameof(value.Type), value.Type, "Unknown tag type.");
