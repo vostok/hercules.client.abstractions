@@ -1,0 +1,2 @@
+Vostok.Hercules.Client.Abstractions.Events.IBinaryEventsReader
+Vostok.Hercules.Client.Abstractions.Events.IBinaryEventsReader.ReadContainer(Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder builder) -> void
