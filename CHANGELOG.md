@@ -1,3 +1,7 @@
+## 0.1.10 (31-09-2022):
+
+Added `IBinaryEventsReader` interface for events reading.
+
 ## 0.1.9 (06-12-2021):
 
 Added `net6.0` target.
