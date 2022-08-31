@@ -1,0 +1,4 @@
+static Vostok.Hercules.Client.Abstractions.Events.IBinaryBufferReaderExtensions.JumpTo(this Vostok.Hercules.Client.Abstractions.Events.IBinaryBufferReader reader, long position) -> System.IDisposable
+Vostok.Hercules.Client.Abstractions.Events.IBinaryBufferReaderExtensions
+Vostok.Hercules.Client.Abstractions.Events.IBinaryEventsReader
+Vostok.Hercules.Client.Abstractions.Events.IBinaryEventsReader.ReadContainer(Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder builder) -> void
