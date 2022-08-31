@@ -1,4 +1,4 @@
-abstract Vostok.Hercules.Client.Abstractions.Values.HerculesValue.Type.get -> Vostok.Hercules.Client.Abstractions.Values.HerculesValueType
+﻿abstract Vostok.Hercules.Client.Abstractions.Values.HerculesValue.Type.get -> Vostok.Hercules.Client.Abstractions.Values.HerculesValueType
 abstract Vostok.Hercules.Client.Abstractions.Values.HerculesValue.Value.get -> object
 abstract Vostok.Hercules.Client.Abstractions.Values.HerculesVector.Count.get -> int
 abstract Vostok.Hercules.Client.Abstractions.Values.HerculesVector.Elements.get -> System.Collections.Generic.IEnumerable<Vostok.Hercules.Client.Abstractions.Values.HerculesValue>
@@ -34,6 +34,7 @@ static Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilderExtensions.
 static Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilderExtensions.AddVector(this Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder builder, string key, Vostok.Hercules.Client.Abstractions.Values.HerculesVector vector) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder
 static Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilderExtensions.AddVectorOfContainers<TValue>(this Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder builder, string key, System.Collections.Generic.IReadOnlyList<TValue> values, System.Action<Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder, TValue> valueBuilder) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder
 static Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilderExtensions.TryAddObject(this Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder builder, string key, object value) -> bool
+static Vostok.Hercules.Client.Abstractions.Events.IBinaryBufferReaderExtensions.JumpTo(this Vostok.Hercules.Client.Abstractions.Events.IBinaryBufferReader reader, long position) -> System.IDisposable
 static Vostok.Hercules.Client.Abstractions.HerculesManagementClientExtensions.CreateStream(this Vostok.Hercules.Client.Abstractions.IHerculesManagementClient client, Vostok.Hercules.Client.Abstractions.Queries.CreateStreamQuery query, System.TimeSpan timeout) -> Vostok.Hercules.Client.Abstractions.Results.HerculesResult
 static Vostok.Hercules.Client.Abstractions.HerculesManagementClientExtensions.CreateTimeline(this Vostok.Hercules.Client.Abstractions.IHerculesManagementClient client, Vostok.Hercules.Client.Abstractions.Queries.CreateTimelineQuery query, System.TimeSpan timeout) -> Vostok.Hercules.Client.Abstractions.Results.HerculesResult
 static Vostok.Hercules.Client.Abstractions.HerculesManagementClientExtensions.DeleteStream(this Vostok.Hercules.Client.Abstractions.IHerculesManagementClient client, string name, System.TimeSpan timeout) -> Vostok.Hercules.Client.Abstractions.Results.DeleteStreamResult
@@ -151,6 +152,9 @@ Vostok.Hercules.Client.Abstractions.Events.IBinaryBufferReader.Position.get -> l
 Vostok.Hercules.Client.Abstractions.Events.IBinaryBufferReader.Position.set -> void
 Vostok.Hercules.Client.Abstractions.Events.IBinaryBufferReader.SkipMode.get -> bool
 Vostok.Hercules.Client.Abstractions.Events.IBinaryBufferReader.SkipMode.set -> void
+Vostok.Hercules.Client.Abstractions.Events.IBinaryBufferReaderExtensions
+Vostok.Hercules.Client.Abstractions.Events.IBinaryEventsReader
+Vostok.Hercules.Client.Abstractions.Events.IBinaryEventsReader.ReadContainer(Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder builder) -> void
 Vostok.Hercules.Client.Abstractions.Events.IHerculesEventBuilder
 Vostok.Hercules.Client.Abstractions.Events.IHerculesEventBuilder.SetTimestamp(System.DateTimeOffset timestamp) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesEventBuilder
 Vostok.Hercules.Client.Abstractions.Events.IHerculesEventBuilder<T>
