@@ -5,5 +5,5 @@ namespace Vostok.Hercules.Client.Abstractions.Events;
 [PublicAPI]
 public interface IBinaryEventsReader : IBinaryBufferReader
 {
-    public void ReadContainer(IHerculesTagsBuilder builder);
+    void ReadContainer(IHerculesTagsBuilder builder);
 }
