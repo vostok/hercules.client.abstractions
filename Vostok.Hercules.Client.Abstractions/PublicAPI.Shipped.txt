@@ -92,6 +92,7 @@ Vostok.Hercules.Client.Abstractions.Events.DummyHerculesTagsBuilder.AddVector(st
 Vostok.Hercules.Client.Abstractions.Events.DummyHerculesTagsBuilder.AddVector(string key, System.Collections.Generic.IReadOnlyList<string> values) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder
 Vostok.Hercules.Client.Abstractions.Events.DummyHerculesTagsBuilder.AddVector(string key, System.Collections.Generic.IReadOnlyList<System.Guid> values) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder
 Vostok.Hercules.Client.Abstractions.Events.DummyHerculesTagsBuilder.AddVectorOfContainers(string key, System.Collections.Generic.IReadOnlyList<System.Action<Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder>> valueBuilders) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder
+Vostok.Hercules.Client.Abstractions.Events.DummyHerculesTagsBuilder.AddVectorOfContainers<TValue>(string key, System.Collections.Generic.IReadOnlyList<TValue> values, System.Action<Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder, TValue> valueBuilder) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder
 Vostok.Hercules.Client.Abstractions.Events.DummyHerculesTagsBuilder.DummyHerculesTagsBuilder() -> void
 Vostok.Hercules.Client.Abstractions.Events.DummyHerculesTagsBuilder.RemoveTags(string key) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder
 Vostok.Hercules.Client.Abstractions.Events.HerculesEvent
@@ -140,6 +141,7 @@ Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilder.AddVector(string 
 Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilder.AddVector(string key, System.Collections.Generic.IReadOnlyList<string> values) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder
 Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilder.AddVector(string key, System.Collections.Generic.IReadOnlyList<System.Guid> values) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder
 Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilder.AddVectorOfContainers(string key, System.Collections.Generic.IReadOnlyList<System.Action<Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder>> valueBuilders) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder
+Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilder.AddVectorOfContainers<TValue>(string key, System.Collections.Generic.IReadOnlyList<TValue> values, System.Action<Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder, TValue> valueBuilder) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder
 Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilder.BuildTags() -> Vostok.Hercules.Client.Abstractions.Events.HerculesTags
 Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilder.HerculesTagsBuilder() -> void
 Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilder.HerculesTagsBuilder(Vostok.Hercules.Client.Abstractions.Events.HerculesTags startingTags) -> void
@@ -181,6 +183,7 @@ Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder.AddVector(string
 Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder.AddVector(string key, System.Collections.Generic.IReadOnlyList<string> values) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder
 Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder.AddVector(string key, System.Collections.Generic.IReadOnlyList<System.Guid> values) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder
 Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder.AddVectorOfContainers(string key, System.Collections.Generic.IReadOnlyList<System.Action<Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder>> valueBuilders) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder
+Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder.AddVectorOfContainers<TValue>(string key, System.Collections.Generic.IReadOnlyList<TValue> values, System.Action<Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder, TValue> valueBuilder) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder
 Vostok.Hercules.Client.Abstractions.HerculesManagementClientExtensions
 Vostok.Hercules.Client.Abstractions.HerculesSinkProvider
 Vostok.Hercules.Client.Abstractions.HerculesTimelineClientOfTExtensions
