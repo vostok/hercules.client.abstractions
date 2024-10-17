@@ -23,6 +23,16 @@ namespace Vostok.Hercules.Client.Abstractions.Events
             return this;
         }
 
+        public IHerculesTagsBuilder AddVectorOfContainers<TValue>(string key, IReadOnlyList<TValue> values, Action<IHerculesTagsBuilder, TValue> valueBuilder)
+        {
+            foreach (var value in values)
+            {
+                valueBuilder(this, value);
+            }
+
+            return this;
+        }
+
         public IHerculesTagsBuilder AddNull(string key) => this;
 
         public IHerculesTagsBuilder RemoveTags(string key) => this;
