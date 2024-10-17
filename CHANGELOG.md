@@ -1,3 +1,9 @@
+## 0.1.11 (17-10-2024):
+
+Minor optimizations: reduce allocations count for some methods.
+
+Move method `IHerculesTagsBuilder AddVectorOfContainers<TValue>(this IHerculesTagsBuilder builder, string key, IReadOnlyList<TValue> values, Action<IHerculesTagsBuilder, TValue> valueBuilder)` from extension into the interface `IHerculesTagBuilder`. 
+
 ## 0.1.10 (31-09-2022):
 
 Added `IBinaryEventsReader` interface for events reading.
