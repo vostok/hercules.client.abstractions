@@ -1,3 +1,7 @@
+## 0.1.12 (12-12-2024): 
+
+Bump NuGet deps versions
+
 ## 0.1.11 (17-10-2024):
 
 Minor optimizations: reduce allocations count for some methods.
