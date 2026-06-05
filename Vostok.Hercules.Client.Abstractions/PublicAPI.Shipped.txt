@@ -475,3 +475,4 @@ Vostok.Hercules.Client.Abstractions.Values.HerculesVector.IsVectorOfLong.get -> 
 Vostok.Hercules.Client.Abstractions.Values.HerculesVector.IsVectorOfShort.get -> bool
 Vostok.Hercules.Client.Abstractions.Values.HerculesVector.IsVectorOfString.get -> bool
 Vostok.Hercules.Client.Abstractions.Values.HerculesVector.IsVectorOfVector.get -> bool
+static Vostok.Hercules.Client.Abstractions.Models.StreamCoordinates.CreateUnsafe(Vostok.Hercules.Client.Abstractions.Models.StreamPosition[] positions) -> Vostok.Hercules.Client.Abstractions.Models.StreamCoordinates
