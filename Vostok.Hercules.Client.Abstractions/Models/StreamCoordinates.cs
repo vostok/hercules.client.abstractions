@@ -14,6 +14,11 @@ namespace Vostok.Hercules.Client.Abstractions.Models
     {
         public static readonly StreamCoordinates Empty = new StreamCoordinates(new StreamPosition[] {});
 
+        private StreamCoordinates()
+        {
+            Positions = Empty.Positions;
+        }
+
         public StreamCoordinates([NotNull] StreamPosition[] positions)
             => Positions = (positions ?? throw new ArgumentNullException(nameof(positions)))
                 .OrderBy(p => p.Partition)
@@ -23,7 +28,7 @@ namespace Vostok.Hercules.Client.Abstractions.Models
         /// Positions in all known partitions.
         /// </summary>
         [NotNull]
-        public StreamPosition[] Positions { get; }
+        public StreamPosition[] Positions { get; private set; }
 
         /// <summary>
         /// Returns <see cref="Positions"/> organized as a dictionary keyed by stream partition index.
@@ -33,6 +38,12 @@ namespace Vostok.Hercules.Client.Abstractions.Models
             => Positions.ToDictionary(position => position.Partition, position => position);
 
         public override string ToString() => Positions.Length > 0 ? string.Join("; ", Positions) : "empty";
+
+        /// <summary>
+        ///     Creates <see cref="StreamCoordinates"/> without copying the array and checking for the sorting order
+        /// </summary>
+        public static StreamCoordinates CreateUnsafe(StreamPosition[] positions) =>
+            new() {Positions = positions};
 
         #region Equality
 
