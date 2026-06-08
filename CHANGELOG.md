@@ -1,3 +1,7 @@
+## 0.1.14 (08-06-2026):
+
+Add StreamCoordinates.CreateUsafe method
+
 ## 0.1.12 (12-12-2024): 
 
 Bump NuGet deps versions
