@@ -1,11 +1,14 @@
 Vostok.Hercules.Client.Abstractions.Events.HerculesEventBuilderOfTUnsafe
-Vostok.Hercules.Client.Abstractions.Events.HerculesEventBuilderOfT.HerculesEventBuilderOfT() -> void
+Vostok.Hercules.Client.Abstractions.Events.HerculesEventBuilderOfTUnsafe.HerculesEventBuilderOfTUnsafe() -> void
 Vostok.Hercules.Client.Abstractions.Events.HerculesEventBuilderOfTUnsafe.SetTimestamp(System.DateTimeOffset timestamp) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesEventBuilder<Vostok.Hercules.Client.Abstractions.Events.HerculesEvent>
 Vostok.Hercules.Client.Abstractions.Events.HerculesEventBuilderUnsafe
 Vostok.Hercules.Client.Abstractions.Events.HerculesEventBuilderUnsafe.BuildEvent() -> Vostok.Hercules.Client.Abstractions.Events.HerculesEvent
 Vostok.Hercules.Client.Abstractions.Events.HerculesEventBuilderUnsafe.HerculesEventBuilderUnsafe() -> void
 Vostok.Hercules.Client.Abstractions.Events.HerculesEventBuilderUnsafe.HerculesEventBuilderUnsafe(Vostok.Hercules.Client.Abstractions.Events.HerculesEvent event) -> void
 Vostok.Hercules.Client.Abstractions.Events.HerculesEventBuilderUnsafe.SetTimestamp(System.DateTimeOffset timestamp) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesEventBuilder
+Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilder.BuildTags() -> Vostok.Hercules.Client.Abstractions.Events.HerculesTags
+Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilder.HerculesTagsBuilder() -> void
+Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilder.HerculesTagsBuilder(Vostok.Hercules.Client.Abstractions.Events.HerculesTags startingTags) -> void
 Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilderBase
 Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilderBase.AddContainer(string key, System.Action<Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder> valueBuilder) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder
 Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilderBase.AddNull(string key) -> Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder

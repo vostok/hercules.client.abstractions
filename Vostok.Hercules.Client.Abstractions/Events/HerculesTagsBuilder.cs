@@ -22,14 +22,14 @@ namespace Vostok.Hercules.Client.Abstractions.Events
 
         public HerculesTags BuildTags() => new HerculesTags(tags);
 
-        internal sealed override HerculesTagsBuilder Set(string key, HerculesValue value)
+        internal sealed override IHerculesTagsBuilder Set(string key, HerculesValue value)
         {
             tags = tags.Set(key, value);
 
             return this;
         }
 
-        internal sealed override HerculesTagsBuilder Remove(string key)
+        internal sealed override IHerculesTagsBuilder Remove(string key)
         {
             tags = tags.Remove(key);
 
