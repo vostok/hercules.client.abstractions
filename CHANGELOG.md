@@ -1,3 +1,7 @@
+## 0.1.15 (16-07-2026): 
+
+Add unsafe builders
+
 ## 0.1.12 (12-12-2024): 
 
 Bump NuGet deps versions
