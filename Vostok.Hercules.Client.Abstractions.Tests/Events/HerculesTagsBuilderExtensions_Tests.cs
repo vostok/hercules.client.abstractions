@@ -23,6 +23,22 @@ namespace Vostok.Hercules.Client.Abstractions.Tests.Events
 
             actualTags.Equals(expectedTags).Should().BeTrue();
         }
+        
+        [Test]
+        public void AddTags_should_copy_tags_from_other_HerculesTags_UnsafeVersion()
+        {
+            var expectedEventBuilder = new HerculesTagsBuilderUnsafe();
+            WriteTagsWithAllDataTypes(expectedEventBuilder);
+
+            var expectedTags = expectedEventBuilder.BuildTags();
+
+            var actualEventBuilder = new HerculesTagsBuilderUnsafe();
+            actualEventBuilder.AddTags(expectedTags);
+
+            var actualTags = actualEventBuilder.BuildTags();
+
+            actualTags.Equals(expectedTags).Should().BeTrue();
+        }
 
         private void WriteTagsWithAllDataTypes(IHerculesTagsBuilder builder)
         {

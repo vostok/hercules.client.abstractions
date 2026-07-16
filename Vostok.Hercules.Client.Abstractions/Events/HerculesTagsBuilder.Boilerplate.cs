@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Vostok.Hercules.Client.Abstractions.Events
 {
-    public partial class HerculesTagsBuilder
+    public abstract partial class HerculesTagsBuilderBase
     {
         #region bool
 
@@ -76,5 +76,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
         public IHerculesTagsBuilder AddVector(string key, IReadOnlyList<string> values) => AddVectorGeneric(key, values);
 
         #endregion
+
     }
 }
