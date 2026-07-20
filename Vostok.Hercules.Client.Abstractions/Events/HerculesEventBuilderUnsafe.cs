@@ -8,6 +8,11 @@ namespace Vostok.Hercules.Client.Abstractions.Events
     {
         private DateTimeOffset eventTimestamp;
 
+        public HerculesEventBuilderUnsafe(int initialCapacity)
+            : base(initialCapacity)
+        {
+        }
+
         public HerculesEventBuilderUnsafe()
         {
         }

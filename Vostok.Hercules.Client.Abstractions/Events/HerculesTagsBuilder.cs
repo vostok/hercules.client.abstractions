@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
 using Vostok.Commons.Collections;
 using Vostok.Hercules.Client.Abstractions.Values;
 
@@ -34,6 +35,23 @@ namespace Vostok.Hercules.Client.Abstractions.Events
             tags = tags.Remove(key);
 
             return this;
+        }
+        
+        protected override HerculesTags BuildContainer(Action<IHerculesTagsBuilder> valueBuilder)
+        {
+            var internalTagsBuilder = new HerculesTagsBuilder();
+
+            valueBuilder(internalTagsBuilder);
+
+            return internalTagsBuilder.BuildTags();
+        }
+        protected override HerculesTags BuildContainer<TValue>(TValue value, Action<IHerculesTagsBuilder, TValue> valueBuilder)
+        {
+            var internalTagsBuilder = new HerculesTagsBuilder();
+
+            valueBuilder(internalTagsBuilder, value);
+
+            return internalTagsBuilder.BuildTags();
         }
     }
 }

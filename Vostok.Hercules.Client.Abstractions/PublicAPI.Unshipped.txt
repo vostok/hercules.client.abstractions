@@ -1,0 +1,9 @@
+abstract Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilderBase.BuildContainer(System.Action<Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder> valueBuilder) -> Vostok.Hercules.Client.Abstractions.Events.HerculesTags
+abstract Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilderBase.BuildContainer<TValue>(TValue value, System.Action<Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder, TValue> valueBuilder) -> Vostok.Hercules.Client.Abstractions.Events.HerculesTags
+override Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilder.BuildContainer(System.Action<Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder> valueBuilder) -> Vostok.Hercules.Client.Abstractions.Events.HerculesTags
+override Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilder.BuildContainer<TValue>(TValue value, System.Action<Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder, TValue> valueBuilder) -> Vostok.Hercules.Client.Abstractions.Events.HerculesTags
+override Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilderUnsafe.BuildContainer(System.Action<Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder> valueBuilder) -> Vostok.Hercules.Client.Abstractions.Events.HerculesTags
+override Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilderUnsafe.BuildContainer<TValue>(TValue value, System.Action<Vostok.Hercules.Client.Abstractions.Events.IHerculesTagsBuilder, TValue> valueBuilder) -> Vostok.Hercules.Client.Abstractions.Events.HerculesTags
+Vostok.Hercules.Client.Abstractions.Events.HerculesEventBuilderOfTUnsafe.HerculesEventBuilderOfTUnsafe(int initialCapacity) -> void
+Vostok.Hercules.Client.Abstractions.Events.HerculesEventBuilderUnsafe.HerculesEventBuilderUnsafe(int initialCapacity) -> void
+Vostok.Hercules.Client.Abstractions.Events.HerculesTagsBuilderUnsafe.HerculesTagsBuilderUnsafe(int initialCapacity) -> void

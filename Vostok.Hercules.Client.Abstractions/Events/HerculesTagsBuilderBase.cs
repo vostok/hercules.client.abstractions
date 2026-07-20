@@ -30,25 +30,10 @@ namespace Vostok.Hercules.Client.Abstractions.Events
 
         public IHerculesTagsBuilder RemoveTags(string key)
             => Remove(key);
-
-        private static HerculesTags BuildContainer(Action<IHerculesTagsBuilder> valueBuilder)
-        {
-            var internalTagsBuilder = new HerculesTagsBuilder();
-
-            valueBuilder(internalTagsBuilder);
-
-            return internalTagsBuilder.BuildTags();
-        }
-
-        private static HerculesTags BuildContainer<TValue>(TValue value, Action<IHerculesTagsBuilder, TValue> valueBuilder)
-        {
-            var internalTagsBuilder = new HerculesTagsBuilder();
-
-            valueBuilder(internalTagsBuilder, value);
-
-            return internalTagsBuilder.BuildTags();
-        }
-
+        
+        protected abstract HerculesTags BuildContainer<TValue>(TValue value, Action<IHerculesTagsBuilder, TValue> valueBuilder);
+        protected abstract HerculesTags BuildContainer(Action<IHerculesTagsBuilder> valueBuilder);
+        
         private IHerculesTagsBuilder AddValueGeneric<T>(string key, T value)
             => Set(key, new HerculesValue<T>(value));
 
@@ -56,7 +41,6 @@ namespace Vostok.Hercules.Client.Abstractions.Events
             => Set(key, new HerculesValue<HerculesVector>(new HerculesVector<T>(values)));
 
         internal abstract IHerculesTagsBuilder Set(string key, HerculesValue value);
-
         internal abstract IHerculesTagsBuilder Remove(string key);
     }
 }
